@@ -1,0 +1,139 @@
+#!/usr/local/bin/perl -w
+use Getopt::Long;
+
+my $help=""; my $verbose=""; my $outputfile=""; my $dir="";
+GetOptions('help|?' => \$help,'verbose' => \$verbose,'outputfile=s' => \$outputfile,'dir=s' => \$dir);
+
+if ($help){print "Help:\n
+#########################################################################\n
+#########################################################################\n
+######### Author Nelly Selem   nselem84\@gmail.com 24 Nov 2013\n
+######### Laboratory Phd Francisco Barona\n
+#########################################################################\n
+######### This script will concatenate several gene in one sequence in order\n
+## to construct a species philogenetic tree. As a result it creates an output file.\n
+#########################################################################\n
+### You can ask for verbose mode -v \n
+### You can specify the out pufile -o outfile.fas \n
+### You can also specify the input dir -d directory \n
+#########################################################################\n
+###      Algorithm \n
+###  (It it is asumed that every file has the correct fasta name of the organisms)\n
+###   it may need a previous script to check this assumption.\n
+#### 
+#### 1. It will open one file in order to get a list of the organisms names.\n
+###  2. It will open a Dir with numbered files (only numbers in their names) \n
+#### 	each numbered file has homologs of one conserved gene.\n
+###  3. Once the files were opened a Hash is constructed by the sequences\n
+###     concatenation HASH{organism}=gen1.gen2.gen3....\n
+###  4. This HASH is printed in an output file.\n
+#########################################################################################\n
+";}
+
+
+if ($verbose){print "Verbose Mode\n";}
+if ($outputfile){print "Archivo de salida: $outputfile\n";}
+if ($dir){print "Directorio de entrada: $dir\n";}
+###############################################################################################
+####### Global Variables
+my @files;
+###############################################################################################
+###############################################################################################
+#Main Program
+
+&GetFileNames; ## Saves the file names in @files
+
+	if($verbose){
+		print "###################The Files that will be modify:###########\n";
+		print join("\n ", @files);
+		print "\n#############################################################\n";
+	}
+
+foreach $archivo (@files){ 
+		print "\n Now acting on the file $archivo\n";
+	   	@Contenido=&GetKeys($archivo);
+		#print"\n#########Contenido:##########\n";
+		#print join(", ", @Contenido);
+		&EscribiendoSalida($archivo, @Contenido);
+}
+#################Subroutines
+########################################################################
+sub GetKeys{ ######## solo necesita un archivo fasta que abrir 
+####### Abro un archivo del Directorio cambiar los nombres de las secuencias
+###### Estoy suponiendo yA todos tienen exactamente los mismos 30 genes ordenados.
+###### Si no, habría que hacer un paso previo.
+        my ($filename)= @_;
+	print "File Name: $filename\n";
+#	$OpenFile='258.interFastatodos.muslce.pir-gb'; #opening the file named 1
+	open(FILE1,$filename); 
+	@file=<FILE1>; #Saving the information in an array
+	close FILE1; # Closing file
+
+############# Guardo los nombres de los organismos en el arreglo keys
+	foreach $line (@file) {### Recorro todas las lineas del archivo
+		if ($line=~m/>/) {#Reconozco las lineas que tienen el caracter >
+			chomp $line;## Recorto el salto de linea
+		}
+	}
+	return @file;
+}
+#########################################################################################
+####################################################################################################
+sub EscribiendoSalida{  #######Necesita a @file lleno
+########## finalmente imprimo archivo de salida
+
+###### Creo un archivo salida
+	
+	my $nombre=shift;
+	my (@Content)=@_;
+
+	print"\n#########Nombre del archivo a modificar:##########\n";
+	print "$nombre\n";
+
+	#print"\n#########Contenido:##########\n";
+	#print join(", ", @Content);
+
+ 	$nombre=~s/([^0-9]*)//g;
+	if ($verbose) {print "Nuevo nombre $nombre\n";}
+
+	open(OUTFILE,">$nombre");
+
+	my $cont=1;
+	foreach $line (@Content){ ## Para cada clave de organismo
+		if ($line=~m/>/) {#Reconozco las lineas que tienen el caracter >
+		$line=">"."org"."$cont";		
+		$cont=$cont+1;
+		}
+		print "$line\n"; ###imprimo en pantalla su secuencia concatenada 
+		print OUTFILE "$line\n";###imprimo en archivo salida la secuencia concatenada
+		}## todo en formato fasta
+	close OUTFILE; ## Y cierro el archivo de salida
+	print"\n Se escribio archivo de salida $nombre\n";
+}
+
+################################################################################################
+
+#####################################################################################
+sub GetFileNames{ ##Pondra en @files los nombres de los archivos que abriremos
+#####################################################################################
+#### Voy a abrir todos los archivos del directorio para llenar el arreglo files
+
+  my $directory = '/home/selem/Escritorio/perlas/Concatenador';
+  if ($dir){$directory=$dir;}
+
+     opendir (DIR, $directory) or die $!;  ### Abriendo el directorio
+		 while (my $file = readdir(DIR)) { ####leyendo todos los archivos
+			if (($file=~m/^\d/)&&($file=~m/gb/)){ ######## Si el nombre del archivo empieza con un digito
+				push(@files,$file);	####Guarda el nombre del archivo en el arreglo @files
+				if($verbose ){	print "The File $file will be open\n";}
+			}	
+		    }
+   print "Se abrio el directorio con los archivos numericos\n\n";
+   closedir DIR;
+}
+######################################################################################
+
+exit;
+
+#########################################################################################################
+

@@ -1,0 +1,4 @@
+#!/usr/local/bin/perl -w
+
+`scp fbg@148.247.230.39:/home/fbg/lab/ana/totales/ALIGMENTS_GB/259.interFastatodos.muslce.pir-gb .`
+
