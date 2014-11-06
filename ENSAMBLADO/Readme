@@ -1,0 +1,21 @@
+Para ensamblar genomas
+
+######################################################################################################3
+1. Analizo la calidad en fastqc
+$./fastqc file
+1.2 Cuento el coverage fastq_count.pl
+######################################################################################################3
+
+
+2. Corro el Trimmomatic 
+$ java -jar trimmomatic-0.32.jar PE U12-GV_FAST/FB1AC3SS14-16_S12_L001_R1_001.fastq  U12-GV_FAST/FB1AC3SS14-16_S12_L001_R2_001.fastq U12-GV_FAST/output_forward_paired.fq.gz U12-GV_FAST/output_forward_unpaired.fq.gz U12-GV_FAST/output_reverse_paired.fq.gz U12-GV_FAST/output_reverse_unpaired.fq.gz LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+
+2.1 Recuento el coverage con el script fastq_count.pl
+######################################################################################################3
+
+
+3. En mazorca corro el velvet con 
+  velvet.pl
+
+######################################################################################################3
+
