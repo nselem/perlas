@@ -1,5 +1,8 @@
-open(OUT, ">Concatenados1.faa");
-open(ALL, "lista.46");
+###### Este script pone un identificador de organismo a cada rast id
+use globals;
+
+open(OUT, ">Concatenados.faa");
+open(ALL, "lista.$NUM");
 
 
 while(<ALL>){

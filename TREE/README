@@ -1,0 +1,29 @@
+This scripts can 
+	1) Download genomes from NCBI using NCBI-id from the data bases Genome, Nucleotide or GI
+	2) Upload genomes to RAST using myRAST
+
+########################################################################################################
+### Usage  ################################################
+
+$perl ControlRAST.pl <file>
+
+The file must contain a list of 
+id	Organism Name	
+
+################################################
+## Requirments 
+################################################
+
+For download genomes from NCBI You dont need to install anything.
+The scripts use the Eutils NCBI software, (no need to install).
+You can look specifically ath the function
+
+For upload genomes to RAST (Ubuntu)
+If you want to use them you will need to 
+	1) Have a proper RAST account
+	2) Install myRAST using linux installation (not Ubuntu because it has library dependence)
+
+The script of myRAST that is used to batch the genome upload is svr_submit_RAST_job:
+$svr_submit_RAST_job -user nselem35 -passwd q8Vf6ib -fasta <file> -domain Bacteria -bioname <Genus Species> -genetic_code 11 -gene_caller rast
+
+########################################################################################################## 
