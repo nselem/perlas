@@ -17,8 +17,6 @@ use globals;
 ############################################################
 sub listas;
 sub run_blast;
-sub ChangeNames;
-
 ######################################################################
 ########## Main ######################################################
 
@@ -28,34 +26,14 @@ print "your dir $dir\n";
 my $list=listas($NUM,$LIST);  #$list stores in a string the genomes that will be used
 my @LISTA=split(",",$list);
 
-ChangeNames();
 run_blast($e);
+
 
 ######################################################################
 ######################################################################
 ###   Sub  Rutinas (llamadas a los distintos pasos del script
 #######################################################################
 #######################################################################
-
-
-sub ChangeNames{
-	my @files = glob("*.faa");
-	my $count=0;
-
-	open (FILE, ">Files.cvs") or die "Could not open file Cvs $!";
-	foreach my $file (@files) {
-		$count++;
-		my $oldname=$file;
-		my $newname=$count.".faa";
-		`mv $file $newname`;	
-		print "$oldname\t $newname\n";
-		print FILE "$oldname\t $newname\n";
-	
-    		}
-
-	close FILE;
-	exit 0;
-	}
 
 sub listas{
 	my $NUM=shift;
