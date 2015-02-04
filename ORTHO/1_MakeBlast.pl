@@ -54,7 +54,6 @@ sub ChangeNames{
     		}
 
 	close FILE;
-	exit 0;
 	}
 
 sub listas{
