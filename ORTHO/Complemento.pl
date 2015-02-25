@@ -9,9 +9,10 @@ use globals;
 # Lista de ids de aminoacidos
 # Buscar el archivo, 
 # Buscar el gen, escribirlo en archivo salida
-$genome_file="$dir/1.faa";
-$NAME="FAST_Y_LUTEUS";
-$core_file="$dir/$NAME/FASTAINTERporORG/1.interFastatodos";
+$N=$ARGV[0];
+$genome_file="$dir/$N.faa";
+$NAME="Myco_18feb15";
+$core_file="$dir/$NAME/FASTAINTERporORG/$N.interFastatodos";
 
 my @Content=readList($genome_file);
 my @Core=readList($core_file);
@@ -69,7 +70,7 @@ sub EscribiendoSalida{  #######Necesita a @file lleno
 ###### Creo un archivo salida
 	
 	################ Ahora si escribiendo la salida##################
-	open (OUTFILE,">$out_directory/Complemento.txt");
+	open (OUTFILE,">$out_directory/$N.Complemento");
 	my (@Content)=@_;
 
 	foreach $line (@Content){ ## Para cada clave de organismo

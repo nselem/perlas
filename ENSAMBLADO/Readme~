@@ -25,7 +25,7 @@ En mi caso ENSAMBLADO/NOMBRE_DEL_GENOMA
 3.3 Corro el velvet con 
 $ qsub Kmer.sh
 
-3.4 Escojo el mejor leyendo el archivo RESULTS.txt en la carpeta del genoma
+Primero edito el Kmer.sh indicando en la variable 
 
 ######################################################################################################3
 

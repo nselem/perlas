@@ -1,0 +1,4 @@
+Limpiar Genomas publicos de caracteres como 
+>peg name [informacion]
+perl CleanSEED_Genome.pl Genoma.faa ArchivoSalida
+
