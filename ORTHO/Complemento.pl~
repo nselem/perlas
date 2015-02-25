@@ -11,7 +11,7 @@ use globals;
 # Buscar el gen, escribirlo en archivo salida
 $N=$ARGV[0];
 $genome_file="$dir/$N.faa";
-#$NAME="Myco_18feb15";
+$NAME="Myco_18feb15";
 $core_file="$dir/$NAME/FASTAINTERporORG/$N.interFastatodos";
 
 my @Content=readList($genome_file);
