@@ -11,40 +11,58 @@ use Getopt::Long;
 # verbose mode 
 # Output file name of the outputfile
 #
-
+## Example (Find the core of the genomes 1,2,3)
+# $perl allvsall.pl -R 1,2,3 -v 0 -i file.blast
+# Where file.blast is the blast of allvsall genomes (obtained with the script 1_Makeblast.pl 
+#
+#
+# 
+# Nelly Selem Lab Evolution of Metabolic Diversity
+# nselem84@gmail.com
 ##################################################################################################################
 
 #############################################
 ## Subs
 sub Options;
 sub bestHit(); #Lines on a file, Arguments hash of hashes reference
-sub ListBidirectionalBestHits; #HAsh of hashes reference (empty), Hash of hashes full with best hits
-sub EmptyIntersection();  ##I also could ask not in some
+sub ListBidirectionalBestHits; #Hash of hashes reference (empty), Hash of hashes full with best hits
 sub IsEverybody();
 sub SelecGroup(); 
-############################################3
+
+############################################
 #Variables
 my $verbose;
 my $inputblast;
 my $output;
- #my $FileA="OUTSTAR/SalidaListaJunio15_10_29";
- #open(FILEA, "$FileA")  or die "cannot open $FileA: $!";
-
+ 
 my %BH = (); #Hash de hashes
-#my $n = 385;
-my $n = 8069670;
-my %Universales;
 my %BiBestHits;
 my @Required=Options(\$verbose,\$inputblast,\$output);
 #################################################################################################
+########################################################
+## Main
+## 1 Find Best Hits
+print "\nFinding Hits for each gene, takes some minutes, be patient!\n"; 
+&bestHit(\%BH,$inputblast);
 
-sub Options{
-	my $Req; ## Genoms liist to look for otrho groups
-	#my $Total=(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29);
+## 2 Find Bidirectional Best Hits
+#print "##\n BREAK 1\n #####";
+print "Now finding Best Bidirectional Hits List\n";
+&ListBidirectionalBestHits(\%BiBestHits,\%BH);
+
+## 3 Find ortho groups of selected Genomes
+print ("Selecting List that contains orthologs from all desired genomes\n");
+&SelecGroup(\%BiBestHits,@Required);
+
+##############################################################################
+##################### Subs implementation
+
+sub Options{ 
+	my $Req; ## Genoms list to look for otrho groups
+
 	GetOptions ("In=s" => \$inputblast,"Out=s" => \$output,"Req=s" => \$Req,"verbose" => \$verbose) or die("Error in command line arguments\n");
-
 	if(!$inputblast) {
-		die("Please provide an all vs all file");
+		die("Please provide an all vs all blast file");
 		} 
 	if (!$output){
 		$output="Out_".$Req.".Ortho";
@@ -64,155 +82,49 @@ sub Options{
 		return @Required;
 		}
 	}
-########## Wich organisms do we want
-my @NotAllowed=();
-#my @subgroup=(10,11,12,13,14,15,16,17,18,19,20,21,34);
 
-
-########################################################
-## Main
-print "Finding Hits for each gene, takes some minutes, be patient!\n"; 
-&bestHit($n,\%BH,$inputblast);
-print "Now finding Best Bidirectional Hits List\n";
-&ListBidirectionalBestHits(\%BiBestHits,\%BH);
-#&SelecGroup(\%BiBestHits,\@Required);
-print ("Selecting List that contains orthologs from all desired genomes\n");
-&SelecGroup(\%BiBestHits,@Required);
-
-##############################################################################
-
-
-
-
-##################### Subs implementation
-sub SelecGroup(){
-	my $refBBH=shift;
-	open (OUT,">./OUTSTAR/$output");
-	#my $refRequired=shift;
-	for my $gen (keys %$refBBH){
-		my $oo1 = '';
-		if($gen =~ m/\|(\d+)$/) { $oo1 = $1; }
-		#print "$oo1\t";
-		#print " $gen: @ORGS \n"; ## Descomentando podemos ver los orgnanismos donde tiene BBH
-
-		my @ORGS=sort (keys %{$refBBH->{$gen}});
-		#print " $gen: @ORGS \n"; ## Descomentando podemos ver los orgnanismos donde tiene BBH
-
-		if ($oo1~~@Required){	
-			#print "$oo1: @Required\t";	
-			if(&IsEverybody(\@Required,\@ORGS) ){
-				############### Voy a escribir listas de ortologos del subgrupo ######################
- 				print OUT "$oo1\t";
-				for(my $i=0;$i<scalar  @ORGS;$i++){			
-					my $ortoi;
-					if ($ORGS[$i]==$oo1){
-						$ortoi=$gen; ## SI no tiene ortologo es que es el mism
-						}
-					else{   if($ORGS[$i]~~@Required){
-							 $ortoi=$refBBH->{$gen}{$ORGS[$i]};
-							}
-						}
-					if($ortoi){
-						print OUT "$ortoi\t";
-						}
-					}		
-				print OUT "\n";
-				}
-			}
-		}
-	close OUT;
-	}
-
-#print (@group);
-#my $bool2=&EmptyIntersection(\@group,\@subgroup);
-#my $bool=&IsEverybody(\@group,\@subgroup);
-
-#print("##################\n");
-#print("\nBool $bool\n");
-#print("\nEmpty Intersection $bool2\n");
-
-sub IsEverybody(){
-	#print "Checking Intersection";
-	my ($Required,$query)=@_;
-	my $flag=1;
-	for my $element(@$Required){
-		#print("elemento $element\n");
-		if($element~~@$query){
-		$flag=$flag*1;	
-		#print("Esta en query \n")
-			}
-		else{
-		      #print("No en query \n");
-		      return 0;
-			}
-		}
-return $flag;
-}
-
-
-sub EmptyIntersection(){
-	my ($NotAllowed,$query)=@_;
-	my $flag=1;
-	for my $element(@$NotAllowed){
-	#	print("elemento $element\n");
-		if($element~~@$query){
-		#	print("Esta en query \n");
-
-			return 0;
-			}
-		else{
-		      $flag=1;
-		#	print("No en query \n")
-			}
-		}
-return $flag;
-}
-############################## 
-### Sub implementation
-
+#__________________________________________________________________________________________________
 sub bestHit(){
-	my $n=shift;
 	my $BH=shift;
 	my $input=shift;
 	open(FILE, $input);
 
 	foreach my $line(<FILE>) {
-	#	chomp;
- #
 		my @sp = split(/\t/, $line);
 		#print $sp[0] . "\t" . $sp[1] . "\t\t" . $sp[2] . "\n";
 
-		my $o1 = ''; ## Obtengo el organismo de A
+		my $o1 = ''; ## Get organism from column A (The query)
 		if($sp[0] =~ m/\|(\d+)$/) { $o1 = $1; }
 
 		my $o2 = '';
 		if($sp[1] =~ m/\|(\d+)$/) {  
-			$o2 = $1; ## Obtengo el organismo de Columna B
-			#if($o1 eq $o2) { next; }# NO queremos el mismo organismo
+			$o2 = $1; ## Get Organism from Column B (The hit)
+			#if($o1 eq $o2) { next; }#We dont want the same organism
 		} 
 
-	##sp[0] es el gen de la columna A
-	#Si no existen hits para ese gen de la columna A
-		if(!exists $BH->{$sp[0]}) { $BH->{$sp[0]} = (); }## Entonces inicializo una lista
-		if(!exists $BH->{$sp[0]}{$o2}) { $BH->{$sp[0]}{$o2} = [0]; } ## Si no existe hit para genColumnaA y orgColumnaB inicializo en 0.
+	##sp[0] query gen from column A
+	#If there are not previous hits for the query
+		if(!exists $BH->{$sp[0]}) { $BH->{$sp[0]} = (); }## Then I start a list
+		if(!exists $BH->{$sp[0]}{$o2}) { $BH->{$sp[0]}{$o2} = [0]; } ## If it does not exist a hit for genColumnA and orgColumnB 
+									     ## Start in 0.
 
-		if($sp[2] > $BH->{$sp[0]}{$o2}[0]) { ## si para su organismo la nueva linea tiene mejor match
-			$BH->{$sp[0]}{$o2} = [$sp[2], $sp[1]]; ## la cambio ##Como no estoy considerando el igual, puede ser que pierda algunos genes ampliando al igual mejora precision pero se complica un poco el tratamiento
+		if($sp[2] > $BH->{$sp[0]}{$o2}[0]) { ## If for the organism the new line has a better match
+			$BH->{$sp[0]}{$o2} = [$sp[2], $sp[1]]; ## I change it ## If the score is the same
+							       ## I will lost paralogs (same score and choose arbitrary one)
+							       ## It would be a good idea to improve this part
 		} elsif($sp[2] > $BH->{$sp[0]}{$o2}[0]) {
 			push($BH->{$sp[0]}{$o2}, $sp[1]);
 		}
-		#if(--$n == 0) { last; }### ESTe si no se ajajaja diferencia else elseif
+		
 	}
 	close(FILE);
-	}
-##############################################3
-#He llenado el hash BestHit (BH) Con los mejores hits de cada gen
+	} #### Data Structure BEst Hit (BH) has been fullfilled with the best hit of each gene
 
+#__________________________________________________________________________________________________
 
-#fig|411481.12.peg.1870|9 y fig|6666666.64913.peg.898|4 Checar caso
+sub ListBidirectionalBestHits(){
 ## Arguments HAsh Best Hits
 ## Return a hash of hashes with bidirectional best hits for each gen
-sub ListBidirectionalBestHits(){
 	my $RefBiBestHits=shift;
 	my $RefBH=shift;
 	my $count=0;
@@ -235,21 +147,62 @@ sub ListBidirectionalBestHits(){
 			}
 		}
 	}
+#__________________________________________________________________________________________________
 
-#for my $k (keys %BH) {
-#	my $count=0;
-#	for my $kk (keys %{$BH{$k}}) {#Organismos kk
-		
-#		if(exists $BH{$BH{$k}{$kk}[1]}) {
-#			my $oo1 = '';
-#			if($k =~ m/\|(\d+)$/) { $oo1 = $1; }
-#			if($k eq $BH{$BH{$k}{$kk}[1]}{$oo1}[1]) {
-#				$count++;
-#					
-#			}
-#		
-#		}
-#	}
+sub SelecGroup(){
+	my $refBBH=shift;
+	open (OUT,">./OUTSTAR/$output");
+	#my $refRequired=shift;
+	for my $gen (keys %$refBBH){
+		my $oo1 = '';
+		if($gen =~ m/\|(\d+)$/) { $oo1 = $1; }
+		#print "$oo1\t";
+		#print " $gen: @ORGS \n"; ## Uncomment to see organism where query has Best Bidirectional Hit
 
-#}
+		my @ORGS=sort (keys %{$refBBH->{$gen}});
+		#print " $gen: @ORGS \n"; ## Uncomment to see organism where query has Best Bidirectional Hit
+
+		if ($oo1~~@Required){	
+			#print "$oo1: @Required\t";	
+			if(&IsEverybody(\@Required,\@ORGS) ){
+				############### Print ortologous list of the subgroup ######################
+ 				print OUT "$oo1\t";
+				for(my $i=0;$i<scalar  @ORGS;$i++){			
+					my $ortoi;
+					if ($ORGS[$i]==$oo1){
+						$ortoi=$gen; ## If it does not has ortologous then it is itself
+						}
+					else{   if($ORGS[$i]~~@Required){
+							 $ortoi=$refBBH->{$gen}{$ORGS[$i]};
+							}
+						}
+					if($ortoi){
+						print OUT "$ortoi\t";
+						}
+					}		
+				print OUT "\n";
+				}
+			}
+		}
+	close OUT;
+	}
+
+#_________________________________________________________________________________
+sub IsEverybody(){
+	#print "Checking Intersection";
+	my ($Required,$query)=@_;
+	my $flag=1;
+	for my $element(@$Required){
+		#print("elemento $element\n");
+		if($element~~@$query){
+		$flag=$flag*1;	
+		#print("Its in query \n")
+			}
+		else{
+		      #print("Its not in query \n");
+		      return 0;
+			}
+		}
+	return $flag;
+}
 
