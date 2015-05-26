@@ -1,0 +1,9 @@
+use strict -w
+my @files = glob("*.faa");
+
+foreach my $file (@files){
+	my $genes=`grep ">" $file| wc -l`;
+	print "$file: has $genes genes\n";
+	}	
+
+	
