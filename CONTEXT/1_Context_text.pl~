@@ -328,7 +328,6 @@ my $file=shift;
 	my $key="";
 	while (my $line=<FILE>){
 		chomp $line;
-		$line=~s/\r//;
 		if($line=~m/>/){
 			$key=">".$file;
 			$key=~s/.query//;
