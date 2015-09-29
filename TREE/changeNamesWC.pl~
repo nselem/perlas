@@ -12,20 +12,13 @@ sub read_names{
 	my %ORGS;
 
 	open (FILE,$file) or die "Could not open file";
-
 	foreach my $line (<FILE>){
 		chomp $line;
-#		print "$line \n";
 		my @sp=split("\t",$line);
-#		print"$sp[0] $sp[1]\n";
-
 		$ORGS{$sp[0]}=$sp[1];	
-		print"$sp[0]-> $ORGS{$sp[0]}\n"	
+		#print"$sp[0] $ORGS{$sp[0]}\n"	
 		}
-
-	close FILE;
 	return %ORGS;
-	
 	}
 ###### OrgS Hash de arrays
 sub changenames{
@@ -35,15 +28,17 @@ sub changenames{
 	open (SALIDA, ">$file.changed") or die "Could not open file $!";
 	foreach my $line (<FILE>){
 		foreach my $id(keys %NAMES){
-			chomp $line;
 			if($line=~m/$id/g){
-				#print "$id\n";
-				#my $NAMES{$id};
-				my $new_name=$NAMES{$id};
+				print "$id\n";
+				chomp $line;
+				my $NAMES{$id};
+				#my $new_name=$id."_".$NAMES{$id};
 				$line=~s/$id/$new_name/g;
-				}	
+				print SALIDA "$line";
+				}			
+
 			}
-		print SALIDA "$line\n";
 		}
 	close FILE; close SALIDA;
 	}
+
