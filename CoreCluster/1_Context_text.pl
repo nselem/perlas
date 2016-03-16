@@ -37,7 +37,6 @@ $bitscore=$bitscore;		##BitScoreTreshold
 
 				print "I will search homologous genes in organisms\n";
 `mkdir MINI`;
-if (-e "PrincipalHits"){`rm PrincipalHits`;}
 
 
 print "Parameters\n";
@@ -93,12 +92,11 @@ my %CLUSTERcolor=BlastColor($eClust,$DB,%CLUSTER,@LISTA);
 
 print "Now I will produce the *.input file\n";
 
-my $principal="PrincipalHits";
 for my $orgs (sort keys %{$Hits{$name}}){
 		my $peg=$Hits{$name}{$orgs}[1];
 		my $percent=$Hits{$name}{$orgs}[0];
 		#print "Org $orgs Hit $peg percent $percent\n";
-		ContextArray($principal,$orgs,$peg,$ORG,\%ORGS);
+		ContextArray($orgs,$peg,$ORG,\%ORGS);
 }
 
 for my $orgs(keys %ORGS){
@@ -108,6 +106,7 @@ for my $orgs(keys %ORGS){
 		open FILE, ">$orgs.input" or die "Could not create input file\n";
 		print FILE "0\t0\t-\t0\t$ORGS{$orgs}\t0\t0\n";
 		close FILE;
+
 		open FILE2, ">MINI/$orgs.faa" or die "Could not create input file\n";
 		close FILE2;
 		}
@@ -151,36 +150,38 @@ sub readNames{
 
 #____________________________________________________________________________________________
 sub ContextArray{
-	my $principal=shift;
 	my $orgs=shift;
 	my $peg=shift;
 	my $ORG=shift;
 	my $refORGS=shift;
 
 	open(FILE,">$orgs.input")or die "could not open $orgs.input file $!";
+	open(FILE3,">$orgs.input2")or die "could not open $orgs.input2 file $!";
+
 	open(FILE2,">MINI/$orgs.faa")or die "could not open $orgs.mini file $!";
-	open(PRINCIPAL,">>$principal")or die "could not open $principal file $!";
 
 	my @CONTEXT;
 
 	my ($hit0,$start0,$stop0,$dir0,$func0,$contig0,$amin0)=getInfo($peg,$orgs);
 	$CONTEXT[0]=[$hit0,$start0,$stop0,$dir0,$func0];
 
-#print "hit $CONTEXT[0][0] start $CONTEXT[0][1] stop $CONTEXT[0][2] dir $CONTEXT[0][3] func $CONTEXT[0][4]\n\n";		
-print FILE "$CONTEXT[0][1]\t$CONTEXT[0][2]\t$CONTEXT[0][3]\t1\t$refORGS->{$orgs}\t$CONTEXT[0][4]\t$CONTEXT[0][0]\t$orgs\n";
+	#print "hit $CONTEXT[0][0] start $CONTEXT[0][1] stop $CONTEXT[0][2] dir $CONTEXT[0][3] func $CONTEXT[0][4]\n\n";		
+	print FILE "$CONTEXT[0][1]\t$CONTEXT[0][2]\t$CONTEXT[0][3]\t1\t$refORGS->{$orgs}\t$CONTEXT[0][4]\t$CONTEXT[0][0]\t$orgs\n";
 
-my $PreOrgNam=$refORGS->{$orgs};
-my @PreNames=split(" ",$PreOrgNam);
-my $orgNam=$PreNames[0]."_".$PreNames[1];
-my $genId=$hit0;
-$genId=~s/fig\|/_/g;
-my @spt=split(/\./,$genId);
-$FinalName=$orgNam."_peg_".$spt[$#spt];
-print FILE2 ">$hit0\n$amin0\n";
-print PRINCIPAL ">$FinalName\n$amin0\n";
-close PRINCIPAL;
+	my $PreOrgNam=$refORGS->{$orgs};
+	my @PreNames=split(" ",$PreOrgNam);
+	my $orgNam=$PreNames[0]."_".$PreNames[1];
+	my $genId=$hit0;
+	$genId=~s/fig\|/_/g;
+	my @spt=split(/\./,$genId);
+	$FinalName=$orgNam."_peg_".$spt[$#spt];
+	$FinalName=~s/\./_/g;
+	print FILE2 ">$hit0\n$amin0\n";
 
-my $count=1;		
+	print FILE3 ">$FinalName\n$amin0\n";
+	close FILE3;
+
+	my $count=1;		
 	for ($i=$peg-$ClusterSize;$i<$peg+$ClusterSize;$i++){
 		if($i!=$peg){
 

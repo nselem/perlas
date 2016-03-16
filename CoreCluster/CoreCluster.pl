@@ -62,8 +62,15 @@ print "Buscando secuencias similares al query\n\n";
                }
 print "Secuencias encontradas\n\n";
 
+print "Creando arbol de Hits del query, sin considerar los clusters\n";
+`cat *.input2> PrincipalHits`;
+print "Alineando las secuencias \n";
+system "muscle -in PrincipalHits -out PrincipalHits.muscle -fasta -quiet -group";
+print "Rasurando las secuencias\n";
+system "/opt/Gblocks_0.91b/Gblocks PrincipalHits.muscle -b4=5 -b5=n -b3=5";
 #converting RightNames.txt from fasta to stockholm
-system "esl-reformat --informat afa stockholm PrincipalHits >PrincipalHits.stockholm";
+print "Convirtiendo a formato estocolmo\n";
+system "esl-reformat --informat afa stockholm PrincipalHits.muscle-gb >PrincipalHits.stockholm";
 #constructing a tree with quicktree with a 100 times bootstrap
 system "quicktree -i a -o t -b 100 Principal.stockholm > PrincipalHits_TREE.tre";
 
@@ -76,7 +83,7 @@ print "Generando grafica de clusters\n\n";
 	`perl 2.Draw.pl`;
 print "Archivo SVG generado\n\n";
 
-print "Pausa aqui\n";
+print "Pausa aqui\nPulsa enter para continuar";
 my $pausa=<STDIN>;
 
 print "Calculando el core de los clusters";
@@ -96,9 +103,14 @@ print "Concatenando\n";
 `rm *.lista`;
 `rm lista.*`;
 `rm *.input`;
-#`rm Core`;
-#`rm Core0`;
-#`rm -r OUTSTAR`;
+`rm *.input2`;
+`rm Core`;
+`rm PrincipalHits`;
+`rm PrincipalHits.muscle`;
+`rm PrincipalHits.muscle-gb`;
+`rm PrincipalHits.muscle-gb.htm`;
+`rm Core0`;
+`rm -r OUTSTAR`;
 `rm -r MINI`;
 
 #lines added by Cruz himself

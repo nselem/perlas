@@ -26,7 +26,8 @@ foreach my $context(@CLUSTERS){
 		$list=$list.$file.",";
 		}
 	else {	print "Voy a remover $file\n";
-		`rm $file.input`;
+		`rm $file.input`;		
+		`rm $file.input2`;
 		`rm MINI/$file.faa`;
 		}
 	print "#################\n";
