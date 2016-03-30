@@ -62,25 +62,40 @@ print "Buscando secuencias similares al query\n\n";
                }
 print "Secuencias encontradas\n\n";
 
+print "Analizando clusters con similares al query\n\n";
+	`perl ReadingInputs.pl`;
+print "Clusters encontrados\n\n";
+
 print "Creando arbol de Hits del query, sin considerar los clusters\n";
 `cat *.input2> PrincipalHits`;
 print "Alineando las secuencias \n";
 system "muscle -in PrincipalHits -out PrincipalHits.muscle -fasta -quiet -group";
 print "Rasurando las secuencias\n";
 system "/opt/Gblocks_0.91b/Gblocks PrincipalHits.muscle -b4=5 -b5=n -b3=5";
+`perl RenamePrincipalHits.pl`;
 #converting RightNames.txt from fasta to stockholm
 print "Convirtiendo a formato estocolmo\n";
-system "esl-reformat --informat afa stockholm PrincipalHits.muscle-gb >PrincipalHits.stockholm";
+system "esl-reformat --informat afa stockholm RightNamesPrincipalHits.txt >PrincipalHits.stockholm";
 #constructing a tree with quicktree with a 100 times bootstrap
-system "quicktree -i a -o t -b 100 Principal.stockholm > PrincipalHits_TREE.tre";
+system "quicktree -i a -o t -b 100 PrincipalHits.stockholm > PrincipalHits_TREE.tre";
+#system "nw_labels -I PrincipalHits_TREE.tre";
+system "nw_labels -I PrincipalHits_TREE.tre>PrincipalHits.order";
+open (NAMES,"PrincipalHits.order") or die "Couldnt open Principal Names $!";
+my $INPUTS="";
 
+foreach my $line (<NAMES>){
+	chomp $line;
+	my @spt=split("_org_",$line);
+	$INPUTS.=$spt[1]."\.input,";
+	print "$INPUTS\n";
+	}
+	my $INPUT=chop($INPUTS);
+	print "!$INPUTS!\n";
+#obtener el numero de organismos
+#pasarselo al script 2.Draw.p
 
-print "Analizando clusters con similares al query\n\n";
-	`perl ReadingInputs.pl`;
-print "Clusters encontrados\n\n";
-
-print "Generando grafica de clusters\n\n";
-	`perl 2.Draw.pl`;
+print "Generando grafica de clusters con los archivos $INPUTS : \n\n";
+	`perl 2.Draw.pl $INPUTS`;
 print "Archivo SVG generado\n\n";
 
 print "Pausa aqui\nPulsa enter para continuar";
@@ -102,12 +117,12 @@ print "Concatenando\n";
 	`perl Rename_Ids_Star_Tree.pl`;
 `rm *.lista`;
 `rm lista.*`;
-`rm *.input`;
+#`rm *.input`;
 `rm *.input2`;
 `rm Core`;
 `rm PrincipalHits`;
 `rm PrincipalHits.muscle`;
-`rm PrincipalHits.muscle-gb`;
+#`rm PrincipalHits.muscle-gb`;
 `rm PrincipalHits.muscle-gb.htm`;
 `rm Core0`;
 `rm -r OUTSTAR`;
@@ -117,7 +132,11 @@ print "Concatenando\n";
 #converting RightNames.txt from fasta to stockholm
 system "esl-reformat --informat afa stockholm RightNames.txt >RightNames.stockholm";
 #constructing a tree with quicktree with a 100 times bootstrap
-#system "quicktree -i a -o t -b 100 RightNames.stockholm > BGC_TREE.tre";
+system "quicktree -i a -o t -b 100 RightNames.stockholm > BGC_TREE.tre";
+#extracting taxa order from BGC_TREE with newicktools
+#system "nw_labels -I PrincipalHits_TREE.tre";
+#sorting svg file using the tree order...
+
 
 print "Done\n";
 print "Que tenga usted un feliz dia\n\n";

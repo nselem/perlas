@@ -4,9 +4,9 @@ $RAST_IDs2=$RAST_IDs;
 
 $GENOME_DB2="";
 
-$LIST2 = "16,1,2,3,4,5"; 					##Wich genomes would you process 
+$LIST2 = "1,16,2,4,5"; 					##Wich genomes would you process 
 						##Can be left blank if you want consecutive genomes starting from 1
-$NUM2 = "6";
+$NUM2 = "5";
 
 $NAME2=$NAME;					##Name of the group (Taxa, gender etc)
 $BLAST2="$NAME.blast";

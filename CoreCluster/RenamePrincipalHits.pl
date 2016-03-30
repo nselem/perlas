@@ -2,10 +2,10 @@
 use strict;
 use warnings;
 
-`rm RightNames.txt`;
+`rm RightNamesPrincipalHits.txt`;
 open (NAMES,"RAST.IDs") or die "Couldn't open NAMES file $!";
-open (SEQUENCE,"SalidaConcatenada.txt") or die "Couldn't open Concatenados file $!";
-open (BAYES,">RightNames.txt") or die "Couldn't open RightNames file $!";
+open (SEQUENCE,"PrincipalHits.muscle-gb") or die "Couldn't open PrincipalHits.muscle-gb file $!";
+open (BAYES,">>RightNamesPrincipalHits.txt") or die "Couldn't open RightNamesPrincipalHits.txt file $!";
 
 my %SEQUENCES;
 my %NAMES;
@@ -14,12 +14,9 @@ my %NAMES;
 
 readNames(\%NAMES);
 readSequence(\%SEQUENCES,\%NAMES);
-for my $key(keys %SEQUENCES){
-	print BAYES ">$key\n$SEQUENCES{$key}\n";
-}
 close NAMES;
 close SEQUENCE;
-
+close BAYES;
 ##########################################################################
 sub readNames{
 my $refNAMES=shift;
@@ -45,6 +42,7 @@ sub readSequence{
 	my $Org="Empty";
 	foreach my $line (<SEQUENCE>){
 		chomp $line;
+		print "LINE $line\n";
 		if ($line=~m/>/){
 			$Org=$line;
 			my $peg="";
@@ -52,17 +50,16 @@ sub readSequence{
 				$Org=~s/peg_(\d*)//;
 				$peg=$1;
 				}
-			$Org=~s/>org//;
+			$Org=~s/>_org//;
 
-			$Org=~s/>org//;
-#			print "¡$Org!\n";
-			if (!exists $refSEQUENCES->{$refNAMES->{$Org}}){
-				$refSEQUENCES->{$refNAMES->{$Org}}="";
-				}
-			}
+			$Org=~s/>_org//;
+			print "¡$Org!\n";
+			my $name=$refNAMES->{$Org}."_peg_".$peg."_org_"."$Org";
+			print BAYES ">$name\n";
+			}		
 		else{#	
-			$refSEQUENCES->{$refNAMES->{$Org}}.=$line;
-#			print "$refSEQUENCES->{$refNAMES->{$Org}}\n";
+			print BAYES "$line\n";
+			
 			}
 		}
 	}

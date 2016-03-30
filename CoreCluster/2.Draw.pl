@@ -1,16 +1,20 @@
 ##################################################################################
-    use strict;
+    #use strict;
     use warnings;
      
     use SVG;
+    use globals;
 ####################################################################
 # Need to improve: Resize window for more gene
 ## Check genes are on the same contig
+## This script only intetransoform color code given on readText on colored arrows
 #
 ####################################################################3
 ############### set canvas 
-my @CLUSTERS=qx/ls *.input/; 	## Read all input Uncomment to read all
-
+#my @CLUSTERS=qx/ls *.input/; 	## Read all input Uncomment to read all
+##############
+print "ARG 0 $ARGV[0]\n";
+my @CLUSTERS=split(',',$ARGV[0]); 	## Read all input Uncomment to read all
 my $nClust=scalar @CLUSTERS; 	#number of cluster (until now one per organism)
 				#3 Used to draw lines
 my $w=800;  			## Size of the window
@@ -22,17 +26,11 @@ my $h=100*($nClust); 		# 100 of heigth for draw each organisms
 my $text=1; 			##Yes NO organism name
 my $grueso=16.0;		## Grosor de las flechas
 my %ColorNames=Fill_Colors();
+my $cutleft=0;				
+my $rescale=$RESCALE; 		## Arrow horizontal size, greater values of this parameter would allow to observe more genes
+#################################################################################
+#################################################################################
 
-#foreach my $key(keys %ColorNames){
-#print "!$key! -> ¡$ColorNames{$key}!\n";
-#}
-
-#my	($color1,$color2,$color3)=fillColor(5,\%ColorNames);
-#print "Los colores son: !$color1,$color2,$color3!\n ";
-
-
-my $cutleft=0;
-my $rescale=55000;
     # create an SVG object with a size of 40x40 pixels
 my $svg = SVG->new(  	
 			width  => 1000,
@@ -48,39 +46,25 @@ my $tag = $svg->script(-type=>"text/ecmascript");
 #########################################################
 ######## Main 
 
-## Read context
-# open all context files
-# Store %CONTEXT[$cluster_Id]=([start,end,direction,blast_id]   );
-#           HAsh of arrays(genes)
-
-my @sorted = sort { $a <=> $b } @CLUSTERS;
-my $cat="";
-foreach my $genome (@sorted){
-	$genome=~s/.input//;
-	$cat=$cat.",".$genome;
-	}
-$svg->text( x  => 10, y  => 10)->cdata("Genomas presentes $cat"); 
-			 
-
 Draw(\@CLUSTERS,$s,$t,$tv,$w,$cutleft,$grueso,\%ColorNames, $rescale); 
-#Draw(\@CLUSTERS,$s,$t,$tv,$w,$cutleft,$grueso,\%ColorNames); 
-##uncomment fordraw context without families and clusters
+	#Draw(\@CLUSTERS,$s,$t,$tv,$w,$cutleft,$grueso,\%ColorNames); 
 #_________________________________________________________________
+
 #####################################################################
 ##Html output (Sending files to firefox
 #####################################################################
 open (OUT, ">Contextos.svg") or die $!;
     # now render the SVG object, implicitly use svg namespace
-    print OUT $svg->xmlify;
+print OUT $svg->xmlify;
 close OUT;
-#system "firefox $file.svg";
+	#system "firefox $file.svg";
 `perl -p -i -e 's/&//' Contextos.svg`;
+
+
+
 ##################################################################
 ###    subs ######################################################
-
-
-
-
+##################################################################
 sub Draw{
 	my ($refCLUSTERS,$s,$t,$tv,$w,$cutleft,$grueso,$refColorNames,$rescale)=@_;
 	my @YCOORD;
@@ -286,7 +270,11 @@ my $refYCOORD=shift;
 my $traslation=0;
 my $Rescale=shift;
 my $cont_number=0;
-	foreach my $key(sort { $a <=> $b } keys %{$refCONTEXTS}){  ###For each cluster
+
+foreach my $context(@CLUSTERS){
+		chomp $context;
+		my $key=$context;
+		$key=~s/\.input//;
 		$cont_number++;
 		my %ARROWS;
 
@@ -386,6 +374,44 @@ sub Fill_Colors{
 
 	return %ColorNames;
 	}
+
+
+#________________________________________________________________
+sub fillColor{
+	my $color=shift;
+	my $refColorNames=shift;
+	$color=$color%100;
+	my $color1; 
+	my $color2;
+	my $color3;
+	my @sp;
+
+  	if ($color==0){ #gris
+		$color1=144;
+		$color2=130;
+		$color3=130;
+		}	
+	else{
+		@sp=split("_",$refColorNames->{$color});
+		$color1=$sp[0];
+		$color2=$sp[1];
+		$color3=$sp[2];
+		#$color1=($color*67)%250;
+		#$color2=($color*(30))%250;
+		#$color3=($color*(70))%250;
+	
+	}
+  	if ($color==1){ #gris
+		$color1=254;
+		$color2=30;
+		$color3=30;
+		}	
+
+	return $color1,$color2,$color3;
+	}
+
+
+
 #__________________________________________________________________
 sub set_lines{
 	my $size=shift;
@@ -483,31 +509,3 @@ $tag->CDATA(qq{
          catch(er){}
        };
 });
-
-#________________________________________________________________
-sub fillColor{
-	my $color=shift;
-	my $refColorNames=shift;
-	$color=$color%100;
-	my $color1; 
-	my $color2;
-	my $color3;
-	my @sp;
-
-  	if ($color==0){ #gris
-		$color1=144;
-		$color2=130;
-		$color3=130;
-		}	
-	else{
-		@sp=split("_",$refColorNames->{$color});
-		$color1=$sp[0];
-		$color2=$sp[1];
-		$color3=$sp[2];
-	
-	}
-
-	return $color1,$color2,$color3;
-	}
-
-

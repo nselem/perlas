@@ -92,28 +92,32 @@ sub bestHit(){
 	foreach my $line(<FILE>) {
 		my @sp = split(/\t/, $line);
 		#print $sp[0] . "\t" . $sp[1] . "\t\t" . $sp[2] . "\n";
+		my $queryL=$sp[0];
+		my $hitL=$sp[1];
+		my $identityL=$sp[2];
+		my $evalueL=$sp[10];
 
 		my $o1 = ''; ## Get organism from column A (The query)
-		if($sp[0] =~ m/\|(\d+)$/) { $o1 = $1; }
+		if($queryL=~ m/\|(\d+)$/) { $o1 = $1; }
 
 		my $o2 = '';
-		if($sp[1] =~ m/\|(\d+)$/) {  
+		if($hitL =~ m/\|(\d+)$/) {  
 			$o2 = $1; ## Get Organism from Column B (The hit)
 			#if($o1 eq $o2) { next; }#We dont want the same organism
 		} 
 
 	##sp[0] query gen from column A
 	#If there are not previous hits for the query
-		if(!exists $BH->{$sp[0]}) { $BH->{$sp[0]} = (); }## Then I start a list
-		if(!exists $BH->{$sp[0]}{$o2}) { $BH->{$sp[0]}{$o2} = [0]; } ## If it does not exist a hit for genColumnA and orgColumnB 
+		if(!exists $BH->{$queryL}) { $BH->{$queryL} = (); }## Then I start a list
+		if(!exists $BH->{$queryL}{$o2}) { $BH->{$queryL}{$o2} = [0]; } ## If it does not exist a hit for genColumnA and orgColumnB 
 									     ## Start in 0.
 
-		if($sp[2] > $BH->{$sp[0]}{$o2}[0]) { ## If for the organism the new line has a better match
-			$BH->{$sp[0]}{$o2} = [$sp[2], $sp[1]]; ## I change it ## If the score is the same
+		if($evalueL > $BH->{$queryL}{$o2}[0]) { ## If for the organism the new line has a better match
+			$BH->{$queryL}{$o2} = [$evalueL, $hitL]; ## I change it ## If the score is the same
 							       ## I will lost paralogs (same score and choose arbitrary one)
 							       ## It would be a good idea to improve this part
-		} elsif($sp[2] > $BH->{$sp[0]}{$o2}[0]) {
-			push(@{$BH->{$sp[0]}{$o2}}, $sp[1]);
+		} elsif($evalueL > $BH->{$queryL}{$o2}[0]) {
+			push(@{$BH->{$queryL}{$o2}}, $hitL);
 		}
 		
 	}
@@ -139,11 +143,6 @@ sub ListBidirectionalBestHits(){
 					}
 				if(exists $RefBH->{$hit}{$oo1}[1] and $gen eq $RefBH->{$hit}{$oo1}[1]) {
 					$RefBiBestHits->{$gen}{$org}=$hit;
-					#print("$org\n");
-					if($oo1==273 and $gen=~m/3056/){
-					print("$oo1\t");
-						print("\n Gen $gen\n has as BBH $hit in orgs $org\n");
-						}
 					$count++;
 					}
 				}
