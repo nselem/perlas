@@ -51,8 +51,6 @@ sub readSequence{
 				$peg=$1;
 				}
 			$Org=~s/>_org//;
-
-			$Org=~s/>_org//;
 			print "¡$Org!\n";
 			my $name=$refNAMES->{$Org}."_peg_".$peg."_org_"."$Org";
 			print BAYES ">$name\n";

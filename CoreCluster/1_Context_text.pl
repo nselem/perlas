@@ -1,4 +1,4 @@
-###########################################################
+#core\n";core\n";core\n";core\n";core\n";core\n";core\n";##########################################################
 ## Inputs genomes .faa .txt
 #############################################################
 #perl 1_Context_text.pl queryfile boolMakeblast type
@@ -78,6 +78,15 @@ my %CLUSTER;
 				print "Searching for homologous gene in clusters \n";
 #### 
 my %CLUSTERcolor=BlastColor($eClust,$DB,%CLUSTER,@LISTA);
+#foreach my $peg (sort keys %CLUSTERcolor){
+#	print "Peg $peg orgs $orgs";
+#	foreach my $orgs (@{$CLUSTERcolor{$peg}}){
+#		foreach my $color_percent(@{$CLUSTERCOLOR{$peg}[$orgs]}){
+#			print "$color_percent\t";
+#		}
+#		print "\n";
+#	}
+#}
 ##print "Pausa para checar blast\n";
 ##my $pause=<STDIN>;
 				print "I have colored genes according to homology\n";		
@@ -172,8 +181,11 @@ sub ContextArray{
 	print FILE3 ">$FinalName\n$amin0\n";
 	close FILE3;
 
-	my $count=1;		
-	for ($i=$peg-$ClusterSize;$i<$peg+$ClusterSize;$i++){
+	my $count=1;	
+
+	my $iniciar=0;
+	if($peg-$ClusterSize>0){$iniciar=$peg-$ClusterSize;}	
+	for ($i=$iniciar;$i<$peg+$ClusterSize;$i++){
 		if($i!=$peg){
 
 			my ($hit,$start,$stop,$dir,$func,$contig,$amin)=getInfo($i,$orgs);
@@ -182,12 +194,12 @@ sub ContextArray{
 				if($contig0 eq $contig){
 					$CONTEXT[$count]=[$hit,$start,$stop,$dir,$func];
 					}
-				}
 			#setColor
 			$color=setColor($i,$orgs);			
 	#		print "$peg, $org, $color \n";
 		
 			print FILE "$CONTEXT[$count][1]\t$CONTEXT[$count][2]\t$CONTEXT[$count][3]\t$color\t$refORGS->{$orgs}\t$CONTEXT[$count][4]\t$CONTEXT[$count][0]\n";
+				}
 			if($hit eq ""){
 				}
 			else {
@@ -516,8 +528,8 @@ sub BestHits{ ##For a given query
 			####### GRAN DUDA POR PARSEAR  aaaah ya 
 			}
 
-		push(@{$refAllHits->{$name}{$org}},$peg);
-		print FILETEST "$name-> $org-> $peg\n ";
+		push(@{$refAllHits->{$name}{$org}},"$peg\_$percent");
+		print FILETEST "$name-> $org-> $peg\_$percent\n ";
 #		print("Peg $refHits->{$name}{$org}[1]\tOrg $org\tPercent $refHits->{$name}{$org}[0] \n");
 
 		}
@@ -525,13 +537,6 @@ sub BestHits{ ##For a given query
 	close FILETEST;
 }
 #________________________________________________________________________________________________
-
-sub MainHits{
-	my $e=shift;
-	my $name=shift;
-	my $DBname=shift;
-	my $bitscore=shift;
-}
 
 
 ## READ QUERY
@@ -566,11 +571,6 @@ my $file=shift;
 
 #________________________________________________________________________________
 sub BlastColor{
-	### %CLUSTER %CLUSTERcolor %HitsClust
-	## HitsClust{neighbour peg}->[peg neighbourhit, identity]
-	## %CLUSTER{$peg}={peg1_org1,peg2_org2,...}
-	## $CLUSTERcolor{$peg}[$orgs]=$color;
-
 	my $eClust=shift;
 	my $DBname=shift;
 	my $refCLUSTER=shift;
@@ -610,13 +610,21 @@ sub BlastColor{
 			for my $orgs (sort keys %{$AllHitsClust{$HIT}}){
 	       			my @pegsClust=@{$AllHitsClust{$HIT}{$orgs}};
 	       			#my $peg=$AllHitsClust{$HIT}{$orgs}[1];
-				foreach my $peg (@pegsClust){
-					$CLUSTERcolor{$peg}=[];
+				foreach my $peg_percent (@pegsClust){
+					my @sp=split("_",$peg_percent);
+					my $peg=$sp[0]; my $percent=$sp[1];
+					if(!exists $CLUSTERcolor{$peg}){
+						$CLUSTERcolor{$peg}=[];
+						}
 					#print "org $orgs PEg:$peg\n";
 					my $save=$peg."_".$orgs;
 					push(@{$refCLUSTER->{$i}},$save);
 					#push(@{$refCLUSTER->{$i}},$save);
-					$CLUSTERcolor{$peg}[$orgs]=$color;
+					if (!exists $CLUSTERcolor{$peg}[$orgs]){
+						$CLUSTERcolor{$peg}[$orgs]=[];
+						}
+					push(@{$CLUSTERcolor{$peg}[$orgs]},"$color\_$percent");
+					print "$color $percent -> ClusterColor ¡@{$CLUSTERcolor{$peg}[$orgs]}!\n";
 					#print("count #$count# color #$color#, peg #$peg#, orgs #$orgs# yo #$CLUSTERcolor{$peg}[$orgs]#\n");
 					}
 				}
@@ -630,10 +638,26 @@ sub setColor{
 	my $peg=shift;
 	my $orgs=shift;
 
-	my $color=0;
-	if (exists $CLUSTERcolor{$peg}[$orgs]){
-	$color=$CLUSTERcolor{$peg}[$orgs];
-	}
-print "";
-	return $color;
+	my $colorF=0;
+	my $percentF=0;
+	
+	print "Peg $peg, Org $orgs \n ";
+	if (exists $CLUSTERcolor{$peg}[$orgs]){ ## Cualquier peg en cualquier organismo
+		print "Arreglo @{$CLUSTERcolor{$peg}[$orgs]}\n";
+		foreach $color_percent (@{$CLUSTERcolor{$peg}[$orgs]}){ ## Puede parecerse a distintos miembros del cluster indicados por los colores, el numero de color es el numero de gen en el cluster
+			my @sp=split("_",$color_percent); ## viene acompañado de su porcentaje
+			my $colorInHash=$sp[0]; 
+			my $percentInHash=$sp[1];
+			print "$color_percent Color en hash $colorInHash PErcent in Hash $percentInHash\n";
+			if($percentInHash>$percentF and $colorInHash ne ""){ #Escogemos el de mejor porcentaje
+				print "$percentInHash > $percentF\n then";
+				$colorF=$colorInHash; ##Selects the Hit y dejamos ese color
+				$percentF=$percentInHash;
+				print "color = $colorInHash:$colorF\n ";
+				}
+
+			}
+		}
+	print "Color $colorF Percent $percentF\n\n";
+	return $colorF;
 	}

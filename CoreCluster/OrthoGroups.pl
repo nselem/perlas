@@ -29,6 +29,7 @@ my @LISTA=split(",",$list);
 
 run_blast($e2);
 
+print "I will run allvsall with blast $BLAST2\n";
 #print "`perl allvsall.pl -R $list -v 0 -i $BLAST`\n";
 `perl allvsall.pl -R $list -v 0 -i $BLAST2`;
 #`perl allvsall.pl -R 8,12,57,58,59,60,61,248,261,262,273,275,277,282,310 -v 0 -i ClusterTools1.blast`;

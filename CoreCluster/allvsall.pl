@@ -42,8 +42,17 @@ my @Required=Options(\$verbose,\$inputblast,\$output);
 ########################################################
 ## Main
 ## 1 Find Best Hits
-print "\nFinding Hits for each gene, takes some minutes, be patient!\n"; 
+#print "\nFinding Hits for each gene, takes some minutes, be patient!\n"; 
 &bestHit(\%BH,$inputblast);
+
+#foreach my $peg (keys %BH){
+	#print " Peg: $peg\n";
+#	foreach my $org (keys %{$BH{$peg}}){
+#		if (-exists $BH{$peg}{$org}[0] and exists $BH{$peg}{$org}[1]){
+#			#print "$org, $BH{$peg}{$org}[0], $BH{$peg}{$org}[1]\n";
+#			}		
+#		}
+#	}
 
 ## 2 Find Bidirectional Best Hits
 #print "##\n BREAK 1\n #####";
@@ -88,10 +97,10 @@ sub bestHit(){
 	my $BH=shift;
 	my $input=shift;
 	open(FILE, $input);
-
+#	print "Im on bestHit Function, I will open file $input\n";
 	foreach my $line(<FILE>) {
 		my @sp = split(/\t/, $line);
-		#print $sp[0] . "\t" . $sp[1] . "\t\t" . $sp[2] . "\n";
+#		print "Linea".$sp[0] . "\t" . $sp[1] . "\t\t" . $sp[2] . "\n";
 		my $queryL=$sp[0];
 		my $hitL=$sp[1];
 		my $identityL=$sp[2];
@@ -109,10 +118,10 @@ sub bestHit(){
 	##sp[0] query gen from column A
 	#If there are not previous hits for the query
 		if(!exists $BH->{$queryL}) { $BH->{$queryL} = (); }## Then I start a list
-		if(!exists $BH->{$queryL}{$o2}) { $BH->{$queryL}{$o2} = [0]; } ## If it does not exist a hit for genColumnA and orgColumnB 
+		if(!exists $BH->{$queryL}{$o2}) { $BH->{$queryL}{$o2} = [1]; } ## If it does not exist a hit for genColumnA and orgColumnB 
 									     ## Start in 0.
 
-		if($evalueL > $BH->{$queryL}{$o2}[0]) { ## If for the organism the new line has a better match
+		if($evalueL < $BH->{$queryL}{$o2}[0]) { ## If for the organism the new line has a better match
 			$BH->{$queryL}{$o2} = [$evalueL, $hitL]; ## I change it ## If the score is the same
 							       ## I will lost paralogs (same score and choose arbitrary one)
 							       ## It would be a good idea to improve this part

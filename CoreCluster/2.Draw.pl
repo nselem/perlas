@@ -227,11 +227,15 @@ sub ReadContexts{  ###Here we read all the .input files
 			my @st=split("\t",$line); 
 			
 			my $start=$st[0]; #print "Start $start\n";
+			if ($start eq ""){$start=0;}
+			else {$start=int($start);}
 			push (@{$CONTEXTS{$key}}, $start);
-
-			my $stop=$st[1]; #print "Stop $stop\n";
-			push (@{$CONTEXTS{$key}}, $stop);
 			
+			my $stop=$st[1]; #print "Stop $stop\n";
+			if ($stop eq ""){$stop=0;}
+			else {$stop=int($stop);}
+			push (@{$CONTEXTS{$key}}, $stop);
+
 			my $dir=$st[2];	 #print "dir $dir\n";		
 			push (@{$CONTEXTS{$key}}, "$dir");
 
@@ -303,8 +307,11 @@ foreach my $context(@CLUSTERS){
 		for (my $i=0;$i<@{$refCONTEXTS->{$key}}/7;$i++){
 			my $start=$refCONTEXTS->{$key}[7*$i];
 			my $stop=$refCONTEXTS->{$key}[7*$i+1];
-			my $s1=int((($w/$Rescale)*($start-$X0)+$w/2)); 
-			my $e1=int((($w/$Rescale)*($stop-$X0)+$w/2));
+		#	print "start $start stop $stop\n";
+			#if ($start ne ""){my $s1=int((($w/$Rescale)*(int($start)-$X0)+$w/2)); }
+			my $s1=int((($w/$Rescale)*(int($start)-$X0)+$w/2)); 
+			#if ($stop ne ""){my $e1=int((($w/$Rescale)*(int($stop)-$X0)+$w/2));}
+			my $e1=int((($w/$Rescale)*(int($stop)-$X0)+$w/2));
 			my $dir=$refCONTEXTS->{$key}[7*$i+2];
 			my $color=$refCONTEXTS->{$key}[7*$i+3];
 			my $func=$refCONTEXTS->{$key}[7*$i+5];

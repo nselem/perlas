@@ -12,11 +12,13 @@ $NumOrg=$NUM2;
 open (LS, "$lista") or die $!;
 while (<LS>){
  chomp;
+ print "$_\n";
   push(@lista0, $_);
 }
 my @sorted_orgs = sort { $a <=> $b } @lista0;
 
 print ("@lista0\n");
+
 for($gen=1;$gen<=$TOTAL;$gen++){
 	&align($gen);
 	}
@@ -25,6 +27,7 @@ for($gen=1;$gen<=$TOTAL;$gen++){
 `mkdir $dir2/$infile/CONCATENADOS`;
 ######## 
 sub align{
+#	my $org
 #print "#$_[0]#";
 system "muscle -in $Working_dir/FASTAINTER/$_[0].interFastatodos -out $Working_dir/ALIGNMENTS_GB/$_[0].muscle.pir -fasta -quiet -group";
 	$nombre="$Working_dir/ALIGNMENTS_GB/$_[0].muscle.pir";
@@ -53,7 +56,7 @@ system "muscle -in $Working_dir/FASTAINTER/$_[0].interFastatodos -out $Working_d
 	
 	open ORDEN,">$Working_dir/ALIGNMENTS_GB/$_[0].orden.muscle" or die $!;
 
-	 for ($i=1;$i<=$NumOrg;$i++){
+	 for ($i=0;$i<=$NumOrg;$i++){
 		#foreach $i (keys %hashFastaH){
          	#print("KEY:#$i# VALUE:$hashFastaH{$i} \n");
 		if ($sorted_orgs[$i]~~@lista0){
