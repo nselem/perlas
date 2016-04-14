@@ -125,13 +125,14 @@ sub bestHit(){
 			$BH->{$queryL}{$o2} = [$evalueL, $hitL]; ## I change it ## If the score is the same
 							       ## I will lost paralogs (same score and choose arbitrary one)
 							       ## It would be a good idea to improve this part
-		} elsif($evalueL > $BH->{$queryL}{$o2}[0]) {
+		} elsif($evalueL < $BH->{$queryL}{$o2}[0]) {
 			push(@{$BH->{$queryL}{$o2}}, $hitL);
 		}
 		
 	}
 	close(FILE);
 	} #### Data Structure BEst Hit (BH) has been fullfilled with the best hit of each gene
+
 
 #__________________________________________________________________________________________________
 

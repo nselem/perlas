@@ -102,11 +102,12 @@ print "Numero lineas core ¡$boolCore!\n";
 my $INPUTS=""; ## Orgs sorted according to a tree (Will be used on the Context draw)
 my $orderFile="PrincipalHits.order";
 if ($boolCore>1){
-	print "There is a core with at least to genes on this cluster\n";
+	print "There is a core with at $boolCore genes on this cluster\n";
 	print REPORTE "There is a core composed by $boolCore orhtolog on this cluster\n";
 	print REPORTE "LAs funciones de las enzimas core en el organismo de referencia estan dadas por:\n";
-        `cut -f1,2 ClusterTools4/FUNCTION/$specialOrg.core.function >> Report`;
-        `cut -f1,2 ClusterTools4/FUNCTION/$specialOrg.core.function`;
+        `cut -f1,2 $NAME/FUNCTION/$specialOrg.core.function >> Report`;
+        `cut -f1,2 $NAME/FUNCTION/$specialOrg.core.function`;
+        print " ¡$NAME/FUNCTION/$specialOrg.core.functin\n";
 	print "Aligning...\n";
 #	print "Stoop\n";
 #	my $stop = <STDIN>;
@@ -147,12 +148,19 @@ print "Archivo SVG generado\n\n";
 `rm lista.*`;
 `rm *.input`;
 if (-e "*.input2"){`rm *.input2`;}
+`rm *.input2`;
+`rm Core`;
+`rm *.blast`;
+`rm *.order`;
+`rm *.BLAST`;
 `rm Core`;
 `rm PrincipalHits`;
 `rm PrincipalHits.muscle`;
 `rm PrincipalHits.muscle-gb`;
 `rm PrincipalHits.muscle-gb.htm`;
+
 `rm Core0`;
+`rm *.faa`;
 `rm -r OUTSTAR`;
 `rm -r MINI`;
 
