@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 #use strict;   I cannot import variables using strict :( :( 
 use warnings;
-use globals;
+use globals2;
 
 ## Leer por subsistema Replicar el trabajo de RAST
 ## Leer por Fig (A quién pertenece ese fig) F
@@ -25,7 +25,8 @@ sub readList;
 ###################################################################
 ##################### MAin    #####################################
 ###################################################################
-my $list=listas($NUM,$LIST);  #$list stores in a string the genomes that will be used
+my $Lista=$LIST2; #Globals
+my $list=listas($NUM2,$Lista);  #$list stores in a string the genomes that will be used
 my @LISTA=split(",",$list);
 
 my $FUNCTION_PATH="$dir/$NAME/FUNCTION";
@@ -92,12 +93,12 @@ sub complement{
 
 sub listas{
 	my $NUM=shift;
-	my $LIST=shift;
+	my $LISTA=shift;
 	my $lista="";
 
-	if ($LIST){ 
+	if ($LISTA){ 
 		print "Lista de genomas deseados $LIST";
-		$lista=$LIST;
+		$lista=$LISTA;
 		}
 	else {
 		for( my $COUNT=1;$COUNT <= $NUM ;$COUNT++){

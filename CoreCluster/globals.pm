@@ -3,8 +3,8 @@ $SPECIAL_ORG="1235"; ## Reference organism having a known BGC, will be used as r
 $QUERIES="enedyene.query"; 
 #####homology search parameters
 $e="0.0000000000000000000000001"; 		#sss1E-15					# E value. Minimal for a gene to be considered a hit.
-$BITSCORE="8000"; ## Revisar el archivo .BLAST.pre para tener idea de este parámetro.
-$ClusterRadio="30"; #number of genes in the neighborhood to be analized
+$BITSCORE="2000"; ## Revisar el archivo .BLAST.pre para tener idea de este parámetro.
+$ClusterRadio="15"; #number of genes in the neighborhood to be analized
 $eCluster="0.00001"; 		#Evalue for the search of queries (from reference organism) homologies, values above this will be colored
 $eCore="0.00001"; 		#Evalue for the search of ortholog groups within the collection of BGCs	
 
@@ -25,6 +25,7 @@ $dir="/Users/FBG/Desktop/$NAME";		##The path of your directory
 
 #####for second round of analysis with selected genomes
 $LIST = ""; 					##Wich genomes would you process in case you might, otherwise left empty for whole DB search    
+#$LIST = "1235,310,318"; 					##Wich genomes would you process in case you might, otherwise left empty for whole DB search    
 #$LIST= "68,69,70,983,1013,984,985,312,328,408,411,413,414,415,484,485,491,495,516,520,529,542,546,586,780,924,928,946,986,987,988,1005,1007,1016,1243,1244,1245,1246";
 
 $NUM = `wc -l < $RAST_IDs`;

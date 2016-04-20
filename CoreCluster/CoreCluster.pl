@@ -48,6 +48,9 @@ else {
 	print "Estamos considerando que ya tiene su base de datos ProtDatabase lista para realizar blast.\n";
 }
 
+print "Pulse enter to continue\n";
+my $pause=<STDIN>;
+
 print "Buscando secuencias similares al query\n\n";
 	if ($LIST eq ""){
                 `perl 1_Context_text.pl $QUERIES 0 prots`;
@@ -67,7 +70,8 @@ print "Creando arbol de Hits del query, sin considerar los clusters\n";
 `cat *.input2> PrincipalHits`;
 
 my $NumClust= `ls *.input2|wc -l`;
-$NumClust=~s/\r//;
+chomp $NumClust;
+#$NumClust=~s/\r//;
 print "There are $NumClust organisms with similar clusters\n"; 
 print REPORTE "There are $NumClust organisms with similar clusters\n"; 
 
@@ -102,12 +106,11 @@ print "Numero lineas core ¡$boolCore!\n";
 my $INPUTS=""; ## Orgs sorted according to a tree (Will be used on the Context draw)
 my $orderFile="PrincipalHits.order";
 if ($boolCore>1){
-	print "There is a core with at $boolCore genes on this cluster\n";
+	print "There is a core with at least to genes on this cluster\n";
 	print REPORTE "There is a core composed by $boolCore orhtolog on this cluster\n";
 	print REPORTE "LAs funciones de las enzimas core en el organismo de referencia estan dadas por:\n";
-        `cut -f1,2 $NAME/FUNCTION/$specialOrg.core.function >> Report`;
-        `cut -f1,2 $NAME/FUNCTION/$specialOrg.core.function`;
-        print " ¡$NAME/FUNCTION/$specialOrg.core.functin\n";
+        `cut -f1,2 ClusterTools4/FUNCTION/$specialOrg.core.function >> Report`;
+        `cut -f1,2 ClusterTools4/FUNCTION/$specialOrg.core.function`;
 	print "Aligning...\n";
 #	print "Stoop\n";
 #	my $stop = <STDIN>;
@@ -150,19 +153,18 @@ print "Archivo SVG generado\n\n";
 if (-e "*.input2"){`rm *.input2`;}
 `rm *.input2`;
 `rm Core`;
-`rm *.blast`;
-`rm *.order`;
-`rm *.BLAST`;
-`rm Core`;
 `rm PrincipalHits`;
 `rm PrincipalHits.muscle`;
 `rm PrincipalHits.muscle-gb`;
 `rm PrincipalHits.muscle-gb.htm`;
-
+`rm *.order`;
 `rm Core0`;
-`rm *.faa`;
 `rm -r OUTSTAR`;
 `rm -r MINI`;
+`rm -r *.stockholm`;
+`rm -r *.faa`;
+`rm -r *.blast`;
+`rm -r *.txt`;
 
 
 print "Done\n";

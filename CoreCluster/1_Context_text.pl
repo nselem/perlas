@@ -1,4 +1,4 @@
-###########################################################
+#core\n";core\n";core\n";core\n";core\n";core\n";core\n";##########################################################
 ## Inputs genomes .faa .txt
 #############################################################
 #perl 1_Context_text.pl queryfile boolMakeblast type
@@ -30,7 +30,7 @@ my $list=listas($NUM,$LIST);  	# $list stores in a string the genomes that will 
 my @LISTA=split(",",$list);
 
 $eSeq=$e; 			## Evalue principal query
-$bitscore=$bitscore;		##BitScoreTreshold
+$bitscore=$BITSCORE;		##BitScoreTreshold
 
 
 ###############################################################################################################
@@ -203,16 +203,12 @@ sub ContextArray{
 			if($hit eq ""){
 				}
 			else {
-				
-				if($contig0 eq $contig){
-					print FILE2 ">$hit\n$amin\n";
-					}
+				print FILE2 ">$hit\n$amin\n";
 			      }
 			$count++;
 		}
 	}
 close FILE;
-close FILE2;
 }
 #__________________________________________________________________________________________________________________________
 sub getInfo{		## Read the txt
@@ -504,7 +500,7 @@ sub BestHits{ ##For a given query
 	my $name=shift;
 	my $refHits=shift;
 	my $refAllHits=shift;
-	#open FILETEST, ">>aver" or die "Couldn run test";
+#/	open FILETEST, ">>aver" or die "Couldn run test";
 
 	open FILE,  "$name.BLAST" or die "I can not open the input FILE $name.BLAST\n";
 	print "Creando HAsh BestHits\n";
@@ -533,12 +529,12 @@ sub BestHits{ ##For a given query
 			}
 
 		push(@{$refAllHits->{$name}{$org}},"$peg\_$percent");
-		#print FILETEST "$name-> $org-> $peg\_$percent\n ";
+#		print FILETEST "$name-> $org-> $peg\_$percent\n ";
 #		print("Peg $refHits->{$name}{$org}[1]\tOrg $org\tPercent $refHits->{$name}{$org}[0] \n");
 
 		}
 	close FILE;
-	#close FILETEST;
+#	close FILETEST;
 }
 #________________________________________________________________________________________________
 

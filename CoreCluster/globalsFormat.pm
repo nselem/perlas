@@ -11,5 +11,5 @@ $NUM2 = "";
 $NAME2=$NAME;					##Name of the group (Taxa, gender etc)
 $BLAST2="Core$NAME.blast";
 $dir2=$dir;		##The path of your directory
-$e2="0.01"; 							# E value. Minimal for a gene to be considered a hit.
+$e2=$eCore; 							# E value. Minimal for a gene to be considered a hit.
 
