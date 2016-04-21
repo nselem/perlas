@@ -7,37 +7,49 @@ use globals;
 #print "This script will help you to find a core between genomes\n";
 #print "How many genomes would you like to process?\n";
 ############################################################
-sub listas;
-sub run_blast;
-sub Star;
+
 my $specialOrg=$SPECIAL_ORG; #globals.pm
+my $nameFolder=$NAME; #globals
+my $queries=$QUERIES; #globals
+my $num=$NUM;
+my $lista=$LIST;
+my $download=$DOWNLOAD;
+my $formatDB=$FORMAT_DB;
+my $rastID=$RAST_IDs;
+my $password=$PASS;
+my $user=$USER;
+my $directorio=$dir;
 ######################################################################
+
+sub listas;
+sub create_listfaa;
+sub cleanFiles;
 ########## Main ######################################################
 
 print "\n\n ##########################################################\n";
 print "Bienvenido doctor Cruz\n";
 print "\n\n ##########################################################\n";
 
-print "Usted esta usando las herramientas: $NAME\n";
-print "Su directorio de trabajo es $dir\n";
+print "Usted esta usando las herramientas: $nameFolder\n";
+print "Su directorio de trabajo es $directorio\n";
 
 if (-e "Report"){`rm Report`;}
 open (REPORTE, ">Report") or die "Couldn't open reportfile $!";
 
-my $list=listas($NUM,$LIST);  #$list stores in a string the genomes that will be used
+my $list=listas($num,$lista);  #$list stores in a string the genomes that will be used
 my @LISTA=split(",",$list);
 
-if ($DOWNLOAD==1){
+if ($download==1){
 	print "Voy a descargar los genomas\n";
 	`mkdir GENOMES`;
-	`perl 2.Batch_RetrieveFiles.pl $RAST_IDs $PASS $USER`;
+	`perl 2.Batch_RetrieveFiles.pl $rastID $password $user`;
 	print "Genomas Descargados\n\n";
 	}
 else {
 	print "Estamos considerando que ya tiene los genomas instalados, en otro caso cambie el valor DOWNLOAD en el archivo globals.\n";
 }
 
-if ($FORMAT_DB==1){
+if ($formatDB==1){
 	print "Ahora daremos formato a la base datos\n";
 	#if (-e Concatenados.faa)´`rm Concatenados.faa`;ç
 	`perl header.pl`;
@@ -52,13 +64,13 @@ print "Pulse enter to continue\n";
 my $pause=<STDIN>;
 
 print "Buscando secuencias similares al query\n\n";
-	if ($LIST eq ""){
-                `perl 1_Context_text.pl $QUERIES 0 prots`;
+	if ($lista eq ""){
+                `perl 1_Context_text.pl $queries 0 prots`;
 		## AQUI QUE PASA CON LOS COLORES!!!!!!!!!!!!!!!!!
                 }
         else {
                 print "Buscando en base de datos reducida\n";        
-                `perl 1_Context_text.pl $QUERIES 1 prots`;
+                `perl 1_Context_text.pl $queries 1 prots`;
                }
 print "Secuencias encontradas\n\n";
 
@@ -92,7 +104,7 @@ system "quicktree -i a -o t -b 100 PrincipalHits.stockholm > PrincipalHits_TREE.
 system "nw_labels -I PrincipalHits_TREE.tre>PrincipalHits.order";
 
 print "Calculando el core de los clusters\n";
-	`perl OrthoGroups.pl`;
+	`perl 2_OrthoGroups.pl`;
 print "Core calculado\n\n";
 
 my $boolCore= `wc -l Core`;
@@ -109,8 +121,8 @@ if ($boolCore>1){
 	print "There is a core with at least to genes on this cluster\n";
 	print REPORTE "There is a core composed by $boolCore orhtolog on this cluster\n";
 	print REPORTE "LAs funciones de las enzimas core en el organismo de referencia estan dadas por:\n";
-        `cut -f1,2 ClusterTools4/FUNCTION/$specialOrg.core.function >> Report`;
-        `cut -f1,2 ClusterTools4/FUNCTION/$specialOrg.core.function`;
+        `cut -f1,2 $nameFolder/FUNCTION/$specialOrg.core.function >> Report`;
+        `cut -f1,2 $nameFolder/FUNCTION/$specialOrg.core.function`;
 	print "Aligning...\n";
 #	print "Stoop\n";
 #	my $stop = <STDIN>;
@@ -139,33 +151,14 @@ else{  ### If there is no core, then sort according to principal hits
 		print "I will draw with the single hits order\n";
 		print  REPORTE "I will draw with the single hits order\n";
 		$INPUTS=getDrawInputs($orderFile);
-I		}
-	}
+        I	}
+        }
 
 print "Generando grafica de clusters con los archivos $INPUTS : \n\n";
 	`perl 2.Draw.pl $INPUTS`;
 print "Archivo SVG generado\n\n";
 
-
-`rm *.lista`;
-`rm lista.*`;
-`rm *.input`;
-if (-e "*.input2"){`rm *.input2`;}
-`rm *.input2`;
-`rm Core`;
-`rm PrincipalHits`;
-`rm PrincipalHits.muscle`;
-`rm PrincipalHits.muscle-gb`;
-`rm PrincipalHits.muscle-gb.htm`;
-`rm *.order`;
-`rm Core0`;
-`rm -r OUTSTAR`;
-`rm -r MINI`;
-`rm -r *.stockholm`;
-`rm -r *.faa`;
-`rm -r *.blast`;
-`rm -r *.txt`;
-
+cleanFiles;
 
 print "Done\n";
 print "Que tenga usted un feliz dia\n\n";
@@ -176,6 +169,27 @@ print "Que tenga usted un feliz dia\n\n";
 ###   Sub  Rutinas (llamadas a los distintos pasos del script
 #######################################################################
 #######################################################################
+sub cleanFiles{
+        `rm *.lista`;
+        `rm lista.*`;
+        `rm *.input`;
+        if (-e "*.input2"){`rm *.input2`;}
+        `rm *.input2`;
+        `rm Core`;
+        `rm PrincipalHits`;
+        `rm PrincipalHits.muscle`;
+        `rm PrincipalHits.muscle-gb`;
+        `rm PrincipalHits.muscle-gb.htm`;
+        `rm *.order`;
+        `rm Core0`;
+        `rm -r OUTSTAR`;
+        `rm -r MINI`;
+        `rm -r *.stockholm`;
+        `rm -r *.faa`;
+        `rm -r *.blast`;
+        `rm -r *.txt`;
+        }
+#_____________________________________________________________________________________
 
 sub getDrawInputs{
 	my $file=shift;
@@ -194,6 +208,7 @@ sub getDrawInputs{
 	#pasarselo al script 2.Draw.pl
 	return $INPUTS;
 	}
+#_________________________________________________________________________
 sub listas{
 	my $NUM=shift;
 	my $LIST=shift;
@@ -273,52 +288,3 @@ sub create_listfaa{
 	close LISTAFAA;
 		
 	}
-#_____________________________________________________________________________________
-sub run_blast{
-	`perl header.pl`;
-	my $e=shift;
-	`makeblastdb -in Concatenados.faa -dbtype prot -out Database.db`;
-	`blastp -db Database.db -query Concatenados.faa -outfmt 6 -evalue $e -num_threads 4 -out $BLAST`;
-	if (-e "Concatenados.faa"){
-		print "File concatenados.faa removed\n";
-		unlink ("Concatenados.faa");
-		}
-	if (-e "Core"){
-	
-print "File Core removed\n";
-		unlink ("Core");
-		}
-	if (-e OUTSTAR ){system (rm -r OUTSTAR);}
-	system(mkdir OUTSTAR);
-	print "Se corrió el blast\n";
-	print "\nLista $list#\n";
-	print "Inicia búsqueda de listas de ortologos \n";
-
-}
-
-#_____________________________________________________________________________________
-sub Star{
-	my $NUM=shift;
-	my $lista=shift;
-	$COLS=$NUM+1;
-	$MIN=$NUM-1;
-
-	  system("cut -f2-$COLS ./OUTSTAR/Out_$lista.Ortho | sort | uniq -c |  awk '\$1>$MIN' >Core0");
-
-
-	open (CORE0,"<","Core0") or die "Could not open the file Core0:$!";
-	open (CORE,">","Core") or die "Could not open the file Core:$!";
-
-	for my $line (<CORE0>){
-		$line=~s/\s*\d*\s*//;
-		print CORE $line;
-		}
-	close CORE0;
-	close CORE;
-#	`rm Core0`;
-
-}
-
-#_____________________________________________________________________________________
-#`perl depuraANA.pl`;
-#`rm lista.$NUM`;
