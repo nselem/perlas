@@ -60,8 +60,8 @@ else {
 	print "Estamos considerando que ya tiene su base de datos ProtDatabase lista para realizar blast.\n";
 }
 
-print "Pulse enter to continue\n";
-my $pause=<STDIN>;
+#print "Pulse enter to continue\n";
+#my $pause=<STDIN>;
 
 print "Buscando secuencias similares al query\n\n";
 	if ($lista eq ""){
@@ -96,10 +96,11 @@ system "/opt/Gblocks_0.91b/Gblocks PrincipalHits.muscle -b4=5 -b5=n -b3=5";
 #converting RightNames.txt from fasta to stockholm
 
 print "Convirtiendo a formato estocolmo\n";
-system "esl-reformat --informat afa stockholm RightNamesPrincipalHits.txt >PrincipalHits.stockholm";
-#constructing a tree with quicktree with a 100 times bootstrap
+`perl converter.pl RightNamesPrincipalHits.txt `;
+#system "esl-reformat --informat afa stockholm RightNamesPrincipalHits.txt >PrincipalHits.stockholm";
 
-system "quicktree -i a -o t -b 100 PrincipalHits.stockholm > PrincipalHits_TREE.tre";
+#constructing a tree with quicktree with a 100 times bootstrap
+system "quicktree -i a -o t -b 100 RightNamesPrincipalHits.stockholm > PrincipalHits_TREE.tre";
 #system "nw_labels -I PrincipalHits_TREE.tre";
 system "nw_labels -I PrincipalHits_TREE.tre>PrincipalHits.order";
 
@@ -137,7 +138,8 @@ if ($boolCore>1){
 	`perl Rename_Ids_Star_Tree.pl`;
 
 	print "Formating matrix..\n";
-	system "esl-reformat --informat afa stockholm RightNames.txt >RightNames.stockholm";
+	`perl converter.pl RightNames.txt`;
+	#	system "esl-reformat --informat afa stockholm RightNames.txt >RightNames.stockholm";
 	print "constructing a tree with quicktree with a 100 times bootstrap";
 	system "quicktree -i a -o t -b 100 RightNames.stockholm > BGC_TREE.tre";
 	system "nw_labels -I BGC_TREE.tre>BGC_TREE.order";
