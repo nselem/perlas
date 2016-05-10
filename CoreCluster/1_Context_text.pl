@@ -99,13 +99,11 @@ for my $orgs (sort keys %{$Hits{$name}}){
 		my $peg=$Hits{$name}{$orgs}[1];
 		my $percent=$Hits{$name}{$orgs}[0];
 		#print "Org $orgs Hit $peg percent $percent\n";
-		ContextArray($orgs,$peg,$ORG,\%ORGS);
+		ContextArray($orgs,$peg,$ORG,$percent,\%ORGS,\%Hits);
 }
 
 for my $orgs(keys %ORGS){
-	if (-e "$orgs.input"){
-		}
-	else{
+	if (!(-e "$orgs.input")){
 		open FILE, ">$orgs.input" or die "Could not create input file\n";
 		print FILE "0\t0\t-\t0\t$ORGS{$orgs}\t0\t0\n";
 		close FILE;
@@ -114,6 +112,7 @@ for my $orgs(keys %ORGS){
 		close FILE2;
 		}
 }
+print "$name, $ORG $PEG\n";
 `rm Cluster*.*.*`;
 `rm Cluster*.*`;
 if($MakeDB==1){`rm temDatabase.*`;}
@@ -139,7 +138,7 @@ sub readNames{
 		$count++;
 		}
 	for my $keys (keys %query){
-		print("¿$keys?:¡$query{$keys}!\n");
+		#print("¿$keys?:¡$query{$keys}!\n");
 		}
 	close FILE;
 	return %query;
@@ -150,7 +149,9 @@ sub ContextArray{
 	my $orgs=shift;
 	my $peg=shift;
 	my $ORG=shift;
+	my $percent0=shift;
 	my $refORGS=shift;
+	my $refHits=shift;
 
 	open(FILE,">$orgs.input")or die "could not open $orgs.input file $!";
 	open(FILE3,">$orgs.input2")or die "could not open $orgs.input2 file $!";
@@ -163,7 +164,7 @@ sub ContextArray{
 	$CONTEXT[0]=[$hit0,$start0,$stop0,$dir0,$func0];
 
 	#print "hit $CONTEXT[0][0] start $CONTEXT[0][1] stop $CONTEXT[0][2] dir $CONTEXT[0][3] func $CONTEXT[0][4]\n\n";		
-	print FILE "$CONTEXT[0][1]\t$CONTEXT[0][2]\t$CONTEXT[0][3]\t1\t$refORGS->{$orgs}\t$CONTEXT[0][4]\t$CONTEXT[0][0]\t$orgs\n";
+	print FILE "$CONTEXT[0][1]\t$CONTEXT[0][2]\t$CONTEXT[0][3]\t1\t$refORGS->{$orgs}\t$CONTEXT[0][4]\t$CONTEXT[0][0]\t$percent0\n";
 
 	#my $PreOrgNam=$refORGS->{$orgs};
 	#my @PreNames=split(" ",$PreOrgNam);
@@ -189,16 +190,15 @@ sub ContextArray{
 		if($i!=$peg){
 
 			my ($hit,$start,$stop,$dir,$func,$contig,$amin)=getInfo($i,$orgs);
-			my $color;
 			if(!($hit eq "")){
 				if($contig0 eq $contig){
 					$CONTEXT[$count]=[$hit,$start,$stop,$dir,$func];
 					}
 			#setColor
-			$color=setColor($i,$orgs);			
+		        my($color,$percent)=setColor($i,$orgs);			
 	#		print "$peg, $org, $color \n";
-		
-			print FILE "$CONTEXT[$count][1]\t$CONTEXT[$count][2]\t$CONTEXT[$count][3]\t$color\t$refORGS->{$orgs}\t$CONTEXT[$count][4]\t$CONTEXT[$count][0]\n";
+			#print "$percent  $orgs  \n";
+			print FILE "$CONTEXT[$count][1]\t$CONTEXT[$count][2]\t$CONTEXT[$count][3]\t$color\t$refORGS->{$orgs}\t$CONTEXT[$count][4]\t$CONTEXT[$count][0]\t$percent\n";
 				}
 			if($hit eq ""){
 				}
@@ -241,6 +241,41 @@ sub getSeq{
 	return ($hit,$seq);
 }
 ## Hash of arrays {Hit}->[GenClose:start,stop,direction,function]
+#____________________________________________________________________________________
+
+sub getGenesContigReference{
+         my $pegRef=shift;
+         my $org=shift;
+         my $clusterSize=shift;
+         my $Grep=`grep 'peg.$pegRef\t' GENOMES/$org.txt`;
+         my @sp=split("\t",$Grep);
+         my $contigRef = $sp[0];
+         my $peg;
+         my %seqSameContig; 
+
+        (($pegRef - $ClusterSize) >= 0) ? ($peg=$pegRef-$clusterSize):($peg=0);
+	
+         while($peg<=$pegRef+$clusterSize){
+                 #$peg++;
+                 $Grep=`grep 'peg.$peg\t' GENOMES/$org.txt`;
+                 @sp=split("\t",$Grep);
+                 $contig= $sp[0];
+		#print "contig: $contig \n";
+                 if($contig and $contigRef eq $contig){
+                         #print "$sp[1] \n";
+                         $seqSameContig{$sp[1]}=$sp[12];
+			# print "$seqSameContig{$sp[1]} \n";
+                 }
+                 $peg++;
+         }
+         #print "$sp[12] \n";
+         #for my $seq (keys %seqSameContig){
+         #       print "$seq  $seqSameContig{$seq}\n";
+         #}
+         return %seqSameContig;
+ }
+
+
 #_____________________________________________________________________________________
 sub listas{
 	my $NUM=shift;
@@ -509,7 +544,7 @@ sub BestHits{ ##For a given query
 
 	while (my $line=<FILE>){
 		chomp $line;
-		print "$line\n";
+	#	print "$line\n";
 		my @sp=split("\t",$line);
 		my @sp1=split('\|',$sp[1]);
 		my @sp2=split('\.',$sp1[1]);
@@ -578,61 +613,70 @@ sub BlastColor{
 
 	my %CLUSTERcolor;
 	my $count=2;
-	my $init=1;
+	my %clusterGenes = getGenesContigReference($PEG,$ORG,$ClusterSize);
 
-	if ($PEG-$ClusterSize>0){$init=$PEG-$ClusterSize;} ##Check that neigbors are greater than cero
-
-	for ($i=$init;$i<$PEG+$ClusterSize;$i++){
-		## get peg,sequence for all the neighbours
-		my ($hit,$sequence)=getSeq($i,$ORG);
-		print(">$hit\n$sequence");
-
-		## print filesnamed Cluster_peg.query with sequence of the neighbour
-		if($sequence ne ""){
-			open(QUERY,">Cluster$i.query") or die"Could not open cluster file $i ";
-			print QUERY ">$hit\n$sequence";		
-			#print ">$hit\n$sequence";
-			close QUERY;
-			}
-	
-		## Do blast for each one
-		my $nameClust="Cluster$i";
-		MakeBlast(0,$type,$nameClust,$eClust,$DBname,0,@LISTA);
-		## Save BEst Hits in a hash
-		my %HitsClust; my %AllHitsClust; BestHits($nameClust,\%HitsClust,\%AllHitsClust);
-
-		## %CLUSTER{$peg}={peg1_org1,peg2_org2,...}
-		$refCLUSTER->{$i}=[];
-		my $color=$count;
-	
-		print "## Hits for $i on the cluster of $ORG\n";
-		for my $HIT(keys %AllHitsClust){ 
-			for my $orgs (sort keys %{$AllHitsClust{$HIT}}){
-	       			my @pegsClust=@{$AllHitsClust{$HIT}{$orgs}};
-	       			#my $peg=$AllHitsClust{$HIT}{$orgs}[1];
-				foreach my $peg_percent (@pegsClust){
-					my @sp=split("_",$peg_percent);
-					my $peg=$sp[0]; my $percent=$sp[1];
-					if(!exists $CLUSTERcolor{$peg}){
-						$CLUSTERcolor{$peg}=[];
-						}
-					#print "org $orgs PEg:$peg\n";
-					my $save=$peg."_".$orgs;
-					push(@{$refCLUSTER->{$i}},$save);
-					#push(@{$refCLUSTER->{$i}},$save);
-					if (!exists $CLUSTERcolor{$peg}[$orgs]){
-						$CLUSTERcolor{$peg}[$orgs]=[];
-						}
-					push(@{$CLUSTERcolor{$peg}[$orgs]},"$color\_$percent");
-					print "$color $percent -> ClusterColor ¡@{$CLUSTERcolor{$peg}[$orgs]}!\n";
-					#print("count #$count# color #$color#, peg #$peg#, orgs #$orgs# yo #$CLUSTERcolor{$peg}[$orgs]#\n");
-					}
-				}
-			}
-		$count++;	
-		}
-		return %CLUSTERcolor;
+	my $totalGenes = keys %clusterGenes;
+	my $genesUser = 1+$ClusterSize*2;
+	#print "total: $totalGenes users: $genesUser \n";
+	#<STDIN>;
+	if($totalGenes <  $genesUser){
+		print "Warning: Only $totalGenes were found. \n ";
 	}
+
+        for my $seq (keys %clusterGenes){
+                my $hit = $seq;
+                my $sequence = $clusterGenes{$seq};
+                $hit=~m{\.peg\.(\d+)};  
+                my $i = $1;             
+                print(">$hit\n$sequence");
+
+                ## print filesnamed Cluster_peg.query with sequence of the neighbour
+                if($sequence ne ""){
+                        open(QUERY,">Cluster$i.query") or die"Could not open cluster file $i ";
+                        print QUERY ">$hit\n$sequence";         
+                        #print ">$hit\n$sequence";
+                        close QUERY;
+                        }
+		## Do blast for each one
+                my $nameClust="Cluster$i";
+                MakeBlast(0,$type,$nameClust,$eClust,$DBname,0,@LISTA);
+		                ## Save BEst Hits in a hash
+                my %HitsClust; my %AllHitsClust; BestHits($nameClust,\%HitsClust,\%AllHitsClust);
+
+                ## %CLUSTER{$peg}={peg1_org1,peg2_org2,...}
+                $refCLUSTER->{$i}=[];
+                my $color=$count;
+
+                #print "## Hits for $i on the cluster of $ORG\n";
+                for my $HIT(keys %AllHitsClust){
+                        for my $orgs (sort keys %{$AllHitsClust{$HIT}}){
+                                my @pegsClust=@{$AllHitsClust{$HIT}{$orgs}};
+                                #my $peg=$AllHitsClust{$HIT}{$orgs}[1];
+                                foreach my $peg_percent (@pegsClust){
+                                        my @sp=split("_",$peg_percent);
+                                        my $peg=$sp[0]; my $percent=$sp[1];
+                                        if(!exists $CLUSTERcolor{$peg}){
+                                                $CLUSTERcolor{$peg}=[];
+                                                }
+                                        #print "org $orgs PEg:$peg\n";
+                                        my $save=$peg."_".$orgs;
+                                        push(@{$refCLUSTER->{$i}},$save);
+                                        #push(@{$refCLUSTER->{$i}},$save);
+                                        if (!exists $CLUSTERcolor{$peg}[$orgs]){
+                                                $CLUSTERcolor{$peg}[$orgs]=[];
+                                                }
+                                        push(@{$CLUSTERcolor{$peg}[$orgs]},"$color\_$percent");
+                                        #print "$color $percent -> ClusterColor ¡@{$CLUSTERcolor{$peg}[$orgs]}!\n";
+                                        #print("count #$count# color #$color#, peg #$peg#, orgs #$orgs# yo #$CLUSTERcolor{$peg}[$orgs]#\n");
+                                        }
+                                }
+                        }
+                $count++;      
+
+	}
+	
+	return %CLUSTERcolor;
+}
 #__________________________________________________________________________________________________
 sub setColor{
 	my $peg=shift;
@@ -659,5 +703,5 @@ sub setColor{
 			}
 		}
 	print "Color $colorF Percent $percentF\n\n";
-	return $colorF;
+	return $colorF,$percentF;
 	}
