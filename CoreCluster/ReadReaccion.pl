@@ -47,12 +47,18 @@ sub EscribeSalida {
 	my @CORE;
 	my @COMPLEMENT;
 
-	my $ReactionFile="$dir/GENOMES/$num.txt";  ## File cvs from RAST with ALL the reactions (From the spreadsheet reaction)
+	my @sp=split('_',$num);
+	my $org=$sp[0];
+	print "Numero de cluster #$num# Organismo a buscar en txt #$org# \n";
+
+	my $ReactionFile="$dir/GENOMES/$org\.txt";  ## File cvs from RAST with ALL the reactions (From the spreadsheet reaction)
 	#my $FigsFile="$dir/$num.figs"; ## File with the figs or feachures id for wich we want the function
-	my $genome_file="$dir/GENOMES/$num.faa";
+	my $genome_file="$dir/MINI/$num.faa";
 
 	my $core_file="$dir/$NAME/FASTAINTERporORG/$num.interFastatodos";
-	print"\n En lista $dir/$NAME/FASTAINTERporORG/$num.interFastatodos\n";
+	print "El core $core_file $dir/$NAME/FASTAINTERporORG/$num.interFastatodos \n";
+	print"En lista $dir/$NAME/FASTAINTERporORG/$num.interFastatodos\n";
+	print "$genome_file\n";	
 
 	my @Genome=readList($genome_file);
 	@CORE=readList($core_file);  ## Fills Querys with the querys figs  ##Cambiarlo al interFAsta todos
@@ -61,14 +67,15 @@ sub EscribeSalida {
 	#foreach my $gen (@Genome){print "$gen\n";}
 	#foreach my $gen (@CORE){print "$gen\n";}
 	#foreach my $gen (@COMPLEMENT){print "$gen\n";}
-
+	
+	print "I will work on reaction File $ReactionFile\n\n";
 	readSubsystem($ReactionFile,\%FIG);  #Stores en FIGCORE los figs del genoma
 
 	if ($Mode =~/F/){
 #		HeadF(); #Gene	#Subsystem	#Role	# 
 		my $core=1; my $complement=0;
-		mainFig($num,\%FIG,\@CORE,$core);   #escribe Salida
-		mainFig($num,\%FIG,\@COMPLEMENT,$complement);   #escribe Salida
+		mainFig($num,\%FIG,\@CORE,$core,$NAME);   #escribe Salida
+		mainFig($num,\%FIG,\@COMPLEMENT,$complement,$NAME);   #escribe Salida
 		}
 }
 ###################################################################
@@ -97,7 +104,7 @@ sub listas{
 	my $lista="";
 
 	if ($LISTA){ 
-		print "Lista de genomas deseados $LIST";
+		print "Lista de genomas deseados $LISTA";
 		$lista=$LISTA;
 		}
 	else {
@@ -122,9 +129,9 @@ sub readList{
 	foreach my $line (@Genome) {
 		chomp $line;
 		if ($line=~/>/ ){
-		$line=~s/\|\d*$//g;
+		$line=~s/\|\d*\_\d*$//g;
 		$line=~s/>//g;
-		#print("#$line#\n");
+	#	print("#$line#\n");
 			push(@LContent,$line)
 			}
 		};
@@ -156,7 +163,8 @@ sub readFigs{ # Read wich figs are given in search of function.- fills the array
 	}
 
 
-sub readSubsystem{ ## Get the full reaction and function information from the organism
+sub readSubsystem{
+		 ## Get the full reaction and function information from the organism
 	my $input=shift;
 	my $refFig=shift;
 	my @LContent;
@@ -201,6 +209,12 @@ sub readSubsystem{ ## Get the full reaction and function information from the or
 			$refFig->{$feach} = [$contig_id,$type,$location,$start,$stop,$strand,$function,$aliases,$figfam,$evidence_codes,$nucleotide_sequence,$aa_sequence]; 
 			}
 	
+			#print "Contig: $contig_id\n";				
+			#print "Cat: $Category\n";				
+			#print "Cat: $Category\n";				
+			#print "Cat: $Category\n";				
+			#print "Cat: $Category\n";				
+			#print "Cat: $Category\n";				
 			#print "Cat: $Category\n";				
 			#print "Sub: $Subcategory\n";
 			#print "Subsystem: $Subsystem\n";
@@ -217,6 +231,8 @@ sub mainFig{  ## Returns the function for each gene (Sorted by Fig number)
 	my $refFig=shift;
 	my $refQUERYS=shift;
 	my $core=shift;
+	my $NAME=shift;
+
 	my @QUERYS=@{$refQUERYS};
 
 	my @UNSORTED;
@@ -230,14 +246,14 @@ sub mainFig{  ## Returns the function for each gene (Sorted by Fig number)
 
 	#foreach my $fig (keys %$refFig){
 	foreach my $fig (@QUERYS){
-#		print ">$fig<\n";
+	#	print ">$fig<\n";
 		my $peg= $fig;
 		if ($peg=~/peg/ ){$peg=~s/.+peg.//;}
 		else{ $peg=~s/.+rna.//;	}
 
 		push(@UNSORTED,$peg);
 		$PEGS{$peg}=$fig;
-		#print "$peg, => #$PEGS{$peg}#\n";
+	#	print "$peg, => #$PEGS{$peg}#\n\n";
 		}
 
 	@SORTED = sort { $a <=> $b } @UNSORTED;

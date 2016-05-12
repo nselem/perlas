@@ -46,9 +46,16 @@ sub readSequence{
 		chomp $line;
 		 if ($line=~m/>/){
                         $Org=$line;
-                        $Org=~s/>org//;
-                   #     print "¡$Og!\n";
-                        my $name=$refNAMES->{$Org}."_org_"."$Org";
+			my $peg="";
+			if ($Org=~/org(\d*)\_(\d*)$/){
+                        	#$Org=~s/>org//;
+                        	#$Org=~s/\_\d*$//;
+				$Org=$1;
+				$peg=$2;
+                      		#$Org=~s/peg\_\d*$//;
+                        	print "Org #$Org#\n";
+				}
+                        my $name=$refNAMES->{$Org}."_peg_"."$peg"."_org_"."$Org";
                         print BAYES ">$name\n";
                         }
                 else{#  

@@ -96,15 +96,17 @@ system "/opt/Gblocks_0.91b/Gblocks PrincipalHits.muscle -b4=5 -b5=n -b3=5";
 #converting RightNames.txt from fasta to stockholm
 
 print "Convirtiendo a formato estocolmo\n";
-system "esl-reformat --informat afa stockholm RightNamesPrincipalHits.txt >PrincipalHits.stockholm";
-#constructing a tree with quicktree with a 100 times bootstrap
+#system "esl-reformat --informat afa stockholm RightNamesPrincipalHits.txt >PrincipalHits.stockholm";
+`perl converter.pl RightNamesPrincipalHits.txt `;
 
-system "quicktree -i a -o t -b 100 PrincipalHits.stockholm > PrincipalHits_TREE.tre";
+#constructing a tree with quicktree with a 100 times bootstrap
+system "quicktree -i a -o t -b 100 RightNamesPrincipalHits.stockholm > PrincipalHits_TREE.tre";
 #system "nw_labels -I PrincipalHits_TREE.tre";
 system "nw_labels -I PrincipalHits_TREE.tre>PrincipalHits.order";
-
 print "Calculando el core de los clusters\n";
 	`perl 2_OrthoGroups.pl`;
+#print "Pausa aqui";
+#my $sti=<STDIN>;
 print "Core calculado\n\n";
 
 my $boolCore= `wc -l Core`;
@@ -121,11 +123,15 @@ if ($boolCore>1){
 	print "There is a core with at least to genes on this cluster\n";
 	print REPORTE "There is a core composed by $boolCore orhtolog on this cluster\n";
 	print REPORTE "LAs funciones de las enzimas core en el organismo de referencia estan dadas por:\n";
-        `cut -f1,2 $nameFolder/FUNCTION/$specialOrg.core.function >> Report`;
-        `cut -f1,2 $nameFolder/FUNCTION/$specialOrg.core.function`;
+
+
+	## Obteniendo el cluster del organismo de refrenecia mas parecido al query
+	# Abrimos los input files de ese organismo y tomamos el de mejor score	
+	my $specialCluster=specialCluster($specialOrg);
+	print "Mejor cluster $specialCluster\n";
+        `cut -f1,2 $nameFolder/FUNCTION/$specialCluster.core.function >> Report`;
+        `cut -f1,2 $nameFolder/FUNCTION/$specialCluster.core.function`;
 	print "Aligning...\n";
-#	print "Stoop\n";
-#	my $stop = <STDIN>;
 	`perl multiAlign_gb.pl`;
 	print "Sequences were aligned\n\n";
 
@@ -133,11 +139,15 @@ if ($boolCore>1){
 	print "Creating matrix..\n";
 	`perl ChangeName.pl`;
 	`perl EliminadorLineas.pl`;
+
+	print "Aqui vamos con el renombramiento Stoop\n";
+#	my $stop = <STDIN>;
+
 	`perl Concatenador.pl`;
 	`perl Rename_Ids_Star_Tree.pl`;
 
 	print "Formating matrix..\n";
-	system "esl-reformat --informat afa stockholm RightNames.txt >RightNames.stockholm";
+	`perl converter.pl RightNames.txt`;
 	print "constructing a tree with quicktree with a 100 times bootstrap";
 	system "quicktree -i a -o t -b 100 RightNames.stockholm > BGC_TREE.tre";
 	system "nw_labels -I BGC_TREE.tre>BGC_TREE.order";
@@ -145,7 +155,7 @@ if ($boolCore>1){
 	print "I will draw with concatenated tree order\n";
 	$INPUTS=getDrawInputs($orderFile);
 	}
-else{  ### If there is no core, then sort according to principal hits
+	else{  ### If there is no core, then sort according to principal hits
 	print REPORTE "The only gen on common on every cluster is the main hit\n";
 	if (-e $orderFile){
 		print "I will draw with the single hits order\n";
@@ -166,7 +176,29 @@ cleanFiles;
 print "Done\n";
 print "Que tenga usted un feliz dia\n\n";
 
-
+sub specialCluster{
+	my $specialOrg=shift;
+	my @CLUSTERS=qx/ls $specialOrg\_*.input/;
+	my $specialCluster="";
+	my $score=0;
+	foreach my $cluster (@CLUSTERS){
+		chomp $cluster;
+		#print "I will open #$cluster#\n";
+		open (FILE, $cluster) or die "Couldn't open $cluster\n"; 
+		my $firstLine = <FILE>; 
+		chomp $firstLine;
+		close FILE;
+		#print "Primera linea $firstLine\n";
+		my @sp=split(/\t/,$firstLine);
+			#print "Score $sp[7]\n";
+			#print "6 $sp[6] 7 $sp[7]\n";
+			if ($score<=$sp[7]){
+				$specialCluster=$cluster;
+				}
+		}
+	$specialCluster=~s/\.input//;
+	return $specialCluster;
+}
 ######################################################################
 ######################################################################
 ###   Sub  Rutinas (llamadas a los distintos pasos del script
@@ -201,8 +233,8 @@ sub getDrawInputs{
 
 	foreach my $line (<NAMES>){
 		chomp $line;
-		my @spt=split("_org_",$line);
-		$INPUTS.=$spt[1]."\.input,";
+		my @spt=split(/_org_|_peg_/,$line);
+		$INPUTS.=$spt[2]."_".$spt[1]."\.input,";
 		#print "$INPUTS\n";
 		}
 		my $INPUT=chop($INPUTS);

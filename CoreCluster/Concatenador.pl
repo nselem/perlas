@@ -55,11 +55,11 @@ my $directory =  "$dir2/$infile/CONCATENADOS";
 #################################################################
 ######  Main program
 
-&GetKeys;        #######Obtiene los nombres de los organismos (org1, org2, etc) Deben ser iguales en todos los archivos
-&CreateHash;     ####### Crea un HAsh que contendra las secuencias concatenadas
-&GetFileNames;   #####Abre el directorio y obtiene el nombre de todos los archivos a concatenar
-&concatenar; 	##### Concatena en el hash las secuencias correspondientes (una por cada archivo)
-&EscribiendoSalida;  ## Escribe el hash concatenado en un archivo de salida
+@keys=GetKeys($directory);        #######Obtiene los nombres de los organismos (org1, org2, etc) Deben ser iguales en todos los archivos
+%HASH=CreateHash($verbose,@keys);     ####### Crea un HAsh que contendra las secuencias concatenadas
+@files=GetFileNames($verbose,$directory);   #####Abre el directorio y obtiene el nombre de todos los archivos a concatenar
+concatenar($verbose,$directory,\@keys,\@files,\%HASH); 	##### Concatena en el hash las secuencias correspondientes (una por cada archivo)
+EscribiendoSalida($outputfile,\@keys,\%HASH);  ## Escribe el hash concatenado en un archivo de salida
 ##################################################################
 ####################################################################
 
@@ -67,23 +67,30 @@ my $directory =  "$dir2/$infile/CONCATENADOS";
 #################Subroutines
 ########################################################################
 
-sub GetKeys{ ######## solo necesita un archivo fasta que abrir 
+sub GetKeys{ 
+######## solo necesita un archivo fasta que abrir 
 ####### Abro un archivo del Directorio para obtener los nombres del hash
 ###### Estoy suponiendo yA todos tienen exactamente los mismos genes.
-###### Si no, habría que hacer un paso previo.
+###### Si no, habría que hacer un paso previ
+	
+	my $directory=shift;
+	my @keys;
 	$OpenFile="$directory/1";
-	open(FILE1,$OpenFile); 
+	open(FILE1,$OpenFile) or die "couldn't open $OpenFile \n $!"; 
+#	print "I will open file $OpenFile \n";
 	@file0=<FILE1>; #Saving the information in an array
 	close FILE1; # Closing file
 
 ############# Guardo los nombres de los organismos en el arreglo keys
-	foreach $line (@file0) {### Recorro todas las lineas del archivo
+	foreach my $line (@file0) {### Recorro todas las lineas del archivo
 		if ($line=~m/>/) {#Reconozco las lineas que tienen el caracter >
-			chomp $line;## Recorto el salto de linea
-	    	       $key=substr($line,1);#Recorto el >
+		  	chomp $line;## Recorto el salto de linea
+	    	        my $key=substr($line,1);#Recorto el >
+#			print "key #$key#\n";
 			push (@keys,$key); # las lineas con > seran las llaves del hash  		  
 		}
 	}
+	return @keys;
 }
 #########################################################################################
 
@@ -91,12 +98,16 @@ sub GetKeys{ ######## solo necesita un archivo fasta que abrir
 ##########################################################################################
 
 sub CreateHash{  ######### Necesito lleno @keys
+	my $verbose = shift;	
+	my @keys=@_;
+	my %HASH;
 	for my $key ( @keys) { ## Recorro todas llaves del array
-		$key=">".$key; ## Para los nombres del HAsh necesito agregar el >
+		#$key=">".$key; ## Para los nombres del HAsh necesito agregar el >
 		$HASH{$key}=""; #Se inicializa el HASH que contendra los concatenados
-		if($verbose) {print "Se guardo en HASH la llave: $key con contenido: $HASH{$key}\n ";}	
+#		if($verbose) {print "Se guardo en HASH la llave: #$key# con contenido: $HASH{$key}\n ";}	
 	    }
-	print "Se creo hash de genes a concatenar\n";
+#	print "Se creo hash para almacenar genes a concatenar\n";
+	return %HASH;
 }
 #####################################################################################
 
@@ -106,18 +117,20 @@ sub CreateHash{  ######### Necesito lleno @keys
 sub GetFileNames{ ##Pondra en @files los nombres de los archivos que abriremos
 #####################################################################################
 #### Voy a abrir todos los archivos del directorio para llenar hash de concatenados
+	my $verbose=shift;
+	my $directory=shift;
+	my @files;
 
-#  my $directory = '/home/fbg/lab/nselem/RASTtemp/CONCATENADOS';
-
-     opendir (DIR, $directory) or die $!;  ### Abriendo el directorio
-		 while (my $file = readdir(DIR)) { ####leyendo todos los archivos
- if ($file=~m/^\d/&&($file=~m/^((?!pir).)*$/)){ ######## Si el nombre del archivo empieza con un dig
-push(@files,$file);	####Guarda el nombre del archivo en el arreglo @files
+     	opendir (DIR, $directory) or die "Couldnt open $directory \n $!";  ### Abriendo el directorio
+	while (my $file = readdir(DIR)) { ####leyendo todos los archivos
+ 		if ($file=~m/^\d/&&($file=~m/^((?!pir).)*$/)){ ######## Si el nombre del archivo empieza con un dig
+			push(@files,$file);	####Guarda el nombre del archivo en el arreglo @files
 			if($verbose ){	print "The File $file will be open\n";}
 			}	
 		    }
-print "Se abrio el directorio con los archivos numericos\n\n";
+#	print "Se abrio el directorio con los archivos numericos\n\n";
 	closedir DIR;
+	return @files;
 }
 ######################################################################################
 
@@ -129,13 +142,18 @@ sub concatenar{
 #######     Procedimiento	
 #######     Creo un conjunto de arrays, (uno para cada archivo) 
 #######     cada array guarda la informacion de todo su archivo y luego usaré la función join
+	my $verbose=shift;
+	my $directory=shift;
+	my $refkeys=shift;
+	my $reffiles=shift;
+	my $refHASH=shift;
 
-	foreach $fastaTotal (@files){  ## Para cada archivo con nombre numerico
+	foreach my $fastaTotal (@{$reffiles}){  ## Para cada archivo con nombre numerico
 
-               print "trabajando el archivo $fastaTotal\n";
-		$OpenFile="$directory/$fastaTotal"; #opening the file fastaTotal
-		open(FILE,$OpenFile);
-		@fasta=<FILE>; #Saving all its information in an array. Guardamos su informacion
+               # print "trabajando el archivo $fastaTotal\n";
+		my $OpenFile="$directory/$fastaTotal"; #opening the file fastaTotal
+		open(FILE,$OpenFile) or die "Couldn open $OpenFile";
+		my @fasta=<FILE>; #Saving all its information in an array. Guardamos su informacion
 		close FILE; ## Cerramos el archivo
                 
 	############3 Hago todo el archivo una sola cadena sin saltos de linea
@@ -150,37 +168,49 @@ sub concatenar{
 	#################################################################
 	
 		if($verbose){### imprimiendo las cadenas para checar que este todas
-			foreach $item (@cadenas) {print "Cadenas: $item\n";}
-			print "##########################\n";
+			foreach my $item (@cadenas) {
+			#	print "Cadenas: $item\n";
+				}
+		#	print "##########################\n";
 		}
 	######################################################################
 
-		for my $key ( @keys) { #recorro el array de las claves es decir los nombres de todos los 				
+		for my $key ( @{$refkeys}) { #recorro el array de las claves es decir los nombres de todos los 				
 		#organismos
+		 #       print "En la llave KEY:$key\n"; 
 			if($verbose){	print "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n";
 		        	print "KEY:$key\n"; 
-			}       
-			foreach $cadena (@cadenas){	# Para cada cadena
-				$number=$cadena;
-				$number=~s/([^0-9]*)//g;
-				$subcadena=">"."org"."$number";
+			}
+		#	print "Concatenando el organismo #$key#\n";       
+			foreach my $cadena (@cadenas){	# Para cada cadena
+				my $number=$cadena;
+				my $subcadena;
+
+				if($number=~/(\d*\_\d*)/){
+					$subcadena="org"."$1";
+				}
+				#$subcadena=~s/org//;
+		#		print "Key #$key# subcadena #$subcadena#\n\n";
 					
 	              		if($verbose){print"Subcadena $subcadena Key $key \n";}
 				if($subcadena eq $key){ # si corresponde realmente a su clave
-				if ($verbose){print "########## Cadena $subcadena ";
-				print "equal to Key $key ##########\n";}
+				#	if ($verbose){print "########## Cadena $subcadena ";
+		#			print "$subcadena equal to Key $key ##########\n";
+			#		}
 				
 					if($verbose){print "STRING $cadena \n" ;}
-					$secuencia=substr($cadena,length($key)-1);## Obtengo la secuencia
-					$HASH{$key}=$HASH{$key}.$secuencia;## Y la concateno al hash 
-					####     En el lugar de su clave correspondiente
+					my $secuencia=substr($cadena,length($key));## Obtengo la secuencia
+					$refHASH->{$key}=$refHASH->{$key}.$secuencia;## Y la concateno al hash 
+		#			print "key $key \nHAsh $refHASH->{$key}  \n";
+		#			####     En el lugar de su clave correspondiente
 					 ### concateno esta secuencia a las de otros archivos peviamente 						concatenados 
 					## del mismo organismo	
-					if($verbose) {print "HASH de $key es $HASH{$key}\n ";}	
+					if($verbose) {print "HASH de $key es $refHASH->{$key}\n ";}	
 				}
 			}
 
     		}
+	close FILE;
 	}
 }
 ####################################################################################################
@@ -191,17 +221,22 @@ sub EscribiendoSalida{  #######Necesita a HASH lleno
 ########## finalmente imprimo archivo de salida
 
 ###### Creo un archivo salida
-	$EscribirSalida="SalidaConcatenada.txt";
+	my $outputfile=shift;
+	my $refkeys=shift;
+	my $refHASH=shift;
+
+	my $EscribirSalida="SalidaConcatenada.txt";
 	if($outputfile){$EscribirSalida=$outputfile;}
 	open(OUTFILE,">$EscribirSalida");
 
 
-	foreach $key (@keys){ ## Para cada clave de organismo
+	foreach my $key (@{$refkeys}){ ## Para cada clave de organismo
 		#print "$key\n$HASH{$key}\n"; ###imprimo en pantalla su secuencia concatenada 
-		print OUTFILE "$key\n$HASH{$key}\n";###imprimo en archivo salida la secuencia concatenada
+		print OUTFILE ">$key\n$refHASH->{$key}\n";###imprimo en archivo salida la secuencia concatenada
+		#print "Key $key\nHAsh uf $refHASH->{$key}\n";###imprimo en archivo salida la secuencia concatenada
 		}## todo en formato fasta
 	close OUTFILE; ## Y cierro el archivo de salida
-	print"\n Se escribio archivo de salida $outputfile\n";
+	# print"\n Se escribio archivo de salida $outputfile\n";
 }
 
 ################################################################################################

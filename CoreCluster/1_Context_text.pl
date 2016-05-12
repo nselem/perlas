@@ -53,7 +53,7 @@ MakeBlast($MakeDB,$type,$name,$eSeq,$DB,$bitscore,@LISTA);
 				## Search query by blast in all the other organisms
 				## Save blast results on a $name file
 my %Hits; 			
-my $AllHits;
+my %AllHits;
 BestHits($name,\%Hits,\%AllHits);
 				## BestHits  ##Read Blast file created by MakeBlast sub whit at least $eSeq as evalue cutoff
 				## Stores best hits on Hash Hits  BBBYYYY identity
@@ -63,7 +63,9 @@ print "Checando hits\n";
 				### Read Organism Names
 my $names="RAST.IDs";
 my %ORGS=readNames($names);
+#my $PEG=$Hits{$name}{$ORG}[1];
 my $PEG=$Hits{$name}{$ORG}[1];
+
 print "$name, $ORG $PEG\n";
 				print "homologous gene search finished\n";
 
@@ -95,11 +97,16 @@ my %CLUSTERcolor=BlastColor($eClust,$DB,%CLUSTER,@LISTA);
 
 print "Now I will produce the *.input file\n";
 
-for my $orgs (sort keys %{$Hits{$name}}){
-		my $peg=$Hits{$name}{$orgs}[1];
-		my $percent=$Hits{$name}{$orgs}[0];
-		#print "Org $orgs Hit $peg percent $percent\n";
-		ContextArray($orgs,$peg,$ORG,$percent,\%ORGS,\%Hits);
+for my $orgs (sort keys %{$AllHits{$name}}){
+		foreach $hit(@{$AllHits{$name}{$orgs}}){
+			my @sp = split("\_",$hit);
+
+			my $peg=$sp[0];
+			my $percent=$sp[1];
+	#	print "Org ¡$org! Hit ¡$pe! percent $percent\n";
+		
+			ContextArray($orgs,$peg,$ORG,$percent,\%ORGS,\%AllHits);
+		}
 }
 
 for my $orgs(keys %ORGS){
@@ -153,13 +160,15 @@ sub ContextArray{
 	my $refORGS=shift;
 	my $refHits=shift;
 
-	open(FILE,">$orgs.input")or die "could not open $orgs.input file $!";
-	open(FILE3,">$orgs.input2")or die "could not open $orgs.input2 file $!";
+	print "org $orgs peg $peg \n";
+	open(FILE,">$orgs\_$peg.input")or die "could not open $orgs.input file $!";
+	open(FILE3,">$orgs\_$peg.input2")or die "could not open $orgs.input2 file $!";
 
-	open(FILE2,">MINI/$orgs.faa")or die "could not open $orgs.mini file $!";
+	open(FILE2,">MINI/$orgs\_$peg.faa")or die "could not open $orgs.mini file $!";
 
 	my @CONTEXT;
-
+#	print "Enter to continue\n";
+#	my $pause=<STDIN>;
 	my ($hit0,$start0,$stop0,$dir0,$func0,$contig0,$amin0)=getInfo($peg,$orgs);
 	$CONTEXT[0]=[$hit0,$start0,$stop0,$dir0,$func0];
 
@@ -224,7 +233,8 @@ sub getInfo{		## Read the txt
 	my $dir=$sp[6];
 	my $func=$sp[7];
 	my $amin=$sp[12];
-#	print "hit $hit start $start stop $stop dir $dir func $func\n\n";	
+	print "org �$orgs! peg ¡$peg! hit $hit start $start stop $stop dir $dir func $func\n\n";	
+	print "Grep $Grep\n";
 	return ($hit,$start,$stop,$dir,$func,$contig,$amin);
 }
 
@@ -685,19 +695,19 @@ sub setColor{
 	my $colorF=0;
 	my $percentF=0;
 	
-	print "Peg $peg, Org $orgs \n ";
+	#print "Peg $peg, Org $orgs \n ";
 	if (exists $CLUSTERcolor{$peg}[$orgs]){ ## Cualquier peg en cualquier organismo
 		print "Arreglo @{$CLUSTERcolor{$peg}[$orgs]}\n";
 		foreach $color_percent (@{$CLUSTERcolor{$peg}[$orgs]}){ ## Puede parecerse a distintos miembros del cluster indicados por los colores, el numero de color es el numero de gen en el cluster
 			my @sp=split("_",$color_percent); ## viene acompañado de su porcentaje
 			my $colorInHash=$sp[0]; 
 			my $percentInHash=$sp[1];
-			print "$color_percent Color en hash $colorInHash PErcent in Hash $percentInHash\n";
+			#print "$color_percent Color en hash $colorInHash PErcent in Hash $percentInHash\n";
 			if($percentInHash>$percentF and $colorInHash ne ""){ #Escogemos el de mejor porcentaje
-				print "$percentInHash > $percentF\n then";
+				#print "$percentInHash > $percentF\n then";
 				$colorF=$colorInHash; ##Selects the Hit y dejamos ese color
 				$percentF=$percentInHash;
-				print "color = $colorInHash:$colorF\n ";
+				#print "color = $colorInHash:$colorF\n ";
 				}
 
 			}

@@ -45,14 +45,14 @@ my @Required=Options(\$verbose,\$inputblast,\$output);
 #print "\nFinding Hits for each gene, takes some minutes, be patient!\n"; 
 &bestHit(\%BH,$inputblast);
 
-#foreach my $peg (keys %BH){
-	#print " Peg: $peg\n";
-#	foreach my $org (keys %{$BH{$peg}}){
-#		if (-exists $BH{$peg}{$org}[0] and exists $BH{$peg}{$org}[1]){
-#			#print "$org, $BH{$peg}{$org}[0], $BH{$peg}{$org}[1]\n";
-#			}		
-#		}
-#	}
+foreach my $peg (keys %BH){
+print " Peg: $peg\n";
+	foreach my $org (keys %{$BH{$peg}}){
+		if (-exists $BH{$peg}{$org}[0] and exists $BH{$peg}{$org}[1]){
+			print "Org $org, Percentage $BH{$peg}{$org}[0], Peg2 $BH{$peg}{$org}[1]\n\n";
+			}		
+		}
+	}
 
 ## 2 Find Bidirectional Best Hits
 #print "##\n BREAK 1\n #####";
@@ -104,10 +104,10 @@ sub bestHit(){
 		#print $sp[0] . "\t" . $sp[1] . "\t\t" . $sp[2] . "\n";
 
 		my $o1 = ''; ## Get organism from column A (The query)
-		if($sp[0] =~ m/\|(\d+)$/) { $o1 = $1; }
+		if($sp[0] =~ m/\|(\d+\_\d+)$/) { $o1 = $1; }
 
 		my $o2 = '';
-		if($sp[1] =~ m/\|(\d+)$/) {  
+		if($sp[1] =~ m/\|(\d+\_\d+)$/) {  
 			$o2 = $1; ## Get Organism from Column B (The hit)
 			#if($o1 eq $o2) { next; }#We dont want the same organism
 		} 
@@ -144,7 +144,7 @@ sub ListBidirectionalBestHits(){
 			my $hit=$RefBH->{$gen}{$org}[1];
 			if($hit and( exists $RefBH->{$hit})) {
 				my $oo1 = '';
-				if($gen =~ m/\|(\d+)$/) { 
+				if($gen =~ m/\|(\d+\_\d+)$/) { 
 					$oo1 = $1; 
 					}
 				if(exists $RefBH->{$hit}{$oo1}[1] and $gen eq $RefBH->{$hit}{$oo1}[1]) {
@@ -163,7 +163,7 @@ sub SelecGroup(){
 	#my $refRequired=shift;
 	for my $gen (keys %$refBBH){
 		my $oo1 = '';
-		if($gen =~ m/\|(\d+)$/) { $oo1 = $1; }
+		if($gen =~ m/\|(\d+\_\d+)$/) { $oo1 = $1; }
 		#print "$oo1\t";
 		#print " $gen: @ORGS \n"; ## Uncomment to see organism where query has Best Bidirectional Hit
 
@@ -177,7 +177,7 @@ sub SelecGroup(){
  				print OUT "$oo1\t";
 				for(my $i=0;$i<scalar  @ORGS;$i++){			
 					my $ortoi;
-					if ($ORGS[$i]==$oo1){
+					if ($ORGS[$i] eq $oo1){
 						$ortoi=$gen; ## If it does not has ortologous then it is itself
 						}
 					else{   if($ORGS[$i]~~@Required){

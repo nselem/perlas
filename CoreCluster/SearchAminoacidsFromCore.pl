@@ -1,4 +1,3 @@
-
 use Getopt::Long;
 use globals2;
 #####################################
@@ -14,33 +13,51 @@ use globals2;
 #$dir="/home/fbg/ilab/ana/RASTtk";
 
 # $dir Global variable from globals
-$infile="$NAME2";  ##Creará una carpeta asi
-$outdir="$dir2/$infile";
+my $infile="$NAME2";  ##Creará una carpeta asi
+my $outdir="$dir2/$infile";
 
-$lista="lista.$NUM2";
-$listaname="$NUM2.lista";
-$DesiredGenes="Core";
+my $lista="lista.$NUM2";
+my $listaname="$NUM2.lista";
+my $DesiredGenes="Core";
 
 #-----------------------------------------
 #system "ls FAA/*.faa >lista";
-open (LS, "$lista") or die $!;
 
-while (<LS>){
- chomp;
-  push(@lista0, $_); 
- 
-}
-close LS;
-print "Seleccionando unicos...\n";
-if (-e $outdir){system "rm -r $outdir";}
+#print "Seleccionando unicos...\n";
+if (-e $outdir){
+	system "rm -r $outdir/FASTAINTER/";
+	system "rm -r $outdir/FASTAINTERporORG/";
+	system "rm lista.ORTHOall";
+	system "rm -r $outdir";
+	}
+
 system "mkdir $outdir";
-system "rm -r $outdir/FASTAINTER/";
-system "mkdir $outdir/FASTAINTER/";
-#print "$dir/FASTA";
-system "rm -r $outdir/FASTAINTERporORG/";
 system "mkdir $outdir/FASTAINTERporORG/";
-system "rm lista.ORTHOall";
-generaFasta($dir2);#INPUT los .bbh OUTPUT=interseccion de todos en  inter.todos
+system "mkdir $outdir/FASTAINTER/";
+
+
+
+## Imprimir 
+#print "$dir/FASTA";
+#readMINI($dir2,$listaname);
+
+### Leer todos los minis
+my %MINIS=ReadFasta($dir2,$listaname);#INPUT los .bbh OUTPUT=interseccion de todos en  inter.todos
+
+foreach my $PegId(keys %MINIS){	
+#	print "$PegId\n";
+#	print "$PegId->$MINIS{$PegId}\n";
+	}
+
+
+## Hacer un hash con el id de cada gen por ortologia
+## Imprimir un fasta con esos ids ordenados por ortologos
+## Imprimir lista Ortho all
+byOrthologues($DesiredGenes,\%MINIS,$outdir);
+
+## Hacer Hash con los id de cada gen en el core por organismo
+## Imprmir Fasta con los ids ordenados por organismo (Cada organismo con todos sus genes en el core
+byOrganism($DesiredGenes,\%MINIS,$outdir);
 print "Done!\n";
 
 
@@ -49,15 +66,22 @@ print "Done!\n";
 ####################################
 
 
-sub generaFasta{
+sub ReadFasta{
 	my $dir=shift;
-	print "\n$dir/$listaname\n";
+	my $listaname=shift;
+	my %hashFastaH;
+
+	#print "\n$dir/$listaname\n";
 	open (FAA, "$dir/$listaname") or die $!;
-	print"Lista abierta";## Lista con todos los nombres de faa en el directorio
-	while($linea=<FAA>){
+#	print"Lista abiertai\n";## Lista con todos los nombres de faa en el directorio
+
+	my $headerFasta="";
+
+	while(my $linea=<FAA>){
 		chomp($linea);
+		#print "Linea fasta $linea \n";
 		######### Get file number
-		$fnumber=$linea;
+		my $fnumber=$linea;
 		$fnumber=~s/\.faa//;
 		#print($fnumber,"\n");
 		####### llena hash con encabezado-secuencia#####
@@ -67,96 +91,112 @@ sub generaFasta{
     			 if($_ =~ />/){
        				chomp;
        				$headerFasta=$_."|$fnumber";
-				$org="";
-				#print "$headerFasta\n";
+			#	print "$headerFasta\n";
      			}
      			else{
        				$_ =~ s/\*//g;
        				$hashFastaH{$headerFasta}= $hashFastaH{$headerFasta}.$_;
-				print"$headerFasta => $hashFastaH{$headerFasta}\n";
+			#	print "$headerFasta => $hashFastaH{$headerFasta}\n";
   
      			}
 		 }#end while CU
 	}#end while FAA ############# Termina de llenar has con encabezado-secuencia
 	################################################
 	close CU;
-	
-	#foreach $seq(keys %hashFastaH){
-	#print($seq,"=>",$hashFastaH{$seq});}
-	print "\n$dir/$DesiredGenes\n"; 
+	close FAA;
+	return %hashFastaH;
+}
+
+#_______________________________________________________________________
+sub byOrthologues{
+	my $DesiredGenes=shift;
+	my $refMINIS=shift;
+	my $outdir=shift;
+	#my %byOrtho;
+
 	open (ALL, "$dir/$DesiredGenes") or die $!;
-	print "\nReading: $dir/$DesiredGenes\n";
+	my $count=1;
 
-	$cuenta=0;
- 	while(<ALL>){
-  		chomp; 
-  @divAll=split("\t",$_);
-  $cuenta++;## Laslineas de interANA.todos
+ 	foreach my $linea(<ALL>){
 
-  open (FASTAINTER, ">$outdir/FASTAINTER/$cuenta.interFastatodos") or die $!;
-  print "Writing: $outdir/FASTAINTER/$cuenta.interFastatodo\n";
+		open (FASTAINTER, ">$outdir/FASTAINTER/$count.interFastatodos") or die "Couldnt open file $count interFastatodos $!";
+  #		print "Writing: $outdir/FASTAINTER/$count.interFastatodo\n";
+		open (LISTA, ">>$outdir/lista.ORTHOall") or die "Lista ortho all $!";
+		print LISTA "$count.interFastatodos \n";
 
-  open (LISTA, ">>$outdir/lista.ORTHOall") or die $!;
-	print LISTA "$cuenta.interFastatodos \n";
+		chomp $linea;
+	#	print "Orthologue $count in core\n";
+		my @sp=split (/\t/,$linea);
+		foreach my $gen (@sp){
+			$gen=">$gen";
+			#print "#$gen#\n";
+			#print "MINIS: #$refMINIS->{$gen}#\n";
+			if(exists $refMINIS->{$gen}){
+			#	print("Encontrado!\n");
+				print FASTAINTER "$gen\n$refMINIS->{$gen}";
+     				}
+     			else{
+       			#	print "NOT FOUND!!!\n*$gen\n**$refMINIS->{$gen}\n";
+     				}
+			}
+		close FASTAINTER;
+		close LISTA;
+		$count++;
+#		print "\n";
+		}
+	close ALL;
+}
 
-    foreach my $i (@divAll){
-	$name=$i;
-	#$name=~s/\|\d*$//g; #Quito el indicador de organismo
-	print "\n$name##$i\n";
-        $concat=">$name";
-	##print("Busco en hashFastaH",$concat,"\n");
-	#print"##$concat##";
-     if(exists $hashFastaH{$concat}){
-	##print("Encontrado!");
-       print FASTAINTER ">$i\n$hashFastaH{$concat}";
-     }
-     else{
-       
-       print "NOT FOUND!!!\n>*$i\n**$concat\n***$hashFastaH{$concat}\n";
-       <STDIN>;
-       
-     }
-    }#end while foreach
-    close FASTAINTER;
-     #---------acumula datos de fasta por org------------------
-  #$subindice=1;
-  foreach my $x (@divAll){
-	  $numero=$x;
-	  $numero=~s/fig\|*.*.peg.*\|//g; #Obtengo el indicador de organismo
-    	  $porPRG[$numero]=$porPRG[$numero]."\t".$x;
-	  #print"PORorganismo:\n$numero=> $porPRG[$numero]\n";
-  } 
-    
-    #-------------end fasta por org---------
- }#end while ALL
-$c=-1;
-#------------------crea fasta por og------------
-  foreach my $y (@porPRG){
-     $c++;
-     #print("\n##Organismo $c\n");	
-     #print  "#$y#\n";
-     $y =~ s/^\t//;
-     @divporOrg = split("\t", $y);
-     #print($divporOrg[0]);
-    open (FASTAINTERORG, ">$outdir/FASTAINTERporORG/$c.interFastatodos") or die $!; 
-    foreach my $i (@divporOrg){
-      $concat2=">$i";
-     if(exists $hashFastaH{$concat2}){
-       print FASTAINTERORG ">$i\n$hashFastaH{$concat2}";
-     }
-     else{
-       
-       print "NOT FOUND! por ORG!!\n>$i\n$hashFastaH{$concat2}\n";
-       <STDIN>;
-       
-     }
-    }#end while froeach
-    close FASTAINTERORG;
-     
-  }
+#_______________________________________________________________________
 
-  system "rm $outdir/FASTAINTERporORG/0.interFastatodos";
-close ALL;
-}#end sub
+sub byOrganism{
+	my $DesiredGenes=shift;
+	my $refMINIS=shift;
+	my $outdir=shift;
 
+	open (ALL, "$dir/$DesiredGenes") or die $!;
+	my %Orgs;
+	my $count=1;
+
+ 	foreach my $linea(<ALL>){ ## para cada linea en el core 
+		chomp $linea;
+		my @sp=split (/\t/,$linea);
+	#	print "Linea $count \n ";
+		$count ++;		
+		foreach my $gen (@sp){		## obtengo en orden todos sus genes
+			$gen=">$gen";
+	#		print "#$gen#\n";
+			
+			if ($gen=~/\>fig\|\d*.\d*\.peg\.\d*\|(\d*\_\d*)$/){
+	#			print "Este gen tiene organismo #$1#\n";		
+				if (!exists $Orgs{$1}){
+					$Orgs{$1}=[];
+	#				print "Organismo #$1# es un  array\n";
+					}
+			
+				push(@{$Orgs{$1}},$gen);
+				}
+	#		print "MINIS: #$refMINIS->{$gen}#\n";
+		}	
+	}
+	close ALL;
+
+	foreach my $orgNumber(keys %Orgs){
+    		open (FASTAINTERORG, ">$outdir/FASTAINTERporORG/$orgNumber.interFastatodos") or die "Couldn't open orthologues file $orgNumber $!"; 
+     		if(exists $Orgs{$orgNumber}){
+			foreach my $gen (@{$Orgs{$orgNumber}}){
+     				if(exists $MINIS{$gen}){
+ 	      				print FASTAINTERORG "$gen\n$MINIS{$gen}";
+					}
+				else{
+	#				print "NOT FOUND por ORG\n$gen\n$MINIS{$gen}\n";
+					}
+				}
+     			}
+		else{
+         #     		print "Organism $orgNumber doesn't have an array with its genes!!\n";
+			}
+  		close FASTAINTERORG;
+ 	}#end while foreach
+}
 
