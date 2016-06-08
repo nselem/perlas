@@ -4,7 +4,7 @@
 use Getopt::Long;
 use globals;
 ### LE doy una lista de pegs y los genomas
-## Y me anota las secuencias de mainoacidos en un archivo
+## Y me anota las secuencias de aminoacidos en un archivo
 
 # Lista de ids de aminoacidos
 # Buscar el archivo, 
