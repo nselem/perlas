@@ -1,10 +1,10 @@
-#Abrir la carpeta ALIGMENTS_GB
+# Abrir la carpeta ALIGMENTS_GB
 # Crear el directorio NUCLEOTIDES
 #!/usr/local/bin/perl -w
 use Getopt::Long;
 use globals;
-### LE doy unal ista de pegs y los genomas
-## Y me anota las secuencias de mainoacidos en una archivo
+### LE doy una lista de pegs y los genomas
+## Y me anota las secuencias de aminoacidos en un archivo
 
 # Lista de ids de aminoacidos
 # Buscar el archivo, 
