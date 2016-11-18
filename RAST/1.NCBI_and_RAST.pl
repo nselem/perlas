@@ -16,7 +16,6 @@ foreach my $ID (keys %ORGS){
 	$OrgName=$ORGS{$ID};
 	my $Flag=DownloadGenome($ID, $OrgName);
 	UploadGenome($ID, $OrgName,$Flag);
-	my $pause=<STDIN>;
 
 }
 #ReadID;
