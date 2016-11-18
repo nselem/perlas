@@ -8,16 +8,16 @@ sub ReadFile;
 sub ReadID;
 sub DownloadGenome;
 sub UploadGenome;
-
-
 ###############################################################
 ############		Main     ##############################
 %ORGS=ReadFile;
 foreach my $ID (keys %ORGS){
 	#print ("$id => $ORGS{$id}\n")
 	$OrgName=$ORGS{$ID};
-	DownloadGenome($ID, $OrgName);
-	UploadGenome($ID, $OrgName);
+	my $Flag=DownloadGenome($ID, $OrgName);
+	UploadGenome($ID, $OrgName,$Flag);
+	my $pause=<STDIN>;
+
 }
 #ReadID;
 
@@ -62,6 +62,9 @@ sub ReadID{
 		print("$ID is genome ID\n");
 		$Flag="GE";
 	}
+	elsif($ID=~/CP/){
+		$Flag="CP";
+		}
 	else {
 		print("Please Provide a valid ID. $ID is not valid\n");
 		}
@@ -90,13 +93,25 @@ sub DownloadGenome{
 #			print "Enter to continue\n";
 #		my $pause=<STDIN>;	
 		print "Done $ID \n\n";	
-		`gunzip index.html?download=$ID.1.fsa_nt.gz`;
-		`mv index.html?download=$ID.1.fsa_nt $file`;
+		`gunzip $ID.1.fsa_nt.gz`;
+		`mv $ID.1.fsa_nt $file`;
 		}
 	elsif($Flag eq "NU"){
 		##1.1.2 	If Nucleotide Id (Use of Entrez)
 		$base = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/';
 		$url = $base . "efetch.fcgi?db=Nucleotide&id=$ID&rettype=fasta";
+
+		$output = get($url);
+		#$output = "hello";
+		open(GENOME,'>',$file) or die "Could not open file $!";
+		print GENOME ($output);
+		close GENOME;
+		}
+	elsif($Flag="CP"){	
+		##1.1.2 	If Nucleotide Id (Use of Entrez)
+		print "Downloading ... \nefetch.fcgi?db=nuccore&id=$ID&rettype=gbwithparts\n";
+		$base = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/';
+		$url = $base . "efetch.fcgi?db=nuccore&id=$ID&rettype=gbwithparts";
 		$output = get($url);
 		#$output = "hello";
 		open(GENOME,'>',$file) or die "Could not open file $!";
@@ -106,13 +121,19 @@ sub DownloadGenome{
 	elsif($Flag eq "GI"){
 		##1.1.2 	If GI Id (Use of Entrez)
 		}
+	return $Flag;
 }
 
 ##2	Upload Genomes to RAST using SVR svr_submit_RAST_job.pl and my account
 sub UploadGenome{
 	my $ID=shift;
 	my $ORGNAME=shift;
-	`svr_submit_RAST_job -user nselem35 -passwd q8Vf6ib -fasta $ID.genome -domain Bacteria -bioname "$ORGNAME" -genetic_code 11 -gene_caller rast`;
+	my $Flag=shift;
+	print "This genome id from database $Flag\n";
+	my $type="fasta";
+	if($Flag eq "CP"){$type="genbank";}
+	print "svr_submit_RAST_job -user nselem35 -passwd q8Vf6ib -$type $ID.genome -domain Bacteria -bioname $ORGNAME -genetic_code 11 -gene_caller rast";
+	`svr_submit_RAST_job -user nselem35 -passwd q8Vf6ib -$type $ID.genome -domain Bacteria -bioname "$ORGNAME" -genetic_code 11 -gene_caller rast`;
 	`rm $ID.genome`;
 	## Remove Genome file from computer!!
 }
