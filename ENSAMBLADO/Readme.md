@@ -2,17 +2,17 @@
 
 ## I ANALISIS DE CALIDAD   
 1. Analizar la calidad en [fastqc] (http://www.bioinformatics.babraham.ac.uk/projects/fastqc/   )    
-Un archivo fasta de calidad (fastq) tiene el siguiente formato:
-@SEQ_ID                 
-GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT  
-+  
-!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65  
+Un archivo fasta de calidad (fastq) tiene el siguiente formato:  
+@SEQ_ID                   
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT    
++    
+!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65    
 
 Donde
-**Nombre: **   @SEQ_ID 
-**Secuencia**  GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT  
-**Separador**  +  
-**Calidad**    codificada en acaracteres#!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65  
+**Nombre: **   @SEQ_ID    
+**Secuencia**  GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT    
+**Separador**  +    
+**Calidad**    codificada en acaracteres#!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65   
 
 `$./fastqc file`     
 Ejemplo:  
