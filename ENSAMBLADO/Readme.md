@@ -1,8 +1,9 @@
 #Ensamblado de genomas  
 
 ## I ANALISIS DE CALIDAD   
-1. Analizar la calidad en [fastqc] (http://www.bioinformatics.babraham.ac.uk/projects/fastqc/   )
+1. Analizar la calidad en [fastqc] (http://www.bioinformatics.babraham.ac.uk/projects/fastqc/   )  
 `$./fastqc file`   
+[imagen](fastqExample.png)
 1.1 Contar el coverage   
 `fastq_count.pl`    
 
