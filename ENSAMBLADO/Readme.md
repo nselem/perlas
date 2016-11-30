@@ -5,7 +5,7 @@
 `$./fastqc file`     
 Ejemplo:  
 ![alt tag](https://github.com/nselem/perlas/blob/master/ENSAMBLADO/fastqExample.png)  
-En este caso el índice va de 0 a 36, donde 0 es el de menor calidad, en este caso la zona rosa es baja calidad, usualmente las secuencias mas largas tienen calidad dentro de la zona rosa.
+En este caso el índice va de 0 a 36, donde 0 es el de menor calidad, en este caso la zona rosa es baja calidad, usualmente las secuencias mas largas tienen calidad dentro de la zona rosa.  
 1.1 Contar el coverage   
 `fastq_count.pl`    
 
