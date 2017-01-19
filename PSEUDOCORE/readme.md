@@ -1,7 +1,8 @@
 # aqui puedes poner las instrucciones que te envie  
 cambio de linea igual a doble espacio enter   
 titulo = #  
-codigo = `hola`  
+codigo = `hola`    
+#Instrucciones Pseudocore
 1 Para obtener los BBH de todos los faa a partir del core 558PAraCORE
 Hace blast y crea el fasta
 en GENOMES deben estar 558PAraCORE y los faa y el script BBH.pl
@@ -35,7 +36,7 @@ ls *pir | while read line; do perl SortAlign.pl $line; done
 
 Concatenador debe estar en GENE
 perl Concatenador.pl
-## aqui escoger un archivo de nombres
+aqui escoger un archivo de nombres
 Rast ids esta afuera de GENOMAS a la misma altura
 cut -f2 ../../Clavi_Ene_2016.Ids | while read line; do name=$( grep $line ../../Clavi_Ene_2016.Ids| cut -f3); perl -p -i -e 's/'"$line"'/'"$name"'/' SalidaConcatenada.txt ; done
 perl -p -i -e 's/ /_/g if />/' Sa*	
