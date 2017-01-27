@@ -13,11 +13,11 @@ ls *faa | while read line; do perl BBH.pl 558ParaCORE $line; done
 
 2 Para obtener cuales estan en todos (El pseudoCore)
 590 es fijo, 38 se cambia por el numero total de faa
-for i in {1..590} ; do num=$(grep ">${i}_" *Central | wc -l| cut -f1 -d' '); if [ "38"  =  "$num"  ]; then echo "$i $num"; fi;done >PseudCore
+`for i in {1..590} ; do num=$(grep ">${i}_" *Central | wc -l| cut -f1 -d' '); if [ "38"  =  "$num"  ]; then echo "$i $num"; fi;done >PseudCore`
 
 Para poner en fasta el Pseudocore
-perl -p -i -e 's/^\n//' *Central
-perl -p -i -e 's/\n/\t/ if />/' *Central
+`perl -p -i -e 's/^\n//' *Central`  
+`perl -p -i -e 's/\n/\t/ if />/' *Central`  
 cut -f1 -d' ' PseudCore | while read line; do gen=$(grep ">$line"_ *Central | cut -d'>' -f2); echo ">$gen"> $line; done
 mkdir GENES
 mv *[0-9] GENES
