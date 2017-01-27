@@ -12,7 +12,7 @@ ls *faa | while read line; do perl BBH.pl 558ParaCORE $line; done
 
 
 2 Para obtener cuales estan en todos (El pseudoCore)
-590 es fijo, 38 se cambia por el numero total de faa
+590 es fijo, 38 se cambia por el numero total de faa  
 `for i in {1..590} ; do num=$(grep ">${i}_" *Central | wc -l| cut -f1 -d' '); if [ "38"  =  "$num"  ]; then echo "$i $num"; fi;done >PseudCore`
 
 Para poner en fasta el Pseudocore
@@ -42,3 +42,10 @@ cut -f2 ../../Clavi_Ene_2016.Ids | while read line; do name=$( grep $line ../../
 perl -p -i -e 's/ /_/g if />/' Sa*	
 
 De aui ya sigue guardar en nexus y correr en MrBayes
+
+  
+# From Begining  
+1.Download genomes with myrast  
+2.Prepare BlastFiles orthocores  
+3.MAzorca parBLAST (Leia)  
+4.orthocores or pseudocore  
