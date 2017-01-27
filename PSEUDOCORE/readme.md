@@ -48,4 +48,10 @@ De aui ya sigue guardar en nexus y correr en MrBayes
 1.Download genomes with myrast  
 2.Prepare BlastFiles orthocores  
 3.MAzorca parBLAST (Leia)  
+  `ssh leia`   
+  `cd /home/nelly/Escritorio/parBlast`  
+ ` rm Concatenados* `  
+  `scp Concatenados.faa  nelly@10.10.100.156:/home/nelly/Escritorio/parBlast` 
+  follow readme2
+ 
 4.orthocores or pseudocore  
