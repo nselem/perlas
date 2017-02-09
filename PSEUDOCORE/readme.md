@@ -7,7 +7,7 @@ codigo = `hola`
 Hace blast y crea el fasta
 en GENOMES deben estar 558PAraCORE y los faa y el script BBH.pl
  
-cd GENOMES
+`cd GENOMES`  
 `ls *faa | while read line; do perl BBH.pl 558ParaCORE $line; done`
 
 
@@ -21,7 +21,7 @@ Para poner en fasta el Pseudocore
 `cut -f1 -d' ' PseudCore | while read line; do gen=$(grep ">$line"_ *Central | cut -d'>' -f2); echo ">$gen"> $line; done`
 `mkdir GENES`  
 `mv *[0-9] GENES`  
-`cd GENES`
+`cd GENES`  
 `perl -p -i -e 's/^/>/' [0-9]*
 perl -p -i -e 's/\t/\n/' [0-9]*`
 
