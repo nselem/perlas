@@ -14,32 +14,32 @@ By default the public key is saved in a *.ssh* directory at your home directory 
 There are two ways to continue the next step (choose wisely):  
 
 ### A. The long way:
-Use **scp** to copy the the public key file to your account on the remote host:
+Use **scp** to copy the the public key file to your account on the remote host:  
 `scp ~/.ssh/id_rsa.pub user@remotemachine:`  
 You'll be prompted for your account password (type it). Your public key will be copied to your home directory (and saved with the same filename) on the remote system.  
 
 Log into the remote system using your account username and password.  
 You have to add the content of the *id_rsa.pub* file into the *authorized_keys* file.  
 
-If your account on the remote system doesn't already contain a *authorized_keys* file (or a *.shh* directory), create one; with the following commands: 
+If your account on the remote system doesn't already contain a *authorized_keys* file (or a *.shh* directory), create one; with the following commands:  
 `mkdir -p ~/.ssh`  
 `touch ~/.ssh/authorized_keys`  
 **NOTE:** Executing these commands will not damage an existing *.ssh* directory or *authorized_keys* file.  
 
-Add the contents of your public key file (*id_rsa.pub*) to a new line in your *authorized_keys* file:
+Add the contents of your public key file (*id_rsa.pub*) to a new line in your *authorized_keys* file:  
 `cat ~/id_rsa.pub >> ~/.ssh/authorized_keys`  
 
 You may now safely delete the public key file from your account on the remote system:  
 `rm ~/id_rsa.pub`
 
 ### B. The short way:
-Copy the id_rsa.pub file to the remote host and append it to ~/.ssh/authorized_keys by entering: 
+Copy the id_rsa.pub file to the remote host and append it to ~/.ssh/authorized_keys by entering:   
 `ssh-copy-id username@remotehost`  
 
 ## That's it!
-You are now able to log into your account on the remote host from the computer that has your private key.
+You are now able to log into your account on the remote host from the computer that has your private key (no password needed! :smiley:).
 
 This guide was almost entirely based on:  
-https://help.ubuntu.com/lts/serverguide/openssh-server.html
-https://kb.iu.edu/d/aews
+https://help.ubuntu.com/lts/serverguide/openssh-server.html  
+https://kb.iu.edu/d/aews  
 Check them for more information.
