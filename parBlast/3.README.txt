@@ -1,0 +1,3 @@
+# you need to create the output directory prior to use
+# you need to use explicit directories, not ~/
+./3.split_multifasta.pl --in=/home/nelly/Escritorio/parBlast/Concatenados.faa --output_dir=/home/nelly/Escritorio/parBlast/input_split_blast --seqs_per_file=4777
