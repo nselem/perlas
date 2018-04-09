@@ -820,7 +820,7 @@ $Rutas{10.1}="11101111111";$STARTS{10.1}="11101111111";
 $Rutas{10.2}="11111110111";$STARTS{10.2}="11111110111";
 $Rutas{11.1}="11111111111";$STARTS{11.1}="11111111111";
 
-my $final="9.3";
+my $final="11.1";
 my $sec="";
 Ruta($final,$sec);  ## Triunfé en la recursión
 ## Descomentar ipara imprimir todas las posibles rutas
@@ -831,9 +831,9 @@ sub Ruta{
 	$count++;
 	foreach my $key(sort keys %STARTS){
 	 ## Aui selecciono que rutas quiero
-##	if ($PROFAR{$key}>=.004){
+###	if ($PROFAR{$key}>=.004){
 ##	if ($PROFAR{$key}>=-1){
-        if ($PROFAR{$key}>=.004 and $PRA{$key}>=.0001){
+##        if ($PROFAR{$key}>=.004 and $PRA{$key}>=.0001){
 #		print "$key->¡$STARTS{$key}!\n";
 #		my $pause=<STDIN>;
 		 my @sp=split("",$STARTS{$key});
@@ -871,7 +871,7 @@ sub Ruta{
 
           		} ## end if 
     		    } ## end for
-		} ## End if PROFAR
+	###	} ## End if PROFAR
 		} ## end for
 	}## end sub
 exit;

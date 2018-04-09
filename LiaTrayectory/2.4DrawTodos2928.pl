@@ -24,16 +24,16 @@
 #En cada paso, sacar el delta, de las mutaciones, sacar promedio y desviación estandar 
 #EN las x cada mutación, y en las y promedio mas desviación estándar.
 
-my $flagPRO=1;
-my $flagPRA=1;
+my $flagPRO=0;
+my $flagPRA=0;
 
 my $file=$ARGV[0];
-my $xscale="30"; ## px scale
+my $xscale="45"; ## px scale
 my $yscale="50";
 my $xnumber=20; ## Total of x divisions
 my $w=$xscale*$xnumber; # X axis size
 my $h=$yscale*12; ## Y axis
-my $xt=10;
+my $xt=11;
 my $svg = SVG->new( width  => $w+25, height => $h, transform=>"translate(30,30)");
 Axes($xscale,$yscale,$w,$h);
 
@@ -126,7 +126,7 @@ sub CentCOORD{
               #  push(@{$refCENTERS->[10]},'10.3');
         close FILE; ##Fill the array with centers
 
- for (my $i=2;$i<10;$i++){
+ for (my $i=2;$i<12;$i++){
  #              print "MUTANTS $i\n";
                 my $isize=scalar @{$refCENTERS->[$i]};
                 my $jtranslate=1;
@@ -230,75 +230,12 @@ sub Line{
 	$x2=getX($final);
 	print "x2 new $x2\n";
 
-	#if ($refPRA->{$final}>$refPRA->{$inicio} and $refPRO->{$final}>$refPRO->{$inicio}){ ## Drawing trayectory lines
- 	#	if ($flagPRO==1 and $flagPRA==1){
-	#			$y1=$y1-5;
-	#			$y2=$y2-5;
-	#		$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-	#		style => {'stroke' => "rgb(250,150,0)",'stroke-width' =>1.5,
-	#		'stroke-opacity' => 1,}); #PRO
-	#		$count=1;
-	#		}
-	#	}
-	#else{
- 		if ($flagPRO==1){
-				$x1=$x1-10;
-				$x2=$x2-10;
-				$y1=$y1-5;
-				$y2=$y2-5;
-			if ($refPRO->{$final}>$refPRO->{$inicio}){ ## Drawing trayectory lines
-				$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-				style => {'stroke' => "rgb(250,0,0)",'stroke-width' =>1.5,
-				'stroke-opacity' => 1,}); #PRO
-				$count=1;
-				
-				}
-			else{
-				$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-				style => {'stroke' => "rgb(250,0,0)",'stroke-width' =>1.5,
-				'stroke-opacity' => .5,'stroke-dasharray'=>"5, 10" }); #PRO
-				}
+	if($flagPRA==0 and $flagPRO==0){
+			$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
+			style => {'stroke' => "rgb(0,0,0)",'stroke-width' =>1.5,
+			'stroke-opacity' => .5,}); #PRO		
 			}
-		if($flagPRA==1){
-				$x1=$x1+15;
-				$x2=$x2+15;
-				$y1=$y1+10;
-				$y2=$y2+10;
-			if ($refPRA->{$final}>$refPRA->{$inicio}){ ## Drawing trayectory lines
-				$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-				style => {'stroke' => "rgb(0,0,250)",'stroke-width' =>1.5,
-				'stroke-opacity' => 1,}); #PRO
-				$count=1;
-				}
-			else{
-				$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-				style => {'stroke' => "rgb(0,0,250)",'stroke-width' =>1.5,
-				'stroke-opacity' => .5,'stroke-dasharray'=>"5, 10",}); #PRO
-			
-				}
-			}
-	#	}
 
-	#if($flagPRA==1 and $flagPRO==1){
-	#	if ($refPRA->{$final}>$refPRA->{$inicio} and $refPRO->{$final}>$refPRO->{$inicio}){ ## Drawing trayectory lines
-	#		$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-	#		style => {'stroke' => "rgb(250,150,0)",'stroke-width' =>1.5,
-	#		'stroke-opacity' => 1,}); #PRO
-	#		$count=1;
-	#		}
-	#	else{
-	#		$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-	#		style => {'stroke' => "rgb(0,0,0)",'stroke-width' =>1.5,
-	#		'stroke-opacity' => .5,}); #PRO
-	#		}
-	#	}
-
-
-	#else{
-	#	$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-	#	style => {'stroke' => "rgb(0,0,0)",'stroke-width' =>1.5,
-	#	'stroke-opacity' => .5,}); #PRO
-	#	}
 	return $count;
 	}
 
@@ -341,11 +278,11 @@ sub whitecircles{
 	#	push(@{$CENTERS[10]},'10.3');		
 	close FILE; ##Fill the array with centers
 
-	for (my $i=1;$i<11;$i++){
+	for (my $i=1;$i<12;$i++){
 		#print "MUTANTS $i\n";
 		my $isize=scalar @{$CENTERS[$i]};
 		my $jtranslate=1;
-		foreach my $center (sort @{$CENTERS[$i]}){ ##Now drawing circles
+		foreach my $center (sort {$a<=>$b} @{$CENTERS[$i]}){ ##Now drawing circles
 		#	print "Size $isize Element $jtranslate, Row $i Center $center\n";
 			my @sp=split(/\./,$center);
 			my $y=$yscale*$sp[0];
@@ -435,7 +372,7 @@ sub Axes{
 		my $text = $svg->text('x' => 30-$xscale, 'y' => $y+7, 'text-anchor' => 'end','font-family'=>'Arial',
 		'font-variant' => 'small-caps');
 		my $coord=$y/$yscale;
-		if ($coord<10 and $coord != 0){$text->cdata("$coord");}
+		if ($coord<12 and $coord != 0){$text->cdata("$coord");}
 		$y=$y+$yscale;
 	}
 
