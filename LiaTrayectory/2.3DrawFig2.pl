@@ -5,25 +5,18 @@
 ####################################################################
 ### Creates an svg file
 ########################3
-## Figura Sólo círculos
 # create an SVG object with a size of 40x40 pixels
-#Deseos Lianet
-#LISTO: 	Quitar la 1 y la 10
-#LISTO: De solo círculos dejar todas las lineas en gris y quitar el color de actividad a todas   
-#        alas variantes
-#LISTO:  Poner identificador en el centro
-
-## Figura 2 solocírculos proFAr/PRA
-#LISTO Dejar la .004 para PROFAR
-#LISTO Para PRA no poner cutoff
-#LISTO Igualita que sólo círculos
-#Colorear aquellos pasos donde la actividad de PRA aumenta
-#Por separado Colorear solo aquellos pasos donde la actividad de PRO aumenta
-
+#
+# usage perl 2.3DrawFig2.pl RUTAS_110 
+# author nelly Selem nselem84@gmail.com
+#
+#  input Routes tab separated file
+## Output SVG SóloCírculos<parameters>
+#
 ## Figura análisis por mutaciones
 #En cada paso, sacar el delta, de las mutaciones, sacar promedio y desviación estandar 
 #EN las x cada mutación, y en las y promedio mas desviación estándar.
-
+###############################33 Inputs ########################
 my $flagPRO=1;
 my $flagPRA=1;
 
@@ -40,23 +33,15 @@ Axes($xscale,$yscale,$w,$h);
 my %PROFAR=fillPROFAR(); #-1/log(N5,10)
 my %PRA=fillPRA();#-1/log(N5,10)
 
-######## Rosa      PRA     Triptofano
-######## Amarillo  PROFAR  Histidine
-#PRIA ancestral
-#$PRA{1.1}="1.15739617";
-#$PROFAR{1.1}="0.6622894568";
-#HisA Ancestral
-#$PRA{10.3}="0";
-#$PROFAR{10.3}="0.6210739467";
+###########################################################################################
+################################################# Main ########################### 
+my @LINES=segmentos($file);     ## Fills the array LINES with conextions between mutants of all posible rutes
+				## Ejemplo 2.1_3.2 3.2_4.11 on the route 2.1 3.2 4.11
+my $SemiDarwinian=IncreasingTrayectories($file,\%PROFAR,\%PRA); ##Calculates how many trayectories are strictly non decreasing
+print "There are $SemiDarwinian semi-darwinian trayectories\n";
 
-my @LINES=segmentos($file); ## Fills the array LINES with coordinates of all posible rutes
-my $SemiDarwinian=IncreasingTrayectories($file,\%PROFAR,\%PRA);
-print "There are $SemiDarwinian trayectories\n";
-my $pause=<STDIN>;
-  ## Change names would move the figure
-
-my @CenterCOORD;
-CentCOORD(\@CenterCOORD);
+my %CenterCOORD;
+CentCOORD(\%CenterCOORD,$xscale,$xnumber,$yscale);
 
 my $count=0;
 foreach my $segment(@LINES){
@@ -64,34 +49,36 @@ foreach my $segment(@LINES){
 #	my @P0=split("_",$CenterCOORD[$Dots[0], $Dots[1]";
 	$count=$count+Line($Dots[0],$Dots[1],$xscale,$yscale,\%PROFAR,\%PRA);
 }
-print "TOTAL  $count\n";
-my @CENTERS=whitecircles($file,$xscale,$yscale,\%PROFAR,\%PRA);
+#print "TOTAL  $count\n";
 
+my @CENTERS=whitecircles(\%CenterCOORD,$file,$xscale,$yscale,\%PROFAR,\%PRA);
+
+#################### Render ###################################################3
 # now render the SVG object, implicitly use svg namespace
 my $outname="Solocirculos_$file";
 if ($flagPRO==1 and $flagPRA==0){$outname="SolocirculosPRO_$file";}
 if ($flagPRA==1 and $flagPRO==0){$outname="SolocirculosPRA_$file";}
 if ($flagPRA==1 and $flagPRO==1){$outname="SolocirculosPRA_PRO_$file";}
 
-open (OUT,">$outname");
-print OUT $svg->xmlify;
-close OUT;
-`perl -p -i -e 'if(/\<path/)\{ 
-                              s/title=\"/\>\n\<title\>/g; 
-                              if(m{\/\>\$})\{
-					    s{\" \/\>}{\<\/title\>\<\/path\>};\}\}
-                else\{
-                      if((!/^\t/) and m{\/\>})\{
-                            s{\" \/>}{<\/title><\/path>};\}\}' $outname`;
+	open(OUT,">$outname");
+	print OUT $svg->xmlify;
+	close OUT;
+	`perl -p -i -e 'if(/\<path/)\{ 
+				      s/title=\"/\>\n\<title\>/g; 
+				      if(m{\/\>\$})\{
+						    s{\" \/\>}{\<\/title\>\<\/path\>};\}\}
+			else\{
+			      if((!/^\t/) and m{\/\>})\{
+				    s{\" \/>}{<\/title><\/path>};\}\}' $outname`;
 ########################################################################
 ###################################################################
 ######################## Subs ############################3
 sub getX{
-my $point=shift;
-my $result;	
-	print "P0:$point\n";
-	my @st0=split(/\./,$point);
-	foreach my $member (@{$CenterCOORD[$st0[0]]}){
+	my $point=shift;
+	my $result;	
+		#print "P0:$point\n";
+		my @st0=split(/\./,$point);
+	foreach my $member (@{$CenterCOORD{$st0[0]}}){
 #		print "Members on Array of $st0[0] mutants:$member\n";
 		if($member =~ "$st0[0]\.$st0[1]\_"){
 		my @coor=split("_",$member);
@@ -102,54 +89,110 @@ my $result;
 	}
 	return $result;
 }
+
 #________________________________________________________________________________________-
+sub whitecircles{
+	my $refCentCOORD=shift;
+	my $file=shift;
+        my $xscale=shift;
+	my $yscale=shift;
+	my $refPROFAR=shift;
+	my $refPRA=shift;
+
+         ################# end sorting 
+	foreach my $i (sort {$a<=>$b} keys $refCentCOORD){
+		my $isize=scalar @{$refCentCOORD->{$i}};
+		my $jtranslate=1;
+		foreach my $center (@{$refCentCOORD->{$i}}){ ##Now drawing circles
+		#print "Size $isize Element $jtranslate, Row $i Center $center\n";
+		#print "MUTANTS $i isizee $isize \n";
+			my @sp=split(/_|\./,$center);
+			#print "$sp[0] , $sp[1],$sp[2]\n";
+			my $y=$yscale*$sp[0];
+			my $x=$xscale*$sp[1];
+			my $centro=$sp[0].".".$sp[1];
+			my $radioPRO=$refPROFAR->{$centro};
+			my $radioPRA=$refPRA->{$centro};
+			#print "$x $y :$radioPRO : $radioPRA\n";
+			$x=int($xscale*($jtranslate)*($xnumber)/(1+$isize))-20;
+			#print "0:$sp[0],1:$sp[1],2:$sp[2],x:$x y:$y\n";
+			#my $pause=<STDIN>;
+			$jtranslate++;
+		#	print"\n\n" ;
+			circulo($x,$y,$radioPRO,$radioPRA,$sp[0],$sp[1]);
+			}
+
+		}
+
+	return @CENTERS;
+	}
+
+#-------------------------------------------------------------------------------------------
 sub CentCOORD{
-  my $refCENTERS=shift;  ##Array of arrays
+  	my $refCENTERS=shift;  ##Array of arrays
+  	my $xscale=shift;  ##Array of arrays
+  	my $xnumber=shift;  ##Array of arrays
+  	my $yscale=shift;  ##Array of arrays
 	#$refCENTERS[4]=[4.1_xcord,4.2_xcord] 
 
- open (FILE, "$file") or die "Couldnt open route file $!";
+ 	open (FILE, "$file") or die "Couldnt open route file $!";
         foreach my $line (<FILE>){
                 chomp $line;
                 my @Trayectory=split("\t",$line);
                 for (my $i=0;$i<scalar @Trayectory;$i++){
                         my @sp=split(/\./,$Trayectory[$i]);
- #                      print "0:$sp[0],1:$sp[1],T:$Trayectory[$i]\n\n";
-			if(! -exists $refCENTERS->[$sp[0]]){$refCENTERS->[$sp[0]]=[];}
-                        if ($Trayectory[$i]~~@{$refCENTERS->[$sp[0]]}){
+ 			# print "0:$sp[0],1:$sp[1],T:$Trayectory[$i]\n\n";
+			if(! -exists $refCENTERS->{$sp[0]}){$refCENTERS->{$sp[0]}=[];}
+                        if ($Trayectory[$i]~~@{$refCENTERS->{$sp[0]}}){
                                 }
                         else{
-                                push(@{$refCENTERS->[$sp[0]]},$Trayectory[$i]);
+                                push(@{$refCENTERS->{$sp[0]}},$Trayectory[$i]);
                                 }
                         }
                 }
-             #   push(@{$refCENTERS->[1]},'1.1');
-              #  push(@{$refCENTERS->[10]},'10.3');
+             	# push(@{$refCENTERS->[1]},'1.1');
+              	# push(@{$refCENTERS->[10]},'10.3');
         close FILE; ##Fill the array with centers
 
  for (my $i=2;$i<10;$i++){
  #              print "MUTANTS $i\n";
-                my $isize=scalar @{$refCENTERS->[$i]};
+                my $isize=scalar @{$refCENTERS->{$i}};
                 my $jtranslate=1;
-		my @sortedi= sort { $a <=> $b } @{$refCENTERS->[$i]};
+		my @sorted_i;
+
+		foreach my $centro (@{$refCENTERS->{$i}}){ ## Sorting acordin to m on a.m
+			 $centro=~m/(\d*)\.(\d*)/;
+			 #print "centro $centro $1 ->$2 \n";
+			 push (@sorted_i,$2);
+			}
+	
+		my @sortedi= sort { $a <=> $b } @sorted_i;
+		foreach my $centro (@sortedi){ ## Sorting acordin to m on a.m
+			 $centro="$i".".".$centro;
+			 #print "$centro\n";
+			}
+
+		
+
                 foreach (my $j=0;$j<$isize;$j++ ){ ##Now drawing circles
 			my $center=$sortedi[$j];
- #                      print "Row $i RowSize $isize Element $j, Center $center\n";
+                       	#print "Row $i RowSize $isize Element $j, Center $center\n";
                         my @sp=split(/\./,$center);
                         my $y=$yscale*$sp[0];
                         my $x=int($xscale*($jtranslate)*($xnumber)/(1+$isize))-20;
- #                       print "$center\_$x $y \n";
-			$refCENTERS->[$i][$j]=$center."_".$x;
-#			print "$i, $jtranslate, $refCENTERS->[$i][$jtranslate-1]\n";
+ 			#  print "$center\_$x $y \n";
+			$refCENTERS->{$i}[$j]=$center."_".$x;
+		#	print "$i, $jtranslate, $refCENTERS->{$i}[$jtranslate-1]\n";
                         $jtranslate++;
  #                       print"\n\n" ;
                         }
 
                 }
 }
-
+#----------------------------------------------------------------------------------------------
 sub IncreasingTrayectories{
         my $file=shift;
-	  my $refPRO=shift;
+	my $refPRO=shift;
         my $refPRA=shift;
 
 	my $count=1;
@@ -159,7 +202,7 @@ sub IncreasingTrayectories{
 		$Trayectories[$count]=1;
                 chomp $line;
                 $line=~s/\t\t//;
-                print "$line\n";
+                #print "$line\n";
                 my @Trayectory=split("\t",$line);
                 my @Sorted=sort {$a <=> $b} @Trayectory;
                 for(my $i=1;$i<@Sorted;$i++){
@@ -181,7 +224,7 @@ sub IncreasingTrayectories{
 	
 	my $sum=0;
         for(my $i=1;$i<@Trayectories;$i++){
-		print "$i ->Trayectorie $Trayectories[$i]\n";
+	#nn	print "$i ->Trayectorie $Trayectories[$i]\n";
 		$sum=$sum+$Trayectories[$i];}
         return $sum;
         }
@@ -194,11 +237,12 @@ sub segmentos{
 	foreach my $line (<FILE>){
 		chomp $line;
 		$line=~s/\t\t//;
-		print "$line\n";
+		#print "$line\n";
 		my @Trayectory=split("\t",$line);
 		my @Sorted=sort {$a <=> $b} @Trayectory;
 		for(my $i=1;$i<@Sorted;$i++){
 			my $route=$Sorted[$i-1]."_".$Sorted[$i];
+		#	print "$route\n";
 			if ($route~~@LINES){}
 			else{
 				push(@LINES,$route);
@@ -225,22 +269,11 @@ sub Line{
 	my $y1=$yscale*$sp1[0];
 	my $x1=$xscale*$sp1[1];
 	my $count=0;
-	 $x1=getX($inicio);
-	print "x1 new $x1\n";
+	$x1=getX($inicio);
+	#print "x1 new $x1\n";
 	$x2=getX($final);
-	print "x2 new $x2\n";
+	#print "x2 new $x2\n";
 
-	#if ($refPRA->{$final}>$refPRA->{$inicio} and $refPRO->{$final}>$refPRO->{$inicio}){ ## Drawing trayectory lines
- 	#	if ($flagPRO==1 and $flagPRA==1){
-	#			$y1=$y1-5;
-	#			$y2=$y2-5;
-	#		$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-	#		style => {'stroke' => "rgb(250,150,0)",'stroke-width' =>1.5,
-	#		'stroke-opacity' => 1,}); #PRO
-	#		$count=1;
-	#		}
-	#	}
-	#else{
  		if ($flagPRO==1){
 				$x1=$x1-10;
 				$x2=$x2-10;
@@ -278,92 +311,10 @@ sub Line{
 				}
 			}
 	#	}
-
-	#if($flagPRA==1 and $flagPRO==1){
-	#	if ($refPRA->{$final}>$refPRA->{$inicio} and $refPRO->{$final}>$refPRO->{$inicio}){ ## Drawing trayectory lines
-	#		$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-	#		style => {'stroke' => "rgb(250,150,0)",'stroke-width' =>1.5,
-	#		'stroke-opacity' => 1,}); #PRO
-	#		$count=1;
-	#		}
-	#	else{
-	#		$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-	#		style => {'stroke' => "rgb(0,0,0)",'stroke-width' =>1.5,
-	#		'stroke-opacity' => .5,}); #PRO
-	#		}
-	#	}
-
-
-	#else{
-	#	$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-	#	style => {'stroke' => "rgb(0,0,0)",'stroke-width' =>1.5,
-	#	'stroke-opacity' => .5,}); #PRO
-	#	}
 	return $count;
 	}
 
 #######################################################################
-sub whitecircles{
-	my $file=shift;
-        my $xscale=shift;
-	my $yscale=shift;
-	my $refPROFAR=shift;
-	my $refPRA=shift;
-
-	my @CENTERS;
-        $CENTERS[1]=[];
-        $CENTERS[2]=[];
-        $CENTERS[3]=[];
-        $CENTERS[4]=[];
-        $CENTERS[5]=[];
-        $CENTERS[6]=[];
-        $CENTERS[7]=[];
-        $CENTERS[8]=[];
-        $CENTERS[9]=[];
-        $CENTERS[10]=[];
-        $CENTERS[11]=[];
-
-	open (FILE, "$file") or die "Couldnt open route file $!";
-	foreach my $line (<FILE>){
-		chomp $line;
-		my @Trayectory=split("\t",$line);
-		for (my $i=0;$i<scalar @Trayectory;$i++){
-			my @sp=split(/\./,$Trayectory[$i]);
-	#		print "0:$sp[0],1:$sp[1],T:$Trayectory[$i]\n\n";
-			if ($Trayectory[$i]~~@CENTERS[$sp[0]]){
-				}
-			else{
-				push(@CENTERS[$sp[0]],$Trayectory[$i]);		
-				}	
-			}
-		}
-	#	push(@{$CENTERS[1]},'1.1');		
-	#	push(@{$CENTERS[10]},'10.3');		
-	close FILE; ##Fill the array with centers
-
-	for (my $i=1;$i<11;$i++){
-		#print "MUTANTS $i\n";
-		my $isize=scalar @{$CENTERS[$i]};
-		my $jtranslate=1;
-		foreach my $center (sort @{$CENTERS[$i]}){ ##Now drawing circles
-		#	print "Size $isize Element $jtranslate, Row $i Center $center\n";
-			my @sp=split(/\./,$center);
-			my $y=$yscale*$sp[0];
-			my $x=$xscale*$sp[1];
-			my $radioPRO=$refPROFAR->{$center};
-			my $radioPRA=$refPRA->{$center};
-			#print "$x $y :$radioPRO : $radioPRA\n";
-			$x=int($xscale*($jtranslate)*($xnumber)/(1+$isize))-20;
-		#	print "$x $y :$radioPRO : $radioPRA\n";
-			$jtranslate++;
-		#	print"\n\n" ;
-			circulo($x,$y,$radioPRO,$radioPRA,$sp[0],$sp[1]);
-			}
-
-		}
-
-	return @CENTERS;
-	}
 
 
 #_________________________________________________________________________
@@ -381,32 +332,22 @@ sub circulo{
 #print "$x:$y:$radioPRO:$radioPRA\n";
 	my $radioPRA_s=$radioPRA;
 
-$svg->circle(  cx => $x,    cy => $y,    r  => 20, style => {'stroke'=> 'gray','fill'=>"white",'stroke-width' =>1,
+$svg->circle(  cx => $x, cy => $y,  r  => 20, style => {'stroke'=> 'gray','fill'=>"white",'stroke-width' =>1,
 				'stroke-opacity' => 1,'fill-opacity'=> 1},); #orilla circulo
 
 if ($variant>9){
-$svg->text( x  => $x-12, y  => $y+5, 'font-size'=>"14",'font-family'=>'Arial')->cdata("$mut.$variant"); 
+$svg->text( x  => $x-15, y  => $y+5, 'font-size'=>"14",'font-family'=>'Arial')->cdata("$mut\_$variant"); 
 }
 else{ ## if only ne digit for variant I move a little to center on x coordinate
-$svg->text( x  => $x-10, y  => $y+5, 'font-size'=>"14",'font-family'=>'Arial')->cdata("$mut.$variant"); 
+$svg->text( x  => $x-12, y  => $y+5, 'font-size'=>"14",'font-family'=>'Arial')->cdata("$mut\_$variant"); 
 }
-####### activity circles
-
-#$svg->circle(  cx => $x,    cy => $y,    r  => $radioPRO, style =>{'fill'=> "rgb(150,0,250)",'stroke' => 'black','stroke-width' =>0,'stroke-opacity' => 1,'fill-opacity'=> 0.5,}); #PRO
-
 # Then we use that data structure to create a polygon
 ## M move to
 my $xi=$x-$radioPROs;
 my $xf=$x+$radioPROs;
-##                 xi yi   cx           cy      rx ry dir
-#$svg->path(  d=>"M$xi $y A $radioPROs $radioPROs, 0, 0, 1, $xf $y L $xf $y Z",title=>"$mut.$variant ProFAR $radioPRO",style => {'fill'=> "rgb(150,0,250)",'stroke' => 'black','stroke-width' =>0,'stroke-opacity' => 1,'fill-opacity'=> .3,},);
-
-#$svg->circle(  cx => $x,    cy => $y,    r  => $radioPRA, style => {'fill'=> "rgb(250,0,0)",'stroke' => 'white','stroke-width' =>0,'stroke-opacity' => 1,'fill-opacity'=> 0.5,},); #PRA
 
 $xi=$x-$radioPRAs;
 $xf=$x+$radioPRAs;
-##                 xi yi   cx           cy      rx ry dir
-#$svg->path(  d=>"M$xi $y A $radioPRAs $radioPRAs, 0, 0, 0, $xf $y L $xf $y Z",title=>"$mut.$variant PRA$radioPRA",style => {'fill'=> "rgb(250,0,0)",'stroke' => 'white','stroke-width' =>0,'stroke-opacity' => 1,'fill-opacity'=> .5,},);
 
  	}
 
@@ -419,15 +360,6 @@ sub Axes{
 	#Axes
 	my $x=0;
 	my $y=0;
-#	while ($x<=$w-$xscale){
-#		$svg->line(x1 => $x, y1 => $h-$yscale, x2 => $x, y2 => $h-$yscale-10, 'stroke' => 'blue');
-#		 ## X axis
-#		my $text = $svg->text('x' => $x+7, 'y' => $h-$yscale+15, 'text-anchor' => 'end',
-#			'font-variant' => 'small-caps');
-#		my $coord=$x/$xscale;
-#		$text->cdata("$coord");
-#		$x=$x+$xscale;
-#		}
 
 	while ($y<=$h-$yscale){
 		$svg->line(x1 => 10-$xscale, y1 => $y, x2 => 15-$xscale, y2 =>$y, 'stroke' => 'black'); ## Y axis

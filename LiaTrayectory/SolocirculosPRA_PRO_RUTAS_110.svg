@@ -7,13 +7,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="600"
-   transform="translate(30,30)"
+   height="650"
    width="625"
-   id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="SolocirculosPRA_PRO_RUTAS_110.svg">
+   id="svg400"
+   sodipodi:docname="SolocirculosPRA_PRO_RUTAS_110.svg"
+   inkscape:version="0.92.3 (3ce5693, 2018-03-11)">
   <metadata
      id="metadata406">
     <rdf:RDF>
@@ -22,7 +21,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -37,1471 +36,1350 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1738"
-     inkscape:window-height="1028"
+     inkscape:window-width="1301"
+     inkscape:window-height="744"
      id="namedview402"
      showgrid="false"
      inkscape:zoom="1.1125147"
-     inkscape:cx="129.28922"
-     inkscape:cy="356.11288"
-     inkscape:window-x="75"
+     inkscape:cx="248.2595"
+     inkscape:cy="351.62297"
+     inkscape:window-x="65"
      inkscape:window-y="24"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg2" />
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="0"
-     y2="0"
-     id="line4" />
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg400" />
   <text
-     font-family="Arial"
      font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="7"
-     id="text6" />
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="50"
-     y2="50"
-     id="line8" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
      x="0"
      y="57"
-     id="text10">1</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="100"
-     y2="100"
-     id="line12" />
+     id="text4"
+     style="font-variant:small-caps;font-family:Arial;text-anchor:end" />
   <text
-     font-family="Arial"
      font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="107"
-     id="text14">2</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="150"
-     y2="150"
-     id="line16" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="157"
-     id="text18">3</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="200"
-     y2="200"
-     id="line20" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="207"
-     id="text22">4</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="250"
-     y2="250"
-     id="line24" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="257"
-     id="text26">5</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="300"
-     y2="300"
-     id="line28" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="307"
-     id="text30">6</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="350"
-     y2="350"
-     id="line32" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="357"
-     id="text34">7</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="400"
-     y2="400"
-     id="line36" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="407"
-     id="text38">8</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="450"
-     y2="450"
-     id="line40" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="457"
-     id="text42">9</text>
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="500"
-     y2="500"
-     id="line44" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
-     x="0"
-     y="507"
-     id="text46" />
-  <line
-     stroke="black"
-     x1="-20"
-     x2="-15"
-     y1="550"
-     y2="550"
-     id="line48" />
-  <text
-     font-family="Arial"
-     font-variant="small-caps"
-     text-anchor="end"
      x="0"
      y="557"
-     id="text50" />
+     id="text44"
+     style="font-variant:small-caps;font-family:Arial;text-anchor:end" />
+  <text
+     font-variant="small-caps"
+     x="0"
+     y="607"
+     id="text48"
+     style="font-variant:small-caps;font-family:Arial;text-anchor:end" />
   <line
-     stroke="black"
-     x1="-20"
-     x2="-20"
-     y1="0"
-     y2="550"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="90"
+     x2="90"
+     y1="145"
+     y2="195"
      id="line52" />
   <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
-     x1="96"
-     x2="96"
-     y1="95"
-     y2="145"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="105"
+     x2="105"
+     y1="155"
+     y2="205"
      id="line54" />
   <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="101"
-     x2="101"
-     y1="105"
-     y2="155"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="90"
+     x2="45"
+     y1="195"
+     y2="245"
      id="line56" />
   <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="90"
-     x2="45"
-     y1="151"
-     y2="201"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="105"
+     x2="60"
+     y1="205"
+     y2="255"
      id="line58" />
   <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="105"
-     x2="60"
-     y1="147"
-     y2="197"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="45"
+     x2="36"
+     y1="245"
+     y2="295"
      id="line60" />
   <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
-     x1="49"
-     x2="40"
-     y1="195"
-     y2="245"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="60"
+     x2="51"
+     y1="255"
+     y2="305"
      id="line62" />
   <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="52"
-     x2="43"
-     y1="207"
-     y2="257"
-     id="line64" />
-  <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="32"
-     x2="86"
-     y1="249"
-     y2="299"
-     id="line66" />
-  <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="37"
-     x2="91"
-     y1="245"
-     y2="295"
-     id="line68" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="90"
-     x2="270"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="36"
+     x2="90"
      y1="295"
      y2="345"
-     id="line70" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="105"
-     x2="285"
-     y1="305"
-     y2="355"
-     id="line72" />
-  <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="280"
-     x2="280"
-     y1="343"
-     y2="393"
-     id="line74" />
+     id="line64" />
   <line
      style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="283"
-     x2="283"
-     y1="355"
-     y2="405"
-     id="line76" />
+     x1="49"
+     x2="103"
+     y1="301"
+     y2="351"
+     id="line66" />
   <line
      style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
-     x1="278"
-     x2="278"
+     x1="90"
+     x2="270"
+     y1="345"
+     y2="395"
+     id="line68" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="105"
+     x2="285"
+     y1="355"
+     y2="405"
+     id="line70" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="270"
+     x2="270"
      y1="395"
      y2="445"
-     id="line78" />
+     id="line72" />
   <line
      style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="281"
-     x2="281"
+     x1="285"
+     x2="285"
      y1="405"
      y2="455"
-     id="line80" />
+     id="line74" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="270"
+     x2="270"
+     y1="445"
+     y2="495"
+     id="line76" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="285"
+     x2="285"
+     y1="455"
+     y2="505"
+     id="line78" />
   <line
      style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
      x1="210"
      x2="90"
-     y1="101"
-     y2="151"
-     id="line82" />
+     y1="145"
+     y2="195"
+     id="line80" />
   <line
      style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
      x1="225"
      x2="105"
-     y1="101"
-     y2="151"
-     id="line84" />
+     y1="145"
+     y2="195"
+     id="line82" />
   <line
      style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
-     x1="218"
-     x2="218"
-     y1="95"
-     y2="145"
-     id="line86" />
+     x1="210"
+     x2="210"
+     y1="145"
+     y2="195"
+     id="line84" />
   <line
      style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="223"
-     x2="223"
-     y1="105"
-     y2="155"
-     id="line88" />
+     x1="225"
+     x2="225"
+     y1="155"
+     y2="205"
+     id="line86" />
   <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
      x1="210"
      x2="45"
-     y1="149"
-     y2="199"
-     id="line90" />
+     y1="195"
+     y2="245"
+     id="line88" />
   <line
      style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
      x1="225"
      x2="60"
-     y1="149"
-     y2="199"
+     y1="205"
+     y2="255"
+     id="line90" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="450"
+     x2="210"
+     y1="145"
+     y2="195"
      id="line92" />
   <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="450"
-     x2="210"
-     y1="103"
-     y2="153"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="465"
+     x2="225"
+     y1="155"
+     y2="205"
      id="line94" />
   <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="465"
-     x2="225"
-     y1="105"
-     y2="155"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="90"
+     x2="120"
+     y1="195"
+     y2="245"
      id="line96" />
   <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="90"
-     x2="270"
-     y1="145"
-     y2="195"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="105"
+     x2="135"
+     y1="205"
+     y2="255"
      id="line98" />
   <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="105"
-     x2="285"
-     y1="153"
-     y2="203"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="120"
+     x2="36"
+     y1="245"
+     y2="295"
      id="line100" />
   <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="270"
-     x2="36"
-     y1="195"
-     y2="245"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="135"
+     x2="51"
+     y1="255"
+     y2="305"
      id="line102" />
   <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="285"
-     x2="51"
-     y1="205"
-     y2="255"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="210"
+     x2="495"
+     y1="195"
+     y2="245"
      id="line104" />
   <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="210"
-     x2="195"
-     y1="145"
-     y2="195"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="225"
+     x2="510"
+     y1="205"
+     y2="255"
      id="line106" />
   <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="225"
-     x2="210"
-     y1="155"
-     y2="205"
-     id="line108" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="195"
-     x2="103"
-     y1="195"
-     y2="245"
-     id="line110" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="210"
-     x2="118"
-     y1="205"
-     y2="255"
-     id="line112" />
-  <line
      style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
-     x1="109"
-     x2="96"
-     y1="245"
-     y2="295"
-     id="line114" />
-  <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="112"
-     x2="99"
-     y1="255"
-     y2="305"
-     id="line116" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="210"
-     x2="450"
-     y1="95"
-     y2="145"
-     id="line118" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="225"
-     x2="465"
-     y1="105"
-     y2="155"
-     id="line120" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="450"
-     x2="195"
-     y1="145"
-     y2="195"
-     id="line122" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="465"
-     x2="210"
-     y1="155"
-     y2="205"
-     id="line124" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="330"
-     x2="450"
-     y1="95"
-     y2="145"
-     id="line126" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="345"
-     x2="465"
-     y1="105"
-     y2="155"
-     id="line128" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="45"
-     x2="303"
-     y1="195"
-     y2="245"
-     id="line130" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="60"
-     x2="318"
-     y1="205"
-     y2="255"
-     id="line132" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="303"
-     x2="90"
-     y1="245"
-     y2="295"
-     id="line134" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="318"
-     x2="105"
-     y1="255"
-     y2="305"
-     id="line136" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="195"
-     x2="303"
-     y1="195"
-     y2="245"
-     id="line138" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="210"
-     x2="318"
-     y1="205"
-     y2="255"
-     id="line140" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="90"
-     x2="345"
-     y1="145"
-     y2="195"
-     id="line142" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="105"
-     x2="360"
-     y1="155"
-     y2="205"
-     id="line144" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="345"
-     x2="303"
-     y1="195"
-     y2="245"
-     id="line146" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="360"
-     x2="318"
-     y1="205"
-     y2="255"
-     id="line148" />
-  <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="90"
-     x2="330"
-     y1="95"
-     y2="145"
-     id="line150" />
-  <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
-     x1="107"
-     x2="347"
-     y1="105"
-     y2="155"
-     id="line152" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="330"
-     x2="345"
-     y1="145"
-     y2="195"
-     id="line154" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="345"
-     x2="360"
-     y1="155"
-     y2="205"
-     id="line156" />
-  <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="338"
-     x2="338"
-     y1="93"
-     y2="143"
-     id="line158" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="345"
-     x2="345"
-     y1="105"
-     y2="155"
-     id="line160" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="450"
-     x2="345"
-     y1="145"
-     y2="195"
-     id="line162" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="465"
-     x2="360"
-     y1="155"
-     y2="205"
-     id="line164" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="270"
-     x2="370"
-     y1="195"
-     y2="245"
-     id="line166" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="285"
-     x2="385"
-     y1="205"
-     y2="255"
-     id="line168" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="370"
-     x2="90"
-     y1="245"
-     y2="295"
-     id="line170" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="385"
-     x2="105"
-     y1="255"
-     y2="305"
-     id="line172" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="345"
-     x2="370"
-     y1="195"
-     y2="245"
-     id="line174" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="360"
-     x2="385"
-     y1="205"
-     y2="255"
-     id="line176" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="330"
-     x2="495"
-     y1="145"
-     y2="195"
-     id="line178" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="345"
-     x2="510"
-     y1="155"
-     y2="205"
-     id="line180" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
      x1="495"
      x2="370"
-     y1="195"
-     y2="245"
-     id="line182" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="510"
-     x2="385"
-     y1="205"
-     y2="255"
-     id="line184" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="270"
-     x2="170"
-     y1="195"
-     y2="245"
-     id="line186" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="285"
-     x2="185"
-     y1="205"
-     y2="255"
-     id="line188" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="170"
-     x2="210"
      y1="245"
      y2="295"
-     id="line190" />
+     id="line108" />
   <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="185"
-     x2="225"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="510"
+     x2="385"
      y1="255"
      y2="305"
-     id="line192" />
+     id="line110" />
   <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="210"
-     x2="270"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="370"
+     x2="90"
      y1="295"
      y2="345"
-     id="line194" />
+     id="line112" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="385"
+     x2="105"
+     y1="305"
+     y2="355"
+     id="line114" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="210"
+     x2="450"
+     y1="145"
+     y2="195"
+     id="line116" />
   <line
      style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
      x1="225"
-     x2="285"
-     y1="303"
-     y2="353"
-     id="line196" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="90"
-     x2="420"
-     y1="145"
-     y2="195"
-     id="line198" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="105"
-     x2="435"
-     y1="155"
-     y2="205"
-     id="line200" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="420"
-     x2="170"
-     y1="195"
-     y2="245"
-     id="line202" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="435"
-     x2="185"
-     y1="205"
-     y2="255"
-     id="line204" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="370"
-     x2="210"
-     y1="245"
-     y2="295"
-     id="line206" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="385"
-     x2="225"
-     y1="255"
-     y2="305"
-     id="line208" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="450"
-     x2="120"
-     y1="145"
-     y2="195"
-     id="line210" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="465"
-     x2="135"
-     y1="155"
-     y2="205"
-     id="line212" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="120"
-     x2="503"
-     y1="195"
-     y2="245"
-     id="line214" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="135"
-     x2="518"
-     y1="205"
-     y2="255"
-     id="line216" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="503"
-     x2="210"
-     y1="245"
-     y2="295"
-     id="line218" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="518"
-     x2="225"
-     y1="255"
-     y2="305"
-     id="line220" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="345"
-     x2="503"
-     y1="195"
-     y2="245"
-     id="line222" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="360"
-     x2="518"
-     y1="205"
-     y2="255"
-     id="line224" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="420"
-     x2="503"
-     y1="195"
-     y2="245"
-     id="line226" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="435"
-     x2="518"
-     y1="205"
-     y2="255"
-     id="line228" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="120"
-     x2="236"
-     y1="195"
-     y2="245"
-     id="line230" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="135"
-     x2="251"
-     y1="205"
-     y2="255"
-     id="line232" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="236"
-     x2="330"
-     y1="245"
-     y2="295"
-     id="line234" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="251"
-     x2="345"
-     y1="255"
-     y2="305"
-     id="line236" />
-  <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="330"
-     x2="270"
-     y1="303"
-     y2="353"
-     id="line238" />
-  <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="345"
-     x2="285"
-     y1="299"
-     y2="349"
-     id="line240" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="195"
-     x2="236"
-     y1="195"
-     y2="245"
-     id="line242" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="210"
-     x2="251"
-     y1="205"
-     y2="255"
-     id="line244" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="303"
-     x2="330"
-     y1="245"
-     y2="295"
-     id="line246" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="318"
-     x2="345"
-     y1="255"
-     y2="305"
-     id="line248" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="45"
-     x2="436"
-     y1="195"
-     y2="245"
-     id="line250" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="60"
-     x2="451"
-     y1="205"
-     y2="255"
-     id="line252" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="436"
-     x2="330"
-     y1="245"
-     y2="295"
-     id="line254" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="451"
-     x2="345"
-     y1="255"
-     y2="305"
-     id="line256" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="420"
-     x2="436"
-     y1="195"
-     y2="245"
-     id="line258" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="435"
-     x2="451"
-     y1="205"
-     y2="255"
-     id="line260" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="503"
-     x2="330"
-     y1="245"
-     y2="295"
-     id="line262" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="518"
-     x2="345"
-     y1="255"
-     y2="305"
-     id="line264" />
-  <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="36"
-     x2="450"
-     y1="245"
-     y2="295"
-     id="line266" />
-  <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="51"
      x2="465"
+     y1="155"
+     y2="205"
+     id="line118" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="450"
+     x2="495"
+     y1="195"
+     y2="245"
+     id="line120" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="465"
+     x2="510"
+     y1="205"
+     y2="255"
+     id="line122" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="330"
+     x2="450"
+     y1="145"
+     y2="195"
+     id="line124" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="345"
+     x2="465"
+     y1="155"
+     y2="205"
+     id="line126" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="45"
+     x2="103"
+     y1="245"
+     y2="295"
+     id="line128" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="60"
+     x2="118"
      y1="255"
      y2="305"
-     id="line268" />
+     id="line130" />
   <line
-     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:0.5;stroke-dasharray:5, 10"
-     x1="450"
-     x2="270"
-     y1="303"
-     y2="353"
-     id="line270" />
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="103"
+     x2="90"
+     y1="295"
+     y2="345"
+     id="line132" />
   <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
-     x1="465"
-     x2="285"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="118"
+     x2="105"
      y1="305"
      y2="355"
-     id="line272" />
+     id="line134" />
   <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
-     x1="170"
-     x2="450"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="495"
+     x2="103"
      y1="245"
      y2="295"
-     id="line274" />
+     id="line136" />
   <line
-     style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5"
-     x1="185"
-     x2="465"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="510"
+     x2="118"
      y1="255"
      y2="305"
-     id="line276" />
+     id="line138" />
   <line
-     style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5"
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="90"
+     x2="195"
+     y1="195"
+     y2="245"
+     id="line140" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="105"
+     x2="210"
+     y1="205"
+     y2="255"
+     id="line142" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="195"
+     x2="103"
+     y1="245"
+     y2="295"
+     id="line144" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="210"
+     x2="118"
+     y1="255"
+     y2="305"
+     id="line146" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="90"
+     x2="330"
+     y1="145"
+     y2="195"
+     id="line148" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="105"
+     x2="345"
+     y1="155"
+     y2="205"
+     id="line150" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="330"
+     x2="195"
+     y1="195"
+     y2="245"
+     id="line152" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="345"
+     x2="210"
+     y1="205"
+     y2="255"
+     id="line154" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="330"
+     x2="330"
+     y1="145"
+     y2="195"
+     id="line156" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="345"
+     x2="345"
+     y1="155"
+     y2="205"
+     id="line158" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="450"
+     x2="195"
+     y1="195"
+     y2="245"
+     id="line160" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="465"
+     x2="210"
+     y1="205"
+     y2="255"
+     id="line162" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="120"
+     x2="170"
+     y1="245"
+     y2="295"
+     id="line164" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="135"
+     x2="185"
+     y1="255"
+     y2="305"
+     id="line166" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="170"
+     x2="90"
+     y1="295"
+     y2="345"
+     id="line168" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="185"
+     x2="105"
+     y1="305"
+     y2="355"
+     id="line170" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="195"
+     x2="170"
+     y1="245"
+     y2="295"
+     id="line172" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="210"
+     x2="185"
+     y1="255"
+     y2="305"
+     id="line174" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="330"
+     x2="345"
+     y1="195"
+     y2="245"
+     id="line176" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="345"
+     x2="360"
+     y1="205"
+     y2="255"
+     id="line178" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="345"
+     x2="170"
+     y1="245"
+     y2="295"
+     id="line180" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="360"
+     x2="185"
+     y1="255"
+     y2="305"
+     id="line182" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="120"
+     x2="436"
+     y1="245"
+     y2="295"
+     id="line184" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="135"
+     x2="451"
+     y1="255"
+     y2="305"
+     id="line186" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
      x1="436"
      x2="450"
-     y1="245"
-     y2="295"
-     id="line278" />
+     y1="295"
+     y2="345"
+     id="line188" />
   <line
-     style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5"
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
      x1="451"
      x2="465"
+     y1="305"
+     y2="355"
+     id="line190" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="450"
+     x2="270"
+     y1="349"
+     y2="399"
+     id="line192" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="465"
+     x2="285"
+     y1="351"
+     y2="401"
+     id="line194" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="90"
+     x2="270"
+     y1="195"
+     y2="245"
+     id="line196" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="105"
+     x2="285"
+     y1="205"
+     y2="255"
+     id="line198" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="270"
+     x2="436"
+     y1="245"
+     y2="295"
+     id="line200" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="285"
+     x2="451"
      y1="255"
      y2="305"
-     id="line280" />
+     id="line202" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="170"
+     x2="450"
+     y1="295"
+     y2="345"
+     id="line204" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="185"
+     x2="465"
+     y1="305"
+     y2="355"
+     id="line206" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="450"
+     x2="420"
+     y1="195"
+     y2="245"
+     id="line208" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="465"
+     x2="435"
+     y1="205"
+     y2="255"
+     id="line210" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="420"
+     x2="303"
+     y1="245"
+     y2="295"
+     id="line212" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="435"
+     x2="318"
+     y1="255"
+     y2="305"
+     id="line214" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="303"
+     x2="450"
+     y1="295"
+     y2="345"
+     id="line216" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="318"
+     x2="465"
+     y1="305"
+     y2="355"
+     id="line218" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="195"
+     x2="303"
+     y1="245"
+     y2="295"
+     id="line220" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="210"
+     x2="318"
+     y1="255"
+     y2="305"
+     id="line222" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="270"
+     x2="303"
+     y1="245"
+     y2="295"
+     id="line224" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="285"
+     x2="318"
+     y1="255"
+     y2="305"
+     id="line226" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="420"
+     x2="503"
+     y1="245"
+     y2="295"
+     id="line228" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="435"
+     x2="518"
+     y1="255"
+     y2="305"
+     id="line230" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="503"
+     x2="210"
+     y1="295"
+     y2="345"
+     id="line232" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="518"
+     x2="225"
+     y1="305"
+     y2="355"
+     id="line234" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="210"
+     x2="270"
+     y1="345"
+     y2="395"
+     id="line236" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="225"
+     x2="285"
+     y1="355"
+     y2="405"
+     id="line238" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="495"
+     x2="503"
+     y1="245"
+     y2="295"
+     id="line240" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="510"
+     x2="518"
+     y1="255"
+     y2="305"
+     id="line242" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="103"
+     x2="210"
+     y1="295"
+     y2="345"
+     id="line244" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="118"
+     x2="225"
+     y1="305"
+     y2="355"
+     id="line246" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="45"
+     x2="236"
+     y1="245"
+     y2="295"
+     id="line248" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="60"
+     x2="251"
+     y1="255"
+     y2="305"
+     id="line250" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="236"
+     x2="210"
+     y1="295"
+     y2="345"
+     id="line252" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="251"
+     x2="225"
+     y1="305"
+     y2="355"
+     id="line254" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="270"
+     x2="236"
+     y1="245"
+     y2="295"
+     id="line256" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="285"
+     x2="251"
+     y1="255"
+     y2="305"
+     id="line258" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="303"
+     x2="210"
+     y1="295"
+     y2="345"
+     id="line260" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="318"
+     x2="225"
+     y1="305"
+     y2="355"
+     id="line262" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="36"
+     x2="330"
+     y1="295"
+     y2="345"
+     id="line264" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="51"
+     x2="345"
+     y1="305"
+     y2="355"
+     id="line266" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="330"
+     x2="270"
+     y1="345"
+     y2="395"
+     id="line268" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="345"
+     x2="285"
+     y1="355"
+     y2="405"
+     id="line270" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="436"
+     x2="330"
+     y1="295"
+     y2="345"
+     id="line272" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1"
+     x1="451"
+     x2="345"
+     y1="305"
+     y2="355"
+     id="line274" />
+  <line
+     style="stroke:#fa0000;stroke-width:1.5;stroke-opacity:1"
+     x1="236"
+     x2="330"
+     y1="295"
+     y2="345"
+     id="line276" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-dasharray:5, 10;stroke-opacity:0.5"
+     x1="251"
+     x2="345"
+     y1="305"
+     y2="355"
+     id="line278" />
   <circle
      cx="100"
-     cy="100"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle282"
-     d="m 120,100 c 0,11.04569 -8.95431,20 -20,20 -11.045695,0 -20,-8.95431 -20,-20 0,-11.045695 8.954305,-20 20,-20 11.04569,0 20,8.954305 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="90"
-     y="105"
-     id="text284">2.1</text>
-  <circle
-     cx="220"
-     cy="100"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle286"
-     d="m 240,100 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.045695 8.95431,-20 20,-20 11.04569,0 20,8.954305 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="210"
-     y="105"
-     id="text288">2.3</text>
-  <circle
-     cx="340"
-     cy="100"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle290"
-     d="m 360,100 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.045695 8.95431,-20 20,-20 11.04569,0 20,8.954305 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="330"
-     y="105"
-     id="text292">2.4</text>
-  <circle
-     cx="460"
-     cy="100"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle294"
-     d="m 480,100 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.045695 8.95431,-20 20,-20 11.04569,0 20,8.954305 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="450"
-     y="105"
-     id="text296">2.5</text>
-  <circle
-     cx="100"
      cy="150"
      r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle298"
-     d="m 120,150 c 0,11.04569 -8.95431,20 -20,20 -11.045695,0 -20,-8.95431 -20,-20 0,-11.04569 8.954305,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle280" />
   <text
-     font-family="Arial"
      font-size="14"
-     x="90"
+     x="88"
      y="155"
-     id="text300">3.1</text>
+     id="text282"
+     style="font-size:14px;font-family:Arial">2_1</text>
   <circle
      cx="220"
      cy="150"
      r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle302"
-     d="m 240,150 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle284" />
   <text
-     font-family="Arial"
-     font-size="14"
-     x="210"
-     y="155"
-     id="text304">3.4</text>
-  <circle
-     cx="340"
-     cy="150"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle306"
-     d="m 360,150 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="330"
-     y="155"
-     id="text308">3.5</text>
-  <circle
-     cx="460"
-     cy="150"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle310"
-     d="m 480,150 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="450"
-     y="155"
-     id="text312">3.6</text>
-  <circle
-     cx="55"
-     cy="200"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle314"
-     d="m 75,200 c 0,11.04569 -8.954305,20 -20,20 -11.045695,0 -20,-8.95431 -20,-20 0,-11.04569 8.954305,-20 20,-20 11.045695,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="45"
-     y="205"
-     id="text316">4.1</text>
-  <circle
-     cx="130"
-     cy="200"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle318"
-     d="m 150,200 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="118"
-     y="205"
-     id="text320">4.12</text>
-  <circle
-     cx="205"
-     cy="200"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle322"
-     d="m 225,200 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="193"
-     y="205"
-     id="text324">4.13</text>
-  <circle
-     cx="280"
-     cy="200"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle326"
-     d="m 300,200 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="270"
-     y="205"
-     id="text328">4.2</text>
-  <circle
-     cx="355"
-     cy="200"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle330"
-     d="m 375,200 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="345"
-     y="205"
-     id="text332">4.4</text>
-  <circle
-     cx="430"
-     cy="200"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle334"
-     d="m 450,200 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="420"
-     y="205"
-     id="text336">4.6</text>
-  <circle
-     cx="505"
-     cy="200"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle338"
-     d="m 525,200 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="495"
-     y="205"
-     id="text340">4.9</text>
-  <circle
-     cx="46"
-     cy="250"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle342"
-     d="m 66,250 c 0,11.04569 -8.954305,20 -20,20 -11.045695,0 -20,-8.95431 -20,-20 0,-11.04569 8.954305,-20 20,-20 11.045695,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="36"
-     y="255"
-     id="text344">5.1</text>
-  <circle
-     cx="113"
-     cy="250"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle346"
-     d="m 133,250 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="101"
-     y="255"
-     id="text348">5.11</text>
-  <circle
-     cx="180"
-     cy="250"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle350"
-     d="m 200,250 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="168"
-     y="255"
-     id="text352">5.12</text>
-  <circle
-     cx="246"
-     cy="250"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle354"
-     d="m 266,250 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="234"
-     y="255"
-     id="text356">5.14</text>
-  <circle
-     cx="313"
-     cy="250"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle358"
-     d="m 333,250 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="303"
-     y="255"
-     id="text360">5.2</text>
-  <circle
-     cx="380"
-     cy="250"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle362"
-     d="m 400,250 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="370"
-     y="255"
-     id="text364">5.5</text>
-  <circle
-     cx="446"
-     cy="250"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle366"
-     d="m 466,250 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="436"
-     y="255"
-     id="text368">5.7</text>
-  <circle
-     cx="513"
-     cy="250"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle370"
-     d="m 533,250 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="503"
-     y="255"
-     id="text372">5.9</text>
-  <circle
-     cx="100"
-     cy="300"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle374"
-     d="m 120,300 c 0,11.04569 -8.95431,20 -20,20 -11.045695,0 -20,-8.95431 -20,-20 0,-11.04569 8.954305,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
-     font-size="14"
-     x="90"
-     y="305"
-     id="text376">6.1</text>
-  <circle
-     cx="220"
-     cy="300"
-     r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle378"
-     d="m 240,300 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
-  <text
-     font-family="Arial"
      font-size="14"
      x="208"
-     y="305"
-     id="text380">6.12</text>
+     y="155"
+     id="text286"
+     style="font-size:14px;font-family:Arial">2_3</text>
   <circle
      cx="340"
-     cy="300"
+     cy="150"
      r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle382"
-     d="m 360,300 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle288" />
   <text
-     font-family="Arial"
      font-size="14"
-     x="330"
-     y="305"
-     id="text384">6.4</text>
+     x="328"
+     y="155"
+     id="text290"
+     style="font-size:14px;font-family:Arial">2_4</text>
   <circle
      cx="460"
-     cy="300"
+     cy="150"
      r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle386"
-     d="m 480,300 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle292" />
   <text
-     font-family="Arial"
      font-size="14"
-     x="450"
-     y="305"
-     id="text388">6.6</text>
+     x="448"
+     y="155"
+     id="text294"
+     style="font-size:14px;font-family:Arial">2_5</text>
+  <circle
+     cx="100"
+     cy="200"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle296" />
+  <text
+     font-size="14"
+     x="88"
+     y="205"
+     id="text298"
+     style="font-size:14px;font-family:Arial">3_1</text>
+  <circle
+     cx="220"
+     cy="200"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle300" />
+  <text
+     font-size="14"
+     x="208"
+     y="205"
+     id="text302"
+     style="font-size:14px;font-family:Arial">3_4</text>
+  <circle
+     cx="340"
+     cy="200"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle304" />
+  <text
+     font-size="14"
+     x="328"
+     y="205"
+     id="text306"
+     style="font-size:14px;font-family:Arial">3_5</text>
+  <circle
+     cx="460"
+     cy="200"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle308" />
+  <text
+     font-size="14"
+     x="448"
+     y="205"
+     id="text310"
+     style="font-size:14px;font-family:Arial">3_6</text>
+  <circle
+     cx="55"
+     cy="250"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle312" />
+  <text
+     font-size="14"
+     x="43"
+     y="255"
+     id="text314"
+     style="font-size:14px;font-family:Arial">4_1</text>
+  <circle
+     cx="130"
+     cy="250"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle316" />
+  <text
+     font-size="14"
+     x="118"
+     y="255"
+     id="text318"
+     style="font-size:14px;font-family:Arial">4_2</text>
+  <circle
+     cx="205"
+     cy="250"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle320" />
+  <text
+     font-size="14"
+     x="193"
+     y="255"
+     id="text322"
+     style="font-size:14px;font-family:Arial">4_4</text>
   <circle
      cx="280"
+     cy="250"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle324" />
+  <text
+     font-size="14"
+     x="268"
+     y="255"
+     id="text326"
+     style="font-size:14px;font-family:Arial">4_6</text>
+  <circle
+     cx="355"
+     cy="250"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle328" />
+  <text
+     font-size="14"
+     x="343"
+     y="255"
+     id="text330"
+     style="font-size:14px;font-family:Arial">4_9</text>
+  <circle
+     cx="430"
+     cy="250"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle332" />
+  <text
+     font-size="14"
+     x="415"
+     y="255"
+     id="text334"
+     style="font-size:14px;font-family:Arial">4_12</text>
+  <circle
+     cx="505"
+     cy="250"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle336" />
+  <text
+     font-size="14"
+     x="490"
+     y="255"
+     id="text338"
+     style="font-size:14px;font-family:Arial">4_13</text>
+  <circle
+     cx="46"
+     cy="300"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle340" />
+  <text
+     font-size="14"
+     x="34"
+     y="305"
+     id="text342"
+     style="font-size:14px;font-family:Arial">5_1</text>
+  <circle
+     cx="113"
+     cy="300"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle344" />
+  <text
+     font-size="14"
+     x="101"
+     y="305"
+     id="text346"
+     style="font-size:14px;font-family:Arial">5_2</text>
+  <circle
+     cx="180"
+     cy="300"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle348" />
+  <text
+     font-size="14"
+     x="168"
+     y="305"
+     id="text350"
+     style="font-size:14px;font-family:Arial">5_5</text>
+  <circle
+     cx="246"
+     cy="300"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle352" />
+  <text
+     font-size="14"
+     x="234"
+     y="305"
+     id="text354"
+     style="font-size:14px;font-family:Arial">5_7</text>
+  <circle
+     cx="313"
+     cy="300"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle356" />
+  <text
+     font-size="14"
+     x="301"
+     y="305"
+     id="text358"
+     style="font-size:14px;font-family:Arial">5_9</text>
+  <circle
+     cx="380"
+     cy="300"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle360" />
+  <text
+     font-size="14"
+     x="365"
+     y="305"
+     id="text362"
+     style="font-size:14px;font-family:Arial">5_11</text>
+  <circle
+     cx="446"
+     cy="300"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle364" />
+  <text
+     font-size="14"
+     x="431"
+     y="305"
+     id="text366"
+     style="font-size:14px;font-family:Arial">5_12</text>
+  <circle
+     cx="513"
+     cy="300"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle368" />
+  <text
+     font-size="14"
+     x="498"
+     y="305"
+     id="text370"
+     style="font-size:14px;font-family:Arial">5_14</text>
+  <circle
+     cx="100"
      cy="350"
      r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle390"
-     d="m 300,350 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle372" />
   <text
-     font-family="Arial"
      font-size="14"
-     x="270"
+     x="88"
      y="355"
-     id="text392">7.3</text>
+     id="text374"
+     style="font-size:14px;font-family:Arial">6_1</text>
+  <circle
+     cx="220"
+     cy="350"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle376" />
+  <text
+     font-size="14"
+     x="208"
+     y="355"
+     id="text378"
+     style="font-size:14px;font-family:Arial">6_4</text>
+  <circle
+     cx="340"
+     cy="350"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle380" />
+  <text
+     font-size="14"
+     x="328"
+     y="355"
+     id="text382"
+     style="font-size:14px;font-family:Arial">6_6</text>
+  <circle
+     cx="460"
+     cy="350"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle384" />
+  <text
+     font-size="14"
+     x="445"
+     y="355"
+     id="text386"
+     style="font-size:14px;font-family:Arial">6_12</text>
   <circle
      cx="280"
      cy="400"
      r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle394"
-     d="m 300,400 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle388" />
   <text
-     font-family="Arial"
      font-size="14"
-     x="270"
+     x="268"
      y="405"
-     id="text396">8.2</text>
+     id="text390"
+     style="font-size:14px;font-family:Arial">7_3</text>
   <circle
      cx="280"
      cy="450"
      r="20"
-     style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1"
-     id="circle398"
-     d="m 300,450 c 0,11.04569 -8.95431,20 -20,20 -11.04569,0 -20,-8.95431 -20,-20 0,-11.04569 8.95431,-20 20,-20 11.04569,0 20,8.95431 20,20 z" />
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle392" />
   <text
-     font-family="Arial"
      font-size="14"
-     x="270"
+     x="268"
      y="455"
-     id="text400">9.3</text>
+     id="text394"
+     style="font-size:14px;font-family:Arial">8_2</text>
+  <circle
+     cx="280"
+     cy="500"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle396" />
+  <text
+     font-size="14"
+     x="268"
+     y="505"
+     id="text398"
+     style="font-size:14px;font-family:Arial">9_3</text>
   <!--
 	Generated using the Perl SVG Module V2.84
 	by Ronan Oger
 	Info: http://www.roitsystems.com/
 	-->
   <path
-     style="fill:#0000ff;fill-opacity:0;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 341.31617,398.98956 41.31356,-0.63559 z"
+     inkscape:connector-curvature="0"
      id="path3383"
-     inkscape:connector-curvature="0" />
+     d="M 30.66014,465.99056 71.9737,465.35497 Z"
+     style="fill:#0000ff;fill-opacity:0;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <path
-     style="fill:#0000ff;fill-opacity:0;stroke:#fa0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 341.31617,402.98956 41.31356,-0.63559 z"
+     inkscape:connector-curvature="0"
      id="path3383-3"
-     inkscape:connector-curvature="0" />
+     d="M 30.66014,469.99056 71.9737,469.35497 Z"
+     style="fill:#0000ff;fill-opacity:0;stroke:#fa0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <path
-     style="fill:#0000ff;fill-opacity:0;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 341.31617,412.98956 41.31356,-0.63559 z"
+     inkscape:connector-curvature="0"
      id="path3383-6"
-     inkscape:connector-curvature="0" />
+     d="M 30.66014,479.99056 71.9737,479.35497 Z"
+     style="fill:#0000ff;fill-opacity:0;stroke:#0000ff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <path
-     style="opacity:0.5;fill:#0000ff;fill-opacity:0;stroke:#fa0000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 1;stroke-dashoffset:0"
-     d="m 341.31617,416.98956 41.31356,-0.63559 z"
+     inkscape:connector-curvature="0"
      id="path3383-3-7"
-     inkscape:connector-curvature="0" />
+     d="M 30.66014,483.99056 71.9737,483.35497 Z"
+     style="opacity:0.5;fill:#0000ff;fill-opacity:0;stroke:#fa0000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 1;stroke-dashoffset:0;stroke-opacity:1" />
   <path
-     style="opacity:0.5;fill:#0000ff;fill-opacity:0;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 1;stroke-dashoffset:0"
-     d="m 341.31617,426.98956 41.31356,-0.63559 z"
+     inkscape:connector-curvature="0"
      id="path3383-5"
-     inkscape:connector-curvature="0" />
+     d="M 30.66014,493.99056 71.9737,493.35497 Z"
+     style="opacity:0.5;fill:#0000ff;fill-opacity:0;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0;stroke-opacity:1" />
   <path
-     style="fill:#0000ff;fill-opacity:0;stroke:#fa0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 341.31617,430.98956 41.31356,-0.63559 z"
+     inkscape:connector-curvature="0"
      id="path3383-3-3"
-     inkscape:connector-curvature="0" />
+     d="M 30.66014,497.99056 71.9737,497.35497 Z"
+     style="fill:#0000ff;fill-opacity:0;stroke:#fa0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   <path
-     style="opacity:0.5;fill:#0000ff;fill-opacity:0;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 1;stroke-dashoffset:0"
-     d="m 343.31617,444.98956 41.31356,-0.63559 z"
+     inkscape:connector-curvature="0"
      id="path3383-5-5"
-     inkscape:connector-curvature="0" />
+     d="M 32.66014,511.99056 73.9737,511.35497 Z"
+     style="opacity:0.5;fill:#0000ff;fill-opacity:0;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0;stroke-opacity:1" />
   <path
-     style="opacity:0.5;fill:#0000ff;fill-opacity:0;stroke:#fa0000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 1;stroke-dashoffset:0"
-     d="m 343.31617,448.98956 41.31356,-0.63559 z"
+     inkscape:connector-curvature="0"
      id="path3383-3-3-6"
-     inkscape:connector-curvature="0" />
+     d="M 32.66014,515.99056 73.9737,515.35497 Z"
+     style="opacity:0.5;fill:#0000ff;fill-opacity:0;stroke:#fa0000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2, 1;stroke-dashoffset:0;stroke-opacity:1" />
   <text
-     xml:space="preserve"
-     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="399.78229"
-     y="398.35397"
      id="text4224"
-     sodipodi:linespacing="125%"><tspan
-       sodipodi:role="line"
+     y="465.35498"
+     x="89.126251"
+     style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       style="font-size:10px;line-height:1.25;font-family:sans-serif"
+       y="465.35498"
+       x="89.126251"
        id="tspan4226"
-       x="399.78229"
-       y="398.35397"
-       style="font-size:10px">ProFAR and PRA increasing</tspan></text>
+       sodipodi:role="line">ProFAR and PRA increasing</tspan></text>
   <text
-     xml:space="preserve"
-     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="399.20651"
-     y="415.57037"
      id="text4224-2"
-     sodipodi:linespacing="125%"><tspan
-       sodipodi:role="line"
+     y="482.57138"
+     x="88.550484"
+     style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       style="font-size:10px;line-height:1.25;font-family:sans-serif"
+       y="482.57138"
+       x="88.550484"
        id="tspan4226-9"
-       x="399.20651"
-       y="415.57037"
-       style="font-size:10px">Only PRA increasing</tspan></text>
+       sodipodi:role="line">Only PRA increasing</tspan></text>
   <text
-     xml:space="preserve"
-     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="399.20651"
-     y="431.57037"
      id="text4224-1"
-     sodipodi:linespacing="125%"><tspan
-       sodipodi:role="line"
+     y="498.57138"
+     x="88.550484"
+     style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       style="font-size:10px;line-height:1.25;font-family:sans-serif"
+       y="498.57138"
+       x="88.550484"
        id="tspan4226-2"
-       x="399.20651"
-       y="431.57037"
-       style="font-size:10px">Only ProFAR increasing</tspan></text>
+       sodipodi:role="line">Only ProFAR increasing</tspan></text>
   <text
-     xml:space="preserve"
-     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="399.20651"
-     y="449.57037"
      id="text4224-7"
-     sodipodi:linespacing="125%"><tspan
-       sodipodi:role="line"
+     y="516.57135"
+     x="88.550484"
+     style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       style="font-size:10px;line-height:1.25;font-family:sans-serif"
+       y="516.57135"
+       x="88.550484"
        id="tspan4226-0"
-       x="399.20651"
-       y="449.57037"
-       style="font-size:10px">ProFAR and PRA not increasing</tspan></text>
+       sodipodi:role="line">ProFAR and PRA not increasing</tspan></text>
+  <circle
+     cx="275.34921"
+     cy="99.939247"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1,2;stroke-dashoffset:0"
+     id="circle304-3" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+     x1="256.1322"
+     x2="98.64994"
+     y1="53.238068"
+     y2="129.56099"
+     id="line82-9" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+     x1="295.36819"
+     x2="452.85046"
+     y1="53.395966"
+     y2="129.71889"
+     id="line82-9-2" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+     x1="264.96228"
+     x2="219.16765"
+     y1="65.636162"
+     y2="135.41267"
+     id="line82-9-7" />
+  <line
+     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+     x1="287.30179"
+     x2="333.09644"
+     y1="64.89415"
+     y2="134.67065"
+     id="line82-9-7-0" />
+  <circle
+     cx="273.02985"
+     cy="47.266426"
+     r="20"
+     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+     id="circle288-5" />
+  <text
+     font-size="14"
+     x="251.67303"
+     y="50.203262"
+     id="text282-9"
+     style="font-size:14px;font-family:Arial">
+    <tspan
+       style="font-size:10.66666698px"
+       id="tspan1456">SubHisA</tspan>
+  </text>
+  <text
+     font-size="14"
+     x="260.5719"
+     y="93.482811"
+     id="text282-9-0"
+     style="font-size:14px;font-family:Arial">
+    <tspan
+       style="font-size:10.66666698px"
+       id="tspan1456-6">Single</tspan>
+  </text>
+  <text
+     font-size="14"
+     x="256.38605"
+     y="104.89986"
+     id="text282-9-0-2"
+     style="font-size:14px;font-family:Arial">
+    <tspan
+       style="font-size:10.66666698px"
+       id="tspan1456-6-6">Mutants</tspan>
+  </text>
 </svg>
