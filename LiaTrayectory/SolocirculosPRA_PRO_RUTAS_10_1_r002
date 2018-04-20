@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg height="600" transform="translate(30,30)" width="625" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<line stroke="black" x1="-20" x2="-15" y1="0" y2="0" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="7" />
+	<line stroke="black" x1="-20" x2="-15" y1="50" y2="50" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="57">1</text>
+	<line stroke="black" x1="-20" x2="-15" y1="100" y2="100" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="107">2</text>
+	<line stroke="black" x1="-20" x2="-15" y1="150" y2="150" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="157">3</text>
+	<line stroke="black" x1="-20" x2="-15" y1="200" y2="200" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="207">4</text>
+	<line stroke="black" x1="-20" x2="-15" y1="250" y2="250" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="257">5</text>
+	<line stroke="black" x1="-20" x2="-15" y1="300" y2="300" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="307">6</text>
+	<line stroke="black" x1="-20" x2="-15" y1="350" y2="350" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="357">7</text>
+	<line stroke="black" x1="-20" x2="-15" y1="400" y2="400" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="407">8</text>
+	<line stroke="black" x1="-20" x2="-15" y1="450" y2="450" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="457">9</text>
+	<line stroke="black" x1="-20" x2="-15" y1="500" y2="500" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="507" />
+	<line stroke="black" x1="-20" x2="-15" y1="550" y2="550" />
+	<text font-family="Arial" font-variant="small-caps" text-anchor="end" x="0" y="557" />
+	<line stroke="black" x1="-20" x2="-20" y1="0" y2="550" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="90" x2="90" y1="95" y2="145" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="105" x2="105" y1="105" y2="155" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="90" x2="45" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="105" x2="60" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="45" x2="36" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="60" x2="51" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="36" x2="90" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="51" x2="105" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="90" x2="170" y1="295" y2="345" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="105" x2="185" y1="305" y2="355" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="170" x2="170" y1="345" y2="395" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="185" x2="185" y1="355" y2="405" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="170" x2="270" y1="395" y2="445" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="185" x2="285" y1="405" y2="455" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="270" x2="270" y1="445" y2="495" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="285" x2="285" y1="455" y2="505" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="210" x2="90" y1="95" y2="145" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="225" x2="105" y1="105" y2="155" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="210" x2="210" y1="95" y2="145" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="225" x2="225" y1="105" y2="155" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="210" x2="45" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="225" x2="60" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="450" x2="210" y1="95" y2="145" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="465" x2="225" y1="105" y2="155" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="90" x2="120" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="105" x2="135" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="120" x2="36" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="135" x2="51" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="210" x2="495" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="225" x2="510" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="495" x2="370" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="510" x2="385" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="370" x2="90" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="385" x2="105" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="210" x2="450" y1="95" y2="145" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="225" x2="465" y1="105" y2="155" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="450" x2="495" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="465" x2="510" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="330" x2="450" y1="95" y2="145" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="345" x2="465" y1="105" y2="155" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="45" x2="103" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="60" x2="118" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="103" x2="90" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="118" x2="105" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="495" x2="103" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="510" x2="118" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="90" x2="195" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="105" x2="210" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="195" x2="103" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="210" x2="118" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="90" x2="330" y1="95" y2="145" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="105" x2="345" y1="105" y2="155" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="330" x2="195" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="345" x2="210" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="330" x2="330" y1="95" y2="145" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="345" x2="345" y1="105" y2="155" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="450" x2="195" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="465" x2="210" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="120" x2="170" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="135" x2="185" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="170" x2="90" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="185" x2="105" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="195" x2="170" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="210" x2="185" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="330" x2="345" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="345" x2="360" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="345" x2="170" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="360" x2="185" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="120" x2="436" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="135" x2="451" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="436" x2="450" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="451" x2="465" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="450" x2="170" y1="295" y2="345" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="465" x2="185" y1="305" y2="355" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="90" x2="270" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="105" x2="285" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="270" x2="436" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="285" x2="451" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="170" x2="450" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="185" x2="465" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="450" x2="420" y1="145" y2="195" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="465" x2="435" y1="155" y2="205" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="420" x2="303" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="435" x2="318" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="303" x2="450" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="318" x2="465" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="195" x2="303" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="210" x2="318" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="270" x2="303" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="285" x2="318" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="420" x2="503" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="435" x2="518" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="503" x2="210" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="518" x2="225" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="210" x2="170" y1="295" y2="345" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="225" x2="185" y1="305" y2="355" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="495" x2="503" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="510" x2="518" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="103" x2="210" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="118" x2="225" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="45" x2="236" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="60" x2="251" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="236" x2="210" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="251" x2="225" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="270" x2="236" y1="195" y2="245" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="285" x2="251" y1="205" y2="255" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="303" x2="210" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="318" x2="225" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="36" x2="330" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="51" x2="345" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="330" x2="170" y1="295" y2="345" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="345" x2="185" y1="305" y2="355" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="436" x2="330" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="451" x2="345" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="236" x2="330" y1="245" y2="295" />
+	<line style="stroke: rgb(0,0,250); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="251" x2="345" y1="255" y2="305" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="90" x2="370" y1="295" y2="345" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="105" x2="385" y1="305" y2="355" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="370" x2="170" y1="345" y2="395" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="385" x2="185" y1="355" y2="405" />
+	<line style="stroke: rgb(250,0,0); stroke-dasharray: 5, 10; stroke-opacity: 0.5; stroke-width: 1.5" x1="370" x2="370" y1="345" y2="395" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="385" x2="385" y1="355" y2="405" />
+	<line style="stroke: rgb(250,0,0); stroke-opacity: 1; stroke-width: 1.5" x1="370" x2="270" y1="395" y2="445" />
+	<line style="stroke: rgb(0,0,250); stroke-opacity: 1; stroke-width: 1.5" x1="385" x2="285" y1="405" y2="455" />
+	<circle cx="100" cy="100" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="88" y="105">2_1</text>
+	<circle cx="220" cy="100" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="208" y="105">2_3</text>
+	<circle cx="340" cy="100" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="328" y="105">2_4</text>
+	<circle cx="460" cy="100" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="448" y="105">2_5</text>
+	<circle cx="100" cy="150" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="88" y="155">3_1</text>
+	<circle cx="220" cy="150" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="208" y="155">3_4</text>
+	<circle cx="340" cy="150" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="328" y="155">3_5</text>
+	<circle cx="460" cy="150" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="448" y="155">3_6</text>
+	<circle cx="55" cy="200" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="43" y="205">4_1</text>
+	<circle cx="130" cy="200" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="118" y="205">4_2</text>
+	<circle cx="205" cy="200" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="193" y="205">4_4</text>
+	<circle cx="280" cy="200" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="268" y="205">4_6</text>
+	<circle cx="355" cy="200" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="343" y="205">4_9</text>
+	<circle cx="430" cy="200" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="415" y="205">4_12</text>
+	<circle cx="505" cy="200" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="490" y="205">4_13</text>
+	<circle cx="46" cy="250" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="34" y="255">5_1</text>
+	<circle cx="113" cy="250" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="101" y="255">5_2</text>
+	<circle cx="180" cy="250" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="168" y="255">5_5</text>
+	<circle cx="246" cy="250" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="234" y="255">5_7</text>
+	<circle cx="313" cy="250" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="301" y="255">5_9</text>
+	<circle cx="380" cy="250" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="365" y="255">5_11</text>
+	<circle cx="446" cy="250" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="431" y="255">5_12</text>
+	<circle cx="513" cy="250" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="498" y="255">5_14</text>
+	<circle cx="100" cy="300" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="88" y="305">6_1</text>
+	<circle cx="220" cy="300" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="208" y="305">6_4</text>
+	<circle cx="340" cy="300" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="328" y="305">6_6</text>
+	<circle cx="460" cy="300" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="445" y="305">6_12</text>
+	<circle cx="180" cy="350" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="168" y="355">7_3</text>
+	<circle cx="380" cy="350" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="368" y="355">7_9</text>
+	<circle cx="180" cy="400" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="168" y="405">8_2</text>
+	<circle cx="380" cy="400" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="368" y="405">8_5</text>
+	<circle cx="280" cy="450" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="268" y="455">9_3</text>
+	<circle cx="280" cy="500" r="20" style="fill: white; fill-opacity: 1; stroke: gray; stroke-opacity: 1; stroke-width: 1" />
+	<text font-family="Arial" font-size="14" x="268" y="505">10_1</text>
+	<!--
+	Generated using the Perl SVG Module V2.84
+	by Ronan Oger
+	Info: http://www.roitsystems.com/
+	-->
+</svg>

@@ -7,7 +7,7 @@
 ########################3
 # create an SVG object with a size of 40x40 pixels
 #
-# usage perl 2.3DrawFig2.pl RUTAS_110 datafile
+# usage perl 2.3DrawFig2.pl RUTAS_110 
 # author nelly Selem nselem84@gmail.com
 #
 #  input Routes tab separated file
@@ -17,14 +17,13 @@
 #En cada paso, sacar el delta, de las mutaciones, sacar promedio y desviación estandar 
 #EN las x cada mutación, y en las y promedio mas desviación estándar.
 ###############################33 Inputs ########################
-my $flagPRO=1;
-my $flagPRA=1;
+my $flagPRO=0;
+my $flagPRA=0;
 
-my $file=$ARGV[0]; #Route file
-my $fileData=$ARGV[1]; ##DATAFILE
-my $xscale="30"; ## px scale
+my $file=$ARGV[0]; ## File with routes
+my $fileData=$ARGV[1]; ##file with data
+my $xscale="45"; ## px scale
 my $yscale="50";
-my $xnumber=20; ## Total of x divisions
 my $ynum="10";##Number of mutation of the last mutation
 my $xnumber=20; ## Total of x divisions
 my $w=$xscale*$xnumber; # X axis size
@@ -53,6 +52,7 @@ foreach my $line (<FILE>){
 	$PROFAR{$st[0]}=$st[3];
 	}
 #exit;
+
 
 
 ###########################################################################################
@@ -122,7 +122,7 @@ sub whitecircles{
 	my $refPRA=shift;
 
          ################# end sorting 
-	foreach my $i (sort {$a<=>$b} keys $refCentCOORD){
+	foreach my $i ( sort {$a<=>$b} keys $refCentCOORD){
 		my $isize=scalar @{$refCentCOORD->{$i}};
 		my $jtranslate=1;
 		foreach my $center (@{$refCentCOORD->{$i}}){ ##Now drawing circles
@@ -184,12 +184,14 @@ sub CentCOORD{
 
 		foreach my $centro (@{$refCENTERS->{$i}}){ ## Sorting acordin to m on a.m
 			 $centro=~m/(\d*)\.(\d*)/;
-			 #print "centro $centro $1 ->$2 \n";
-			 push (@sorted_i,$2);
+			 my $second=$2;
+			if($second=='101'){$second=10;}
+			 push (@sorted_i,$second);
 			}
 	
 		my @sortedi= sort { $a <=> $b } @sorted_i;
 		foreach my $centro (@sortedi){ ## Sorting acordin to m on a.m
+			if($centro=='10'){$centro=101;}
 			 $centro="$i".".".$centro;
 			 #print "$centro\n";
 			}
@@ -239,14 +241,14 @@ sub IncreasingTrayectories{
 				$Trayectories[$count]=$Trayectories[$count]*0;
 				}
                         }
-		if($Trayectories[$count] ne 0){print"$line\n";}
+#		print"This is Darwiniansemi $Trayectories[$count]\n";
 		$count++;
                 }
         close FILE;
 	
 	my $sum=0;
         for(my $i=1;$i<@Trayectories;$i++){
-		#print "$i ->Trayectorie $Trayectories[$i]\n";
+	#nn	print "$i ->Trayectorie $Trayectories[$i]\n";
 		$sum=$sum+$Trayectories[$i];}
         return $sum;
         }
@@ -295,59 +297,12 @@ sub Line{
 	#print "x1 new $x1\n";
 	$x2=getX($final);
 	#print "x2 new $x2\n";
-		if ($refPRO->{$final}>=$refPRO->{$inicio} and $refPRA->{$final}>=$refPRA->{$inicio}){
-			 ## PRO increasing PRA increasing
-			print "$inicio\t$final\tYES\tYES\n";
-			}
-		if ($refPRO->{$final}>=$refPRO->{$inicio} and $refPRA->{$final}<$refPRA->{$inicio}){
-			 ## PRO increasing PRA decreasing
-			print "$inicio\t$final\tYES\tNO\n";
-			}
-		if ($refPRO->{$final}<$refPRO->{$inicio} and $refPRA->{$final}>=$refPRA->{$inicio}){
-			 ## PRO decreasing PRA increasing
-			print "$inicio\t$final\tNO\tYES\n";
-			}
-		if ($refPRO->{$final}<$refPRO->{$inicio} and $refPRA->{$final}<$refPRA->{$inicio}){
-			 ## PRO decreasing PRA decreasing
-			print "$inicio\t$final\tNO\tNO\n";
-			}
-		
- 		if ($flagPRO==1){
-				$x1=$x1-10;
-				$x2=$x2-10;
-				$y1=$y1-5;
-				$y2=$y2-5;
-			if ($refPRO->{$final}>$refPRO->{$inicio}){ ## Drawing trayectory lines
-				$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-				style => {'stroke' => "rgb(250,0,0)",'stroke-width' =>1.5,
-				'stroke-opacity' => 1,}); #PRO
-				$count=1;
-				
-				}
-			else{
-				$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-				style => {'stroke' => "rgb(250,0,0)",'stroke-width' =>1.5,
-				'stroke-opacity' => .5,'stroke-dasharray'=>"5, 10" }); #PRO
-				}
-			}
-		if($flagPRA==1){
-				$x1=$x1+15;
-				$x2=$x2+15;
-				$y1=$y1+10;
-				$y2=$y2+10;
-			if ($refPRA->{$final}>$refPRA->{$inicio}){ ## Drawing trayectory lines
-				$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-				style => {'stroke' => "rgb(0,0,250)",'stroke-width' =>1.5,
-				'stroke-opacity' => 1,}); #PRO
-				$count=1;
-				}
-			else{
-				$svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, 
-				style => {'stroke' => "rgb(0,0,250)",'stroke-width' =>1.5,
-				'stroke-opacity' => .5,'stroke-dasharray'=>"5, 10",}); #PRO
-			
-				}
-			}
+        if($flagPRA==0 and $flagPRO==0){
+                        $svg->line(x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2,
+                        style => {'stroke' => "rgb(0,0,0)",'stroke-width' =>1.5,
+                        'stroke-opacity' => .5,}); #PRO         
+                        }
+
 	#	}
 	return $count;
 	}
@@ -405,7 +360,7 @@ sub Axes{
 		my $text = $svg->text('x' => 30-$xscale, 'y' => $y+7, 'text-anchor' => 'end','font-family'=>'Arial',
 		'font-variant' => 'small-caps');
 		my $coord=$y/$yscale;
-		if ($coord<$ynum and $coord != 0){$text->cdata("$coord");}
+		if ($coord<=$ynum and $coord != 0){$text->cdata("$coord");}
 		$y=$y+$yscale;
 	}
 

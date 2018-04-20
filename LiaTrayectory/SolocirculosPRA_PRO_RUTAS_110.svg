@@ -12,7 +12,7 @@
    version="1.1"
    id="svg400"
    sodipodi:docname="SolocirculosPRA_PRO_RUTAS_110.svg"
-   inkscape:version="0.92.3 (3ce5693, 2018-03-11)">
+   inkscape:version="0.48.4 r9939">
   <metadata
      id="metadata406">
     <rdf:RDF>
@@ -21,7 +21,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -36,8 +36,8 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1301"
-     inkscape:window-height="744"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
      id="namedview402"
      showgrid="false"
      inkscape:zoom="1.1125147"
@@ -1312,74 +1312,77 @@
        x="88.550484"
        id="tspan4226-0"
        sodipodi:role="line">ProFAR and PRA not increasing</tspan></text>
-  <circle
-     cx="275.34921"
-     cy="99.939247"
-     r="20"
-     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1,2;stroke-dashoffset:0"
-     id="circle304-3" />
-  <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-     x1="256.1322"
-     x2="98.64994"
-     y1="53.238068"
-     y2="129.56099"
-     id="line82-9" />
-  <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-     x1="295.36819"
-     x2="452.85046"
-     y1="53.395966"
-     y2="129.71889"
-     id="line82-9-2" />
-  <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-     x1="264.96228"
-     x2="219.16765"
-     y1="65.636162"
-     y2="135.41267"
-     id="line82-9-7" />
-  <line
-     style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-     x1="287.30179"
-     x2="333.09644"
-     y1="64.89415"
-     y2="134.67065"
-     id="line82-9-7-0" />
-  <circle
-     cx="273.02985"
-     cy="47.266426"
-     r="20"
-     style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
-     id="circle288-5" />
-  <text
-     font-size="14"
-     x="251.67303"
-     y="50.203262"
-     id="text282-9"
-     style="font-size:14px;font-family:Arial">
-    <tspan
-       style="font-size:10.66666698px"
-       id="tspan1456">SubHisA</tspan>
-  </text>
-  <text
-     font-size="14"
-     x="260.5719"
-     y="93.482811"
-     id="text282-9-0"
-     style="font-size:14px;font-family:Arial">
-    <tspan
-       style="font-size:10.66666698px"
-       id="tspan1456-6">Single</tspan>
-  </text>
-  <text
-     font-size="14"
-     x="256.38605"
-     y="104.89986"
-     id="text282-9-0-2"
-     style="font-size:14px;font-family:Arial">
-    <tspan
-       style="font-size:10.66666698px"
-       id="tspan1456-6-6">Mutants</tspan>
-  </text>
+  <g
+     id="g3280">
+    <circle
+       id="circle304-3"
+       style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1,2;stroke-dashoffset:0"
+       r="20"
+       cy="99.939247"
+       cx="275.34921" />
+    <line
+       id="line82-9"
+       y2="129.56099"
+       y1="53.238068"
+       x2="98.64994"
+       x1="256.1322"
+       style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <line
+       id="line82-9-2"
+       y2="129.71889"
+       y1="53.395966"
+       x2="452.85046"
+       x1="295.36819"
+       style="stroke:#0000fa;stroke-width:1.5;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <line
+       id="line82-9-7"
+       y2="129.41267"
+       y1="59.636162"
+       x2="225.16765"
+       x1="270.96228"
+       style="stroke:#0000fa;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <line
+       id="line82-9-7-0"
+       y2="132.67065"
+       y1="62.89415"
+       x2="329.09644"
+       x1="283.30179"
+       style="stroke:#0000fa;stroke-width:1.5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <circle
+       id="circle288-5"
+       style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:1;stroke-opacity:1"
+       r="20"
+       cy="47.266426"
+       cx="273.02985" />
+    <text
+       style="font-size:14px;font-family:Arial"
+       id="text282-9"
+       y="50.203262"
+       x="251.67303"
+       font-size="14">
+      <tspan
+         id="tspan1456"
+         style="font-size:10.66666698px">SubHisA</tspan>
+    </text>
+    <text
+       style="font-size:14px;font-family:Arial"
+       id="text282-9-0"
+       y="93.482811"
+       x="260.5719"
+       font-size="14">
+      <tspan
+         id="tspan1456-6"
+         style="font-size:10.66666698px">Single</tspan>
+    </text>
+    <text
+       style="font-size:14px;font-family:Arial"
+       id="text282-9-0-2"
+       y="104.89986"
+       x="256.38605"
+       font-size="14">
+      <tspan
+         id="tspan1456-6-6"
+         style="font-size:10.66666698px">Mutants</tspan>
+    </text>
+  </g>
 </svg>
